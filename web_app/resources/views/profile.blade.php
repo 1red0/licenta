@@ -16,12 +16,16 @@
                 <span class="idd1">{{$email}}</span> <span><i class="fa fa-copy"></i></span> 
             </div> 
             
-            <div class=" d-flex mt-2"> 
-                <button class="btn1 btn-dark">Edit Profile</button> 
-            </div>
+            @auth
+                @if ($username == Auth::user()->username)
+                    <div class=" d-flex mt-2"> 
+                        <button class="btn1 btn-dark" onclick="window.location='{{ route("profileEdit") }}'">Edit Profile</button> 
+                    </div>
+                @endif
+            @endauth
             
             <div class="text mt-3"> 
-                <span>This is you!<br><br> Profile of {{$name}} </span> 
+                <span> Profile of {{$username}} </span> 
             </div> 
             <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> 
         </div> 

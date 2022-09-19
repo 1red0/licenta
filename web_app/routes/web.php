@@ -30,6 +30,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'getUserInfo'])->name('profile');
 
+Route::get('/profile/edit', [App\Http\Controllers\UserController::class, 'getForEdit'])->name('profileEdit');
+
+Route::post('/profile/edit', [App\Http\Controllers\UserController::class, 'editProfile'])->name('profileEdited');
+
 Route::get('/profile/{id}', [App\Http\Controllers\UserController::class, 'getUserById'])->name('profileId')->whereNumber('id');
 
 Route::get('/profile/{username}', [App\Http\Controllers\UserController::class, 'getUserByUsername'])->name('profileUsername')->whereAlpha('name');
+
+Route::get('/change-password', [App\Http\Controllers\UserController::class,'editPassword'])->name('change.password');
+
+Route::post('/change-password', [App\Http\Controllers\UserController::class,'updatePassword'])->name('update.password');
