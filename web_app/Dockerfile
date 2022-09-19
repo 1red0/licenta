@@ -66,8 +66,9 @@ RUN php artisan cache:clear
 RUN php artisan view:clear
 RUN php artisan route:clear
 
-RUN php artisan migrate
-
 EXPOSE 80
 
-CMD ["apachectl", "-D", "FOREGROUND"]
+ADD start.sh /
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
