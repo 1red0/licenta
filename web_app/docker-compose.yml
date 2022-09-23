@@ -17,11 +17,21 @@ services:
     volumes:
       - dbdata:/var/lib/mysql/
 
-  php-apache:
+# this is if i want to build the image again locally
+  # laravelLocal:
+  #   container_name: php-node-container
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8000:80"
+  #   networks:
+  #     - app-network
+
+# this is if i want to pull the image from dockerhub
+  laravelDockerHub:
+    image: reddd1/licenta-webapp-laravel:v0.1 # remember to change the version if u create a new version
     container_name: php-node-container
-    build:
-      context: .
-      dockerfile: Dockerfile
     ports:
       - "8000:80"
     networks:
