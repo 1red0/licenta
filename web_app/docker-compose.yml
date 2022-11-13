@@ -32,6 +32,8 @@ services:
   laravelDockerHub:
     image: reddd1/licenta-webapp-laravel:v0.1 # remember to change the version if u create a new version
     container_name: php-node-container
+    environment:
+      DB_HOST: db
     ports:
       - "8000:80"
     networks:
