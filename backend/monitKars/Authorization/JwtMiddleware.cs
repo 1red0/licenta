@@ -1,6 +1,6 @@
 ﻿namespace monitKars.Authorization
 {
-    using monitKars.Svcs;
+    using monitKars.Services;
     public class JwtMiddleware
     {
         private readonly RequestDelegate _next;

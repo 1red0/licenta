@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 using monitKars.Authorization;
 using monitKars.Helpers;
 using monitKars.Models.Users;
-using monitKars.Svcs;
+using monitKars.Services;
 
 namespace monitKars.Controllers
 {

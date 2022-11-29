@@ -1,6 +1,6 @@
 using monitKars.Authorization;
 using monitKars.Helpers;
-using monitKars.Svcs;
+using monitKars.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

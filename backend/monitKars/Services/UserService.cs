@@ -1,4 +1,4 @@
-﻿namespace monitKars.Svcs
+﻿namespace monitKars.Services
 {
     using AutoMapper;
     using BCrypt.Net;

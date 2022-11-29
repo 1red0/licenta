@@ -25,6 +25,20 @@ services:
       - database:/var/lib/postgresql/data
     networks:
       - default
+    
+  database_admin:
+    container_name: pgadmin
+    restart: unless-stopped
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: andumarius9@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - '3100:80'
+    volumes:
+       - pgadmin:/root/.pgadmin
+    networks:
+      - default
 
   backend:
     container_name: dotnet_container
@@ -41,6 +55,8 @@ services:
   
 volumes:
   database:
+    driver: local
+  pgadmin:
     driver: local
 
 networks:
