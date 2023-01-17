@@ -1,0 +1,28 @@
+<div class="container my-5">
+    <h1 class="mb-3">Register</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="registerUser()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)] = "registerUserRequest.firstName" name="firstName">
+                </div>
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="surname" [(ngModel)] = "registerUserRequest.lastName" name="lastName">
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Userame</label>
+                    <input type="text" class="form-control" id="username" [(ngModel)] = "registerUserRequest.username" name="username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" [(ngModel)] = "registerUserRequest.password" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

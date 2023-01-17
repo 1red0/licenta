@@ -1,5 +1,5 @@
 ### STAGE 1: Build ###
-FROM node:19.1-alpine AS build
+FROM node:18.12.1-alpine AS build
 
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh ca-certificates && rm -rf /var/cache/apk/*
 

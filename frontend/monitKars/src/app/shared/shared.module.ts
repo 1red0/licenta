@@ -11,6 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,12 +31,14 @@ import { RouterModule } from '@angular/router';
     MatMenuModule, 
     MatListModule,
     RouterModule,
+    FormsModule,
 
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    FormsModule,
   ]
 })
 export class SharedModule { }

@@ -18,20 +18,16 @@ import { DefaultModule } from './layouts/default/default.module';
 import { SettingsComponent } from './modules/settings/settings.component';
 import { AccountComponent } from './modules/account/account.component';
 import { SearchComponent } from './modules/search/search.component';
-import { LoginComponent } from './modules/login/login.component';
 import { CarComponent } from './modules/car/car.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './modules/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettingsComponent,
-    AccountComponent,
     SearchComponent,
-    LoginComponent,
-    CarComponent
 
   ],
   imports: [
@@ -51,7 +47,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatSlideToggleModule,
     MatFormFieldModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SettingsComponent,
+    AccountComponent,
+    CarComponent,
+    RegisterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

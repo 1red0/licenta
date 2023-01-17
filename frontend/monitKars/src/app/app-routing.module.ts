@@ -4,8 +4,8 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { AccountComponent } from './modules/account/account.component';
 import { CarComponent } from './modules/car/car.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { LoginComponent } from './modules/login/login.component';
 import { PostsComponent } from './modules/posts/posts.component';
+import { RegisterComponent } from './modules/register/register.component';
 import { SearchComponent } from './modules/search/search.component';
 import { SettingsComponent } from './modules/settings/settings.component';
 
@@ -31,11 +31,17 @@ const routes: Routes = [
       component: SearchComponent
     }, {
       path: 'login', 
-      component: LoginComponent
+      component: RegisterComponent
     }, {
       path: 'car',
       component: CarComponent
-    }
+    }, {
+      path: 'logout',
+      component: RegisterComponent
+    }, {
+      path: 'register',
+      component: RegisterComponent
+    },
     
   ]
   },
