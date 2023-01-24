@@ -25,8 +25,9 @@ const routes: Routes = [
       component: SettingsComponent
     }, {
       path: 'account',
-      component: AccountComponent
-    }, {
+      component: AccountComponent,
+    },
+    {
       path: 'search',
       component: SearchComponent
     }, {

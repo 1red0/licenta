@@ -1,0 +1,41 @@
+.car-container {
+  width: 80%;
+  margin: 0 auto;
+  border: 2px solid #add1b9;
+  border-radius: 25px;
+  min-width: 700px;
+  .car-header {
+    text-align: center;
+    background: #add1b9;
+    border-radius: 22px 22px 0px 0px;
+    padding: 15px;
+  }
+.car-table {
+  width: 100%;
+  border-collapse: collapse;
+  th, td {
+    border-bottom: #add1b9 solid 1px;
+    padding: 8px;
+    font-size: 1.2rem;
+  }
+  td {
+    vertical-align: middle;
+  }
+  td:first-child {
+    text-align: left;
+    width: 40%;
+    i {
+      font-size: 1.5rem;
+      width: 30px;
+    }
+  }
+  td:last-child {
+    text-align: right;
+  }
+  
+  overflow: hidden;
+}
+#last-item, #last-val {
+  border-bottom: none;
+}
+}

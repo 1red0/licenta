@@ -1,0 +1,29 @@
+.profile-container {
+    width: 80%;
+    margin: 0 auto;
+    
+    .profile-header {
+      text-align: center;
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    .profile-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      .profile-item {
+        flex-basis: 45%;
+        margin-bottom: 1rem;
+        
+        i {
+          font-size: 1.5rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  

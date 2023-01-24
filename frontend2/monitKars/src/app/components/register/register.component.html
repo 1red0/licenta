@@ -1,0 +1,46 @@
+
+<div class="register-form-container">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="user.name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="dateofBirth">Date of Birth</label>
+        <input type="date" class="form-control" id="dateofBirth" [(ngModel)]="user.dateofBirth" name="dateofBirth" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+            <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="user.passwordConfirmation" [type]="isPasswordVisible ? 'text' : 'password'">
+            <div class="input-group-append">
+              <span class="input-group-text" (click)="togglePasswordVisibility()">
+                <i class="fa fa-eye" [ngClass]="{'fa-eye-slash': isPasswordVisible, 'fa-eye': !isPasswordVisible}"></i>
+              </span>
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Confirm Password</label>
+        <div class="input-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="passwordConfirmation" [type]="isPasswordConfirmationVisible ? 'text' : 'password'">
+            <div class="input-group-append">
+              <span class="input-group-text" (click)="togglePasswordConfirmationVisibility()">
+                <i class="fa fa-eye" [ngClass]="{'fa-eye-slash': isPasswordConfirmationVisible, 'fa-eye': !isPasswordConfirmationVisible}"></i>
+              </span>
+            </div>
+        </div>
+      </div>
+      
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

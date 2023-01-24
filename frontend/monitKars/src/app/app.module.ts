@@ -23,11 +23,17 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './modules/register/register.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { TableComponent } from './modules/table/table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
+    TableComponent,
 
   ],
   imports: [
@@ -51,7 +57,11 @@ import { RegisterComponent } from './modules/register/register.component';
     SettingsComponent,
     AccountComponent,
     CarComponent,
-    RegisterComponent
+    RegisterComponent,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

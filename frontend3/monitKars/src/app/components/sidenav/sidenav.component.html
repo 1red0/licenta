@@ -1,0 +1,36 @@
+<div class="sidenav" [ngClass]="collapsed ? '':'sidenav-collapsed'">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()">mK</button>
+        <div class="logo-text" *ngIf="collapsed">monit<span class="kars">Kars</span></div>
+        <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+            <i class="fa-solid fa-times close icon"></i>
+        </button>
+    </div>
+
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            >
+                <i class="sidenav-link-icon" [class]="data.icon"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="sidenav-nav-logout">
+        <ul class="sidenav-nav">
+            <li class="sidenav-nav-item" *ngFor="let lobutton of navlobutton">
+                <a class="sidenav-nav-link" [routerLink]="[lobutton.routeLink]"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}"
+                >
+                    <i class="sidenav-link-icon" [class]="lobutton.icon"></i>
+                    <span class="sidenav-link-text" *ngIf="collapsed">{{lobutton.label}}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>

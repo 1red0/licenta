@@ -1,0 +1,36 @@
+<div class="car-details">
+    <h2>{{ car.id }}</h2>
+    <form (ngSubmit)="saveCar()">
+      <div>
+        <label>Owner:</label>
+        <input [(ngModel)]="car.owner" name="owner" required>
+      </div>
+      <div>
+        <label>Milage:</label>
+        <input [(ngModel)]="car.milage" name="milage" required>
+      </div>
+      <div>
+        <label>Problems:</label>
+        <input [(ngModel)]="car.problems" name="problems" required>
+      </div>
+      <div>
+        <label>Vignette:</label>
+        <input [(ngModel)]="car.vignette" name="vignette" required>
+      </div>
+      <div>
+        <label>Insurance:</label>
+        <input [(ngModel)]="car.insurance" name="insurance" required>
+      </div>
+      <div>
+        <label>Revisions:</label>
+        <input [(ngModel)]="car.revisions" name="revisions" required>
+      </div>
+      <div>
+        <label>Last Trip:</label>
+        <input [(ngModel)]="car.lastTrip" name="lastTrip" required>
+      </div>
+      <button type="submit">Save</button>
+      <button (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+  

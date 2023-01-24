@@ -10,7 +10,7 @@ namespace monitKars.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("users")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;

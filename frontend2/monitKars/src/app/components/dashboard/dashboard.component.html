@@ -1,0 +1,42 @@
+<div class="dashboard">
+    <div class="car-status">
+      <h2>Car Status</h2>
+      <table>
+        <tr>
+          <th>Car</th>
+          <th>Milage</th>
+          <th>Problems</th>
+          <th>Vignette</th>
+          <th>Insurance</th>
+          <th>Revisions</th>
+          <th>Last Trip</th>
+        </tr>
+        <tr *ngFor="let car of cars">
+          <td>{{ car.id }}</td>
+          <td>{{ car.milage }}</td>
+          <td>{{ car.problems }}</td>
+          <td>{{ car.vignette }}</td>
+          <td>{{ car.insurance }}</td>
+          <td>{{ car.revisions }}</td>
+          <td>{{ car.lastTrip }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="upcoming-maintenance">
+      <h2>Upcoming Maintenance</h2>
+      <table>
+        <tr>
+          <th>Car</th>
+          <th>Maintenance</th>
+          <th>Date</th>
+        </tr>
+        <tr *ngFor="let maintenance of maintenances">
+          <td>{{ maintenance.id }}</td>
+          <td>{{ maintenance.task }}</td>
+          <td>{{ maintenance.date }}</td>
+          <td>{{ maintenance.carId }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
