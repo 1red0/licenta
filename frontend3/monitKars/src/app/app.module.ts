@@ -14,6 +14,8 @@ import { CarlistComponent } from './components/carlist/carlist.component';
 import { NgChartsModule } from 'ng2-charts';
 import { MilagechartComponent } from './charts/milagechart/milagechart.component';
 import { MaintenancechartComponent } from './charts/maintenancechart/maintenancechart.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { NgToggleModule } from 'ng-toggle-button';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,16 @@ import { MaintenancechartComponent } from './charts/maintenancechart/maintenance
     CarlistComponent,
     MilagechartComponent,
     MaintenancechartComponent,
+    SettingsComponent,
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgChartsModule
+    NgChartsModule,
+    NgToggleModule
     
   ],
   providers: [],

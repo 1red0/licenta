@@ -1,8 +1,8 @@
-.profile-container {
+.settings-container {
     width: 80%;
     margin: 0 auto;
     
-    .profile-header {
+    .settings-header {
       text-align: center;
       
       h1 {
@@ -10,14 +10,15 @@
       }
     }
     
-    .profile-content {
+    .settings-content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       
-      .profile-item {
+      .settings-item {
         flex-basis: 45%;
         margin-bottom: 1rem;
+        min-width: 20rem;
         padding: 25px;
         
         i {
@@ -25,6 +26,10 @@
           margin-right: 0.5rem;
         }
       }
+    }
+
+    .toggle-notifications, .toggle-theme{
+        padding: 35px;
     }
   }
   

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './components/account/account.component';
+import { BodyComponent } from './components/body/body.component';
 import { CarComponent } from './components/car/car.component';
 import { CarlistComponent } from './components/carlist/carlist.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
@@ -31,11 +33,11 @@ const routes: Routes = [
   },
   {
     path: 'settings',
-    component: DashboardComponent
+    component: SettingsComponent
   },
   {
     path: 'logout',
-    component: DashboardComponent
+    component: BodyComponent
   },
   {
     path: 'login',

@@ -6,4 +6,5 @@ export interface User {
     dateOfBirth: Date;
     email: string;
     numberOfCars: number;
+    gender: string;
 }

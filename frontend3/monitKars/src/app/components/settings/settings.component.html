@@ -1,0 +1,45 @@
+
+<div class="settings-container">
+
+    <div class="settings-header">
+        <h1>Settings</h1>
+      </div>
+      <br><br>
+  
+    <div class="settings-content">
+  
+      <div class="settings-item">
+        <i class="fas fa-circle-half-stroke"></i>
+        <span> Dark Theme </span>
+        <br>
+        <br>
+        <ng-toggle
+            [value]="true"
+            [color]="{
+            unchecked: '#939da2',
+            checked: '#2E8B57'
+            }"
+            class="toggle-theme">
+        </ng-toggle>
+      </div>
+
+      <div class="settings-item">
+        <i class="fas fa-bell"></i>
+        <span> Notifications </span>
+        <br>
+        <br>
+        <ng-toggle
+            [value]="true"
+            [color]="{
+            unchecked: '#939da2',
+            checked: '#2E8B57'
+            }"
+            class="toggle-notifications">
+        </ng-toggle>
+      </div>
+      
+
+  
+    </div>
+  </div>
+  
