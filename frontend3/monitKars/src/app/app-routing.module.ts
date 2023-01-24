@@ -5,6 +5,7 @@ import { BodyComponent } from './components/body/body.component';
 import { CarComponent } from './components/car/car.component';
 import { CarlistComponent } from './components/carlist/carlist.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DriversComponent } from './components/drivers/drivers.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SettingsComponent } from './components/settings/settings.component';
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'drivers',
+    component: DriversComponent
   },
 ];
 

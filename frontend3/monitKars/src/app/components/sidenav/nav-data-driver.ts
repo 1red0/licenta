@@ -1,4 +1,4 @@
-export const navbarData = [
+export const navbarDataDriver = [
     {
         routeLink: 'dashboard',
         icon: 'fa-solid fa-home',
@@ -24,24 +24,6 @@ export const navbarData = [
         icon: 'fa-solid fa-sliders',
         label: 'Settings'
     },
-    {
-        routeLink: 'login',
-        icon: 'fa-solid fa-right-to-bracket',
-        label: 'Login'
-    },
-    {
-        routeLink: 'register',
-        icon: 'fa-solid fa-user-plus',
-        label: 'Register'
-    },
-
 
 ];
 
-export const navlobuttondata = [
-    {
-        routeLink: 'logout',
-        icon: 'fa-solid fa-right-from-bracket',
-        label: 'Logout'
-    }
-]

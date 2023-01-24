@@ -5,7 +5,7 @@ export interface Car {
     color: string;
     vignetteID: number;
     insuranceID: number;
-    userID: number;
+    ownerID: number;
     milage: number;
     maintenanceID: number;
     manufacturer: string;

@@ -19,6 +19,7 @@ import { NgToggleModule } from 'ng-toggle-button';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { VignetteComponent } from './components/vignette/vignette.component';
 import { InspectionComponent } from './components/inspection/inspection.component';
+import { DriversComponent } from './components/drivers/drivers.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { InspectionComponent } from './components/inspection/inspection.componen
     MaintenanceComponent,
     VignetteComponent,
     InspectionComponent,
+    DriversComponent,
     
     
   ],

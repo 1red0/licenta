@@ -7,4 +7,6 @@ export interface User {
     email: string;
     numberOfCars: number;
     gender: string;
+    role: string;
+    organisation: string;
 }

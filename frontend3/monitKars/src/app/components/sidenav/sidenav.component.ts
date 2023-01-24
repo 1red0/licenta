@@ -1,6 +1,8 @@
 import { Component, Output, EventEmitter, OnInit} from '@angular/core';
-import { navbarData, navlobuttondata } from './nav-data';
-
+import { navbarData } from './nav-data-admin';
+import { navbarDataBasic } from './nav-data-basic';
+import { navbarDataDriver } from './nav-data-driver';
+import { logoutbutton } from './nav-logout';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -18,7 +20,8 @@ export class SidenavComponent implements OnInit {
   collapsed = false;
   screenWidth = 0;
   navData = navbarData;
-  navlobutton = navlobuttondata;
+
+  navlobutton = logoutbutton ;
 
   ngOnInit(): void{
     this.screenWidth = window.innerWidth;
