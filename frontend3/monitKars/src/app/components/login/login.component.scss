@@ -1,6 +1,5 @@
 form {
-    display: flex;
-    flex-direction: column;
+    display: block;
     align-items: center;
     width: 80%;
     margin: 0 auto;
@@ -44,3 +43,16 @@ form {
     }
   }
   
+
+  .login-container {
+    width: 80%;
+    margin: auto;
+
+    .login-header {
+    text-align: center;
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}

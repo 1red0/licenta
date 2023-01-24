@@ -16,6 +16,9 @@ import { MilagechartComponent } from './charts/milagechart/milagechart.component
 import { MaintenancechartComponent } from './charts/maintenancechart/maintenancechart.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NgToggleModule } from 'ng-toggle-button';
+import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import { VignetteComponent } from './components/vignette/vignette.component';
+import { InspectionComponent } from './components/inspection/inspection.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { NgToggleModule } from 'ng-toggle-button';
     MilagechartComponent,
     MaintenancechartComponent,
     SettingsComponent,
+    MaintenanceComponent,
+    VignetteComponent,
+    InspectionComponent,
     
     
   ],

@@ -45,3 +45,15 @@ form {
     }
   }
   
+  .registration-container {
+    width: 80%;
+    margin: auto;
+
+    .registration-header {
+    text-align: center;
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}
