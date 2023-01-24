@@ -4,7 +4,7 @@ services:
     container_name: angular_container
     restart: unless-stopped
     build:
-      context: ./frontend
+      context: ./frontend3
       dockerfile: Dockerfile_frontend
     ports:
       - '4200:80'
