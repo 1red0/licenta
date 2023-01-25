@@ -16,10 +16,12 @@ import { MilagechartComponent } from './charts/milagechart/milagechart.component
 import { MaintenancechartComponent } from './charts/maintenancechart/maintenancechart.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NgToggleModule } from 'ng-toggle-button';
-import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { VignetteComponent } from './components/vignette/vignette.component';
-import { InspectionComponent } from './components/inspection/inspection.component';
 import { DriversComponent } from './components/drivers/drivers.component';
+import { StartPageComponent } from './components/start-page/start-page.component';
+import { OrganisationComponent } from './components/organisation/organisation.component';
+import { AdduserComponent } from './components/adduser/adduser.component';
+import { AddcarComponent } from './components/addcar/addcar.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,12 @@ import { DriversComponent } from './components/drivers/drivers.component';
     MilagechartComponent,
     MaintenancechartComponent,
     SettingsComponent,
-    MaintenanceComponent,
     VignetteComponent,
-    InspectionComponent,
     DriversComponent,
+    StartPageComponent,
+    OrganisationComponent,
+    AdduserComponent,
+    AddcarComponent,
     
     
   ],

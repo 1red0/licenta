@@ -13,4 +13,7 @@ export interface Car {
     tireSizes: string[];
     oil: string;
     periodicRevision: Date;
+    plateNumber: string;
+    vinNumber: number;
+    type: string;
 }

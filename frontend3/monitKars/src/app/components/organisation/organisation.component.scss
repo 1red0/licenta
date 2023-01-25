@@ -1,8 +1,8 @@
-.profile-container {
+.organisation-container {
     width: 80%;
     margin: 0 auto;
     
-    .profile-header {
+    .organisation-header {
       text-align: center;
       background:#263238 ;
       border-radius: 30px;
@@ -15,12 +15,12 @@
       }
     }
     
-    .profile-content {
+    .organisation-content {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       
-      .profile-item {
+      .organisation-item {
         flex-basis: 45%;
         margin-bottom: 1rem;
         padding: 25px;
@@ -30,7 +30,6 @@
           margin-right: 0.5rem;
         }
       }
-      
     }
   }
   

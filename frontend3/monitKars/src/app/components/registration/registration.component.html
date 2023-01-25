@@ -1,41 +1,53 @@
 <div class="registration-container">
   <div class="registration-header">
- <h1>Registration</h1>
+ <h1>Register your organisation</h1>
  </div>
-
 
 <form class="registration-form">
     <div class="form-group">
-      <label for="username">Username</label>
+      <label for="organisation">Organisation Name</label>
+      <br><br>
+      <input type="text" id="organisation" name="organisation">
+    </div>
+
+    <div class="form-group">
+      <label for="adress">Organisation address</label>
+      <br><br>
+      <input type="text" id="address" name="address">
+    </div>
+
+    <div class="form-group">
+      <label for="username">Admin user</label>
       <br><br>
       <input type="text" id="username" name="username">
     </div>
+
     <div class="form-group">
-      <label for="firstName">First Name</label>
-      <br><br>
-      <input type="text" id="firstName" name="firstName">
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <br><br>
-      <input type="text" id="lastName" name="lastName">
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
+      <label for="email">Email admin user</label>
       <br><br>
       <input type="email" id="email" name="email">
     </div>
+
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="phone">Phone number</label>
+      <br><br>
+      <input type="text" id="phone" name="phone">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password admin user</label>
       <br><br>
       <input type="password" id="password" name="password">
     </div>
+
     <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
+      <label for="confirmPassword">Confirm admin password</label>
       <br><br>
       <input type="password" id="confirmPassword"name="confirmPassword">
     </div>
+
     <button class="form-submit-btn" type="submit">Register</button>
+
   </form>
 
   </div>

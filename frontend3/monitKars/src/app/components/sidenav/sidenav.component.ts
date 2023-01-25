@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter, OnInit} from '@angular/core';
-import { navbarData } from './nav-data-admin';
-import { navbarDataBasic } from './nav-data-basic';
-import { navbarDataDriver } from './nav-data-driver';
-import { logoutbutton } from './nav-logout';
+import { navbarData } from './data/nav-data-admin';
+import { navbarDataDriver } from './data/nav-data-driver';
+import { navbarDataStart } from './data/nav-data-start';
+import { logoutbutton } from './data/nav-logout';
 
 interface SideNavToggle {
   screenWidth: number;

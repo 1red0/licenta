@@ -45,4 +45,34 @@
   }
 
   }
+
+  button[type="submit"] {
+    
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    
+    
+    &:hover {
+      background-color: #25364f;
+    }
+  }
   
+  .show_car {
+    background-color: #5d9a14;
+    margin: 5px;
+  }
+
+  .edit_car {
+    background-color: #007bff;
+    margin: 5px;
+  }
+
+  .delete_car {
+    background-color: #a52626;
+    margin: 5px;
+  }

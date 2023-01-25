@@ -5,8 +5,9 @@ export interface User {
     lastName: string;
     dateOfBirth: Date;
     email: string;
-    numberOfCars: number;
+    phone: number;
     gender: string;
     role: string;
     organisation: string;
+    carID: number[];
 }
