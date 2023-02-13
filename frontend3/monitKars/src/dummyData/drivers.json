@@ -1,0 +1,28 @@
+[
+    {
+        "userID": 1,
+        "userName": "driver2",
+        "firstName": "Driver",
+        "lastName": "Test2",
+        "dateOfBirth": "2000-09-08",
+        "email": "testuser@gmail.com",
+        "phone": "0761111111",
+        "gender": "Male",
+        "role": "Driver",
+        "organisationID": 1,
+        "carID": 1
+    },
+    {
+        "userID": 2,
+        "userName": "driver1",
+        "firstName": "Driver",
+        "lastName": "Test1",
+        "dateOfBirth": "2000-09-08",
+        "email": "testuser@gmail.com",
+        "phone": "0761111111",
+        "gender": "Male",
+        "role": "Driver",
+        "organisationID": 1,
+        "carID": 56
+    }
+]

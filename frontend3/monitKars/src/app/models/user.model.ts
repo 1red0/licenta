@@ -8,6 +8,6 @@ export interface User {
     phone: string;
     gender: string;
     role: string;
-    organisation: string;
+    organisationID: number;
     carID: number;
 }

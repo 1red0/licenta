@@ -3,13 +3,13 @@
       <h1>My drivers</h1>
     </div>
     <br>
-  <table class="driverslist-table">
+  <table class="driverslist-table" *ngIf="drivers && drivers.length > 0">
     <tbody class="driverslist-table-body">
   
-      <tr>
+      <tr *ngFor="let driver of drivers">
         <td>
           <i class="fas fa-user"></i>
-          <span> Driver1</span>
+          <span>{{driver.userID}} - {{driver.firstName}} {{driver.lastName}}</span>
         </td>
         <td>
           <button class="show_driver" type="submit">See driver</button>
@@ -17,31 +17,6 @@
           <button class="delete_driver" type="submit">Delete driver</button>
         </td>
       </tr>
-
-      <tr>
-        <td>
-          <i class="fas fa-user"></i>
-          <span> Driver2</span>
-        </td>
-        <td>
-          <button class="show_driver" type="submit">See driver</button>
-          <button class="edit_driver" type="submit">Edit driver</button>
-          <button class="delete_driver" type="submit">Delete driver</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <i class="fas fa-user"></i>
-          <span> Driver3</span>
-        </td>
-        <td>
-          <button class="show_driver" type="submit">See driver</button>
-          <button class="edit_driver" type="submit">Edit driver</button>
-          <button class="delete_driver" type="submit">Delete driver</button>
-        </td>
-      </tr>
-
   
         </tbody>
       </table>

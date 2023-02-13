@@ -6,7 +6,7 @@ export interface Car {
     vignette: string;
     insurance: string;
     ownerID: number;
-    milage: number;
+    milage: string;
     maintenanceStatus: string;
     manufacturer: string;
     model: string;
