@@ -3,46 +3,46 @@
     <h1><i class="fas fa-user"></i> My account</h1>
   </div>
 
-  <div class="profile-content" *ngIf="user">
+  <div class="profile-content" *ngIf="User">
 
     <div class="profile-item">
       <i class="fas fa-circle-user"></i>
-      <span>Username: {{user.userName}}</span>
+      <span>Username: {{User.userName}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-user"></i>
-      <span>Full name: {{user.firstName}} {{user.lastName}}</span>
+      <span>Full name: {{User.firstName}} {{User.lastName}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-calendar-alt"></i>
-      <span>Birthday: {{user.dateOfBirth}}</span>
+      <span>Birthday: {{User.dateOfBirth}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-car"></i>
-      <span>Car assigned: {{user.carID}}</span>
+      <span>Car assigned: {{User.carID}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-envelope"></i>
-      <span>Email: {{user.email}}</span>
+      <span>Email: {{User.email}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-venus-mars"></i>
-      <span>Gender: {{user.gender}}</span>
+      <span>Gender: {{User.gender}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-phone"></i>
-      <span>Phone: {{user.phone}}</span>
+      <span>Phone: {{User.phone}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-user-gear"></i>
-      <span>Role: {{user.role}}</span>
+      <span>Role: {{User.role}}</span>
     </div>
 
   </div>

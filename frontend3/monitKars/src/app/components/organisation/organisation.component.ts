@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Organisation } from 'src/app/models/organisation.model';
-import organistaionData from '../../../dummyData/organisation.json'
+import { OrganisationService } from 'src/app/services/organisations/organisation.service';
 
 @Component({
   selector: 'app-organisation',
@@ -9,6 +8,14 @@ import organistaionData from '../../../dummyData/organisation.json'
 })
 export class OrganisationComponent {
 
-  organisation: Organisation = organistaionData;
+  Organisation: any;
+
+  constructor(private organisationService:OrganisationService){}
+
+  ngOnInit(){
+    
+
+    this.organisationService.getOrganisation(1).subscribe((res)=>{this.Organisation=res;})
+  }
   
 }
