@@ -3,17 +3,17 @@ export interface Car {
     carName: string;
     year: number;
     color: string;
-    vignetteID: number;
-    insuranceID: number;
+    vignette: string;
+    insurance: string;
     ownerID: number;
     milage: number;
-    maintenanceID: number;
+    maintenanceStatus: string;
     manufacturer: string;
     model: string;
     tireSizes: string[];
     oil: string;
-    periodicRevision: Date;
+    periodicRevision: string;
     plateNumber: string;
-    vinNumber: number;
+    vinNumber: string;
     type: string;
 }

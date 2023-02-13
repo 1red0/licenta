@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import carData from '../../../dummyData/car.json'
 
 @Component({
   selector: 'app-car',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./car.component.scss']
 })
 export class CarComponent {
+
+
+  car = carData;
+
 
 }

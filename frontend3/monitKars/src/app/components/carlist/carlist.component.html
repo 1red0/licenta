@@ -3,13 +3,13 @@
       <h1>My cars</h1>
     </div>
     <br>
-  <table class="carlist-table">
+  <table class="carlist-table" *ngIf="cars && cars.length > 0">
     <tbody class="carlist-table-body">
   
-      <tr>
+      <tr *ngFor="let car of cars">
         <td>
           <i class="fas fa-car-side"></i>
-          <span> Car1</span>
+          <span> {{car.carName}}</span>
         </td>
         <td>
           <button class="show_car" type="submit">See car</button>
@@ -17,34 +17,10 @@
           <button class="delete_car" type="submit">Delete car</button>
         </td>
       </tr>
-
-      <tr>
-        <td>
-          <i class="fas fa-car-side"></i>
-          <span> Car2</span>
-        </td>
-        <td>
-          <button class="show_car" type="submit">See car</button>
-          <button class="edit_car" type="submit">Edit car</button>
-          <button class="delete_car" type="submit">Delete car</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <i class="fas fa-car-side"></i>
-          <span> Car3</span>
-        </td>
-        <td>
-          <button class="show_car" type="submit">See car</button>
-          <button class="edit_car" type="submit">Edit car</button>
-          <button class="delete_car" type="submit">Delete car</button>
-        </td>
-      </tr>
-
-  
         </tbody>
       </table>
+
+      
       </div>
       
   

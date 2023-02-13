@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import maintenanceData from '../../../dummyData/maintenance.json'
 @Component({
   selector: 'app-maintenancechart',
   templateUrl: './maintenancechart.component.html',
@@ -11,31 +12,8 @@ export class MaintenancechartComponent implements OnInit {
     responsive: true
   };
   public barChartLabels = ['2017', '2018', '2019', '2020', '2021', '2022', '2023'];
-  public barChartType = 'doughnut';
   public barChartLegend = true;
-  public barChartData = [
-    {
-      data: [1000, 200, 100, 500, 150, 2265, 200], 
-      label: 'Maintenance Costs (Euro) Car1', 
-      backgroundColor: ['rgb(' + Math.random()*255 + ', ' + Math.random()*255 + ',' + Math.random()*255 + ')'],
-      borderColor: ['rgb(0, 0, 0)'],
-      borderWidth: 1
-    },
-    {
-      data: [1000, 250, 100, 700, 400, 1000, 200], 
-      label: 'Maintenance Costs (Euro) Car2', 
-      backgroundColor: ['rgb(' + Math.random()*255 + ', ' + Math.random()*255 + ',' + Math.random()*255 + ')'],
-      borderColor: ['rgb(0, 0, 0)'],
-      borderWidth: 1
-    },
-    {
-      data: [2000, 450, 200, 1200, 550, 3265, 400], 
-      label: 'Maintenance Costs (Euro) Total cars', 
-      backgroundColor: ['rgb(' + Math.random()*255 + ', ' + Math.random()*255 + ',' + Math.random()*255 + ')'],
-      borderColor: ['rgb(0, 0, 0)'],
-      borderWidth: 1
-    },
-  ];
+  public barChartData = maintenanceData;
   ngOnInit() {
   }
 }
