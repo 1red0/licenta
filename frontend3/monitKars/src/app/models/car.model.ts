@@ -10,6 +10,7 @@ export interface Car {
     maintenanceStatus: string;
     manufacturer: string;
     model: string;
+    engine: string;
     tireSizes: string[];
     oil: string;
     periodicRevision: string;

@@ -11,11 +11,23 @@ export class CarsService {
 
   constructor(private _http:HttpClient) { }
 
-  getcars(): Observable<Car[]>{
+  getCars(): Observable<Car[]>{
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars')
   }
 
-  getcar(id: number): Observable<Car[]>{
+  getCar(id: number): Observable<Car[]>{
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars/' + id)
+  }
+
+  postCar(car: Car): Observable<Car[]>{
+    return this._http.post<Car[]>(environment.baseApiUrl + 'api/Cars', car)
+  }
+
+  deleteCar(id: number): Observable<Car[]>{
+    return this._http.delete<Car[]>(environment.baseApiUrl + 'api/Cars/' + id)
+  }
+
+  updateCar(id: number, car: Car): Observable<Car[]>{
+    return this._http.put<Car[]>(environment.baseApiUrl + 'api/Cars/' + id, car)
   }
 }

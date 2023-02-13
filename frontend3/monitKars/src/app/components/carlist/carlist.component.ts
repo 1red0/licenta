@@ -13,7 +13,7 @@ export class CarlistComponent {
   constructor(private carService:CarsService){}
 
   ngOnInit(){
-    this.carService.getcars().subscribe((res)=>{this.CarsList=res;})
+    this.carService.getCars().subscribe((res)=>{this.CarsList=res;})
   }
   
 
