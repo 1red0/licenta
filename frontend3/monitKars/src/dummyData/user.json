@@ -1,0 +1,13 @@
+{
+    "userID": 1,
+    "userName": "admin",
+    "firstName": "Test",
+    "lastName": "Test",
+    "dateOfBirth": "2000-09-08",
+    "email": "testuser@gmail.com",
+    "phone": "0761111111",
+    "gender": "Male",
+    "role": "Administrator",
+    "organisation": "TestTaxi",
+    "carID": 0
+}

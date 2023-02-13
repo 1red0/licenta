@@ -3,46 +3,46 @@
     <h1><i class="fas fa-user"></i> My account</h1>
   </div>
 
-  <div class="profile-content">
+  <div class="profile-content" *ngIf="user">
 
     <div class="profile-item">
       <i class="fas fa-circle-user"></i>
-      <span>Username: admin</span>
+      <span>Username: {{user.userName}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-user"></i>
-      <span>Full name: Andrei Rosu</span>
+      <span>Full name: {{user.firstName}} {{user.lastName}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-calendar-alt"></i>
-      <span>Birthday: 08/09/2000</span>
+      <span>Birthday: {{user.dateOfBirth}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-car"></i>
-      <span>Car assigned: 11</span>
+      <span>Car assigned: {{user.carID}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-envelope"></i>
-      <span>Email: andumarius9@gmail.com</span>
+      <span>Email: {{user.email}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-venus-mars"></i>
-      <span>Gender: Male</span>
+      <span>Gender: {{user.gender}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-phone"></i>
-      <span>0761111111</span>
+      <span>Phone: {{user.phone}}</span>
     </div>
 
     <div class="profile-item">
       <i class="fas fa-user-gear"></i>
-      <span>Role: Administrator</span>
+      <span>Role: {{user.role}}</span>
     </div>
 
   </div>

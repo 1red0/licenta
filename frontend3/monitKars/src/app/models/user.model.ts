@@ -1,13 +1,13 @@
 export interface User {
     userID: number;
-    username: string;
+    userName: string;
     firstName: string;
     lastName: string;
-    dateOfBirth: Date;
+    dateOfBirth: string;
     email: string;
-    phone: number;
+    phone: string;
     gender: string;
     role: string;
     organisation: string;
-    carID: number[];
+    carID: number;
 }

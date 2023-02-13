@@ -3,6 +3,7 @@ export interface Organisation {
     name: string;
     address: string;
     email: string;
-    phone: number;
+    phone: string;
     numberOfCars: number;
+    numberOfDrivers: number;
 }
