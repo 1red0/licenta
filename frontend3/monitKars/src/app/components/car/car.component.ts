@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CarsService } from 'src/app/services/cars/cars.service';
 import carData from '../../../dummyData/car.json'
 
 @Component({
@@ -8,8 +9,13 @@ import carData from '../../../dummyData/car.json'
 })
 export class CarComponent {
 
+  car:any;
 
-  car = carData;
+  constructor(private carService:CarsService){}
+
+  ngOnInit(){
+    this.carService.getcar(1).subscribe((res)=>{this.car=res;})
+  }
 
 
 }

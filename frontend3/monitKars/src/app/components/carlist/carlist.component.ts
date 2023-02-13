@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Car } from 'src/app/models/car.model';
-import carList from '../../../dummyData/carlist.json'
+import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
   selector: 'app-carlist',
@@ -9,7 +8,13 @@ import carList from '../../../dummyData/carlist.json'
 })
 export class CarlistComponent {
 
-  cars: Car[] = carList;
-    
+  CarsList:any;
+
+  constructor(private carService:CarsService){}
+
+  ngOnInit(){
+    this.carService.getcars().subscribe((res)=>{this.CarsList=res;})
+  }
+  
 
 }

@@ -22,6 +22,7 @@ import { StartPageComponent } from './components/start-page/start-page.component
 import { OrganisationComponent } from './components/organisation/organisation.component';
 import { AdduserComponent } from './components/adduser/adduser.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AddcarComponent } from './components/addcar/addcar.component';
     AppRoutingModule,
     FontAwesomeModule,
     NgChartsModule,
-    NgToggleModule
+    NgToggleModule,
+    HttpClientModule,
     
   ],
   providers: [],
