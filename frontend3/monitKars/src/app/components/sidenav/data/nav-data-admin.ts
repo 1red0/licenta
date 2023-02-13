@@ -15,11 +15,6 @@ export const navbarData = [
         label: 'Organisation'
     },
     {
-        routeLink: 'car',
-        icon: 'fa-solid fa-car',
-        label: 'Car'
-    },
-    {
         routeLink: 'carlist',
         icon: 'fa-solid fa-list-ol',
         label: 'My cars'

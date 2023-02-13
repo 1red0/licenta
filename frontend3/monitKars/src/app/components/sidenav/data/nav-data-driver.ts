@@ -15,11 +15,6 @@ export const navbarDataDriver = [
         label: 'Car'
     },
     {
-        routeLink: 'carlist',
-        icon: 'fa-solid fa-list-ol',
-        label: 'My cars'
-    },
-    {
         routeLink: 'settings',
         icon: 'fa-solid fa-sliders',
         label: 'Settings'

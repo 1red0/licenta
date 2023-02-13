@@ -12,7 +12,7 @@
           <span> {{car.carName}}</span>
         </td>
         <td>
-          <button class="show_car" type="submit">See car</button>
+          <button class="show_car" type="submit" (click)="showCar(car.carID)">See car</button>
           <button class="edit_car" type="submit">Edit car</button>
           <button class="delete_car" type="submit">Delete car</button>
         </td>
