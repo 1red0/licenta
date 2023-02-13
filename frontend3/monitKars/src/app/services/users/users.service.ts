@@ -14,8 +14,5 @@ export class UsersService {
   getUsers(): Observable<User[]>{
     return this._http.get<User[]>(environment.baseApiUrl + 'api/Users')
   }
-
-  // putUser(registerRequest: User){
-  //   return this._http.put(environment.baseApiUrl + 'api/Users', registerRequest)
-  // }
+  
 }

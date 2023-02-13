@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CarsService } from 'src/app/services/cars/cars.service';
-import carData from '../../../dummyData/car.json'
 
 @Component({
   selector: 'app-car',
