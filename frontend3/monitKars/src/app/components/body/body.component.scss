@@ -1,11 +1,13 @@
 .body{
     width: calc(100% - 5rem);
     min-width: 700px;
-    height: 100vh;
     margin-left: 5rem;
+    min-height: 100vh;
     z-index: 0;
-    position: relative;
-    top: 0;
+    position: absolute;
+    top:0px;
+    right:0px;
+    left:0px;
     transition: all .1s ease;
     background: #f8fafb;
     padding: 3rem;

@@ -24,7 +24,7 @@ export class UsersService {
   }
 
   postUser(user: User): Observable<User[]>{
-    return this._http.put<User[]>(environment.baseApiUrl + 'api/Users', user)
+    return this._http.post<User[]>(environment.baseApiUrl + 'api/Users', user)
   }
 
   deleteUser(id: number): Observable<User[]>{

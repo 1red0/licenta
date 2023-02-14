@@ -23,6 +23,7 @@ import { OrganisationComponent } from './components/organisation/organisation.co
 import { AdduserComponent } from './components/adduser/adduser.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,8 @@ import { HttpClientModule } from '@angular/common/http'
     NgChartsModule,
     NgToggleModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],
