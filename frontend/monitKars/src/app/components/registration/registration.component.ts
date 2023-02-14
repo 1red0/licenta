@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder} from '@angular/forms';
 import { Organisation } from 'src/app/models/organisation.model';
 import { User } from 'src/app/models/user.model';
 import { OrganisationService } from 'src/app/services/organisations/organisation.service';
@@ -10,33 +10,42 @@ import { UsersService } from 'src/app/services/users/users.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit{
 
-  rForm = new FormGroup({
-    orgName: new FormControl<string>('',{nonNullable: true}),
-    orgAddress: new FormControl<string>('',{nonNullable: true}),
-    orgMail: new FormControl<string>('',{nonNullable: true}),
-    orgPhone: new FormControl<string>('',{nonNullable: true}),
+  rForm = <FormGroup>{};
 
-    adminUsername: new FormControl<string>('',{nonNullable: true}),
-    adminMail: new FormControl<string>('',{nonNullable: true}),
-    adminFirstN: new FormControl<string>('',{nonNullable: true}),
-    adminlastN: new FormControl<string>('',{nonNullable: true}),
-    adminPhone: new FormControl<string>('',{nonNullable: true}),
-    adminPass: new FormControl<string>('',{nonNullable: true}),
-  });
+  constructor(private userService: UsersService, private organisationService: OrganisationService, private formBuilder: FormBuilder){}
+
+  ngOnInit() {
+    this.rForm = this.formBuilder.group({
+      orgName: [''],
+      orgAddress: [''],
+      orgMail: [''],
+      orgPhone: [''],
+
+      adminUsername: [''],
+      adminMail: [''],
+      adminFirstN: [''],
+      adminlastN: [''],
+      adminPhone: [''],
+      adminPass: [''],
+    });
+  }
 
   organisation = <Organisation>{};
   admin = <User>{};
 
-  constructor(private userService: UsersService, private organisationService: OrganisationService){}
+  
 
   register(){
-    this.organisation.name = this.rForm.value.orgName;
-    this.organisation.address = this.rForm.value.orgAddress;
-    this.organisation.email = this.rForm.value.orgMail;
-    this.organisation.phone = this.rForm.value.orgPhone;
-    this.organisationService.postOrganisation(this.organisation);
+
+    console.log("register");
+
+    this.organisation.organisationName = this.rForm.value.orgName;
+    this.organisation.organisationAddress = this.rForm.value.orgAddress;
+    this.organisation.organisationMail = this.rForm.value.orgMail;
+    this.organisation.organisationPhone = this.rForm.value.orgPhone;
+    
 
     this.admin.userName = this.rForm.value.adminUsername;
     this.admin.role = "admin";
@@ -47,7 +56,11 @@ export class RegistrationComponent {
 
     this.admin.password = this.rForm.value.adminPass;
     
-    this.userService.postUser(this.admin);
+
+    this.organisationService.postOrganisation(this.organisation).subscribe(data => console.log(data));
+    this.userService.postUser(this.admin).subscribe(data => console.log(data));
+
+    window.location.reload(); 
     
   }
 

@@ -36,6 +36,28 @@
   "plateNumber": "TR74RED",
   "vinNumber": "TRE1234",
   "type": "CarType"
+},
+{
+  "carID": 0,
+  "carName": "Car1",
+  "carYear": 2012,
+  "carColor": "White",
+  "carVignette": "12-02-2023",
+  "carInsurance": "12-02-2023",
+  "carOwnerID": 1,
+  "carMilage": "500000",
+  "carMaintenanceStatus": "Good",
+  "carManufacturer": "Skoda",
+  "carModel": "Octavia 2",
+  "carEngine": "1.6TDI CAYC",
+  "carTireSizes": [
+    "195/65/R15"
+  ],
+  "carOil": "5W-30",
+  "carPeriodicRevision": "10-03-2023",
+  "carPlateNumber": "TR74RED",
+  "carVinNumber": "1234QWER",
+  "carType": "Hatchback"
 }
 ]
 

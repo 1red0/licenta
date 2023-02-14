@@ -15,19 +15,19 @@ export class OrganisationService {
     return this._http.get<Organisation[]>(environment.baseApiUrl + 'api/Organisations')
   }
 
-  getOrganisation(id: number): Observable<Organisation[]>{
-    return this._http.get<Organisation[]>(environment.baseApiUrl + 'api/Organisations/' + id)
+  getOrganisation(id: number): Observable<Organisation>{
+    return this._http.get<Organisation>(environment.baseApiUrl + 'api/Organisations/' + id)
   }
 
-  updateOrganisation(id: number, Organisation: Organisation): Observable<Organisation[]>{
-    return this._http.put<Organisation[]>(environment.baseApiUrl + 'api/Organisations/' + id, Organisation)
+  updateOrganisation(id: number, Organisation: Organisation): Observable<Organisation>{
+    return this._http.put<Organisation>(environment.baseApiUrl + 'api/Organisations/' + id, Organisation)
   }
 
-  postOrganisation(Organisation: Organisation): Observable<Organisation[]>{
-    return this._http.put<Organisation[]>(environment.baseApiUrl + 'api/Organisations', Organisation)
+  postOrganisation(Organisation: Organisation): Observable<Organisation>{
+    return this._http.post<Organisation>(environment.baseApiUrl + 'api/Organisations', Organisation)
   }
 
-  deleteOrganisation(id: number): Observable<Organisation[]>{
-    return this._http.delete<Organisation[]>(environment.baseApiUrl + 'api/Organisations/' + id)
+  deleteOrganisation(id: number): Observable<Organisation>{
+    return this._http.delete<Organisation>(environment.baseApiUrl + 'api/Organisations/' + id)
   }
 }

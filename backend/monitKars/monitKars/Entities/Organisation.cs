@@ -7,7 +7,7 @@ namespace monitKars.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid OrganisationID { get; set; }
+        public int OrganisationID { get; set; }
         public string? OrganisationName { get; set; }
         public string? OrganisationMail { get; set; }
         public string? OrganisationPhone { get; set; }

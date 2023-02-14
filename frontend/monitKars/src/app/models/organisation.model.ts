@@ -1,9 +1,9 @@
 export interface Organisation {
     organisationID: number;
-    name?: string;
-    address?: string;
-    email?: string;
-    phone?: string;
+    organisationName?: string;
+    organisationAddress?: string;
+    organisationMail?: string;
+    organisationPhone?: string;
     numberOfCars?: number;
     numberOfDrivers?: number;
 }

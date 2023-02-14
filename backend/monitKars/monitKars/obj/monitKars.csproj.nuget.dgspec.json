@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend2\\monitKars\\monitKars\\monitKars.csproj": {}
+    "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend\\monitKars\\monitKars\\monitKars.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend2\\monitKars\\monitKars\\monitKars.csproj": {
+    "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend\\monitKars\\monitKars\\monitKars.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend2\\monitKars\\monitKars\\monitKars.csproj",
+        "projectUniqueName": "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend\\monitKars\\monitKars\\monitKars.csproj",
         "projectName": "monitKars",
-        "projectPath": "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend2\\monitKars\\monitKars\\monitKars.csproj",
+        "projectPath": "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend\\monitKars\\monitKars\\monitKars.csproj",
         "packagesPath": "C:\\Users\\AndreiMariusRosu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend2\\monitKars\\monitKars\\obj\\",
+        "outputPath": "C:\\Users\\AndreiMariusRosu\\Desktop\\Licenta\\licenta\\backend\\monitKars\\monitKars\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

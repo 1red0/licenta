@@ -30,7 +30,7 @@ namespace monitKars.Controllers
 
         // GET: api/Organisations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Organisation>> GetOrganisation(Guid id)
+        public async Task<ActionResult<Organisation>> GetOrganisation(int id)
         {
             var organisation = await _context.Organisations.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace monitKars.Controllers
         // PUT: api/Organisations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutOrganisation(Guid id, Organisation organisation)
+        public async Task<IActionResult> PutOrganisation(int id, Organisation organisation)
         {
             if (id != organisation.OrganisationID)
             {
@@ -100,7 +100,7 @@ namespace monitKars.Controllers
             return NoContent();
         }
 
-        private bool OrganisationExists(Guid id)
+        private bool OrganisationExists(int id)
         {
             return _context.Organisations.Any(e => e.OrganisationID == id);
         }

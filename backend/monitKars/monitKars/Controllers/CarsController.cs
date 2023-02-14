@@ -30,7 +30,7 @@ namespace monitKars.Controllers
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Car>> GetCar(Guid id)
+        public async Task<ActionResult<Car>> GetCar(int id)
         {
             var car = await _context.Cars.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace monitKars.Controllers
         // PUT: api/Cars/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCar(Guid id, Car car)
+        public async Task<IActionResult> PutCar(int id, Car car)
         {
             if (id != car.CarID)
             {
@@ -100,7 +100,7 @@ namespace monitKars.Controllers
             return NoContent();
         }
 
-        private bool CarExists(Guid id)
+        private bool CarExists(int id)
         {
             return _context.Cars.Any(e => e.CarID == id);
         }

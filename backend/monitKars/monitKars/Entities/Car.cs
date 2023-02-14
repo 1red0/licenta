@@ -7,7 +7,7 @@ namespace monitKars.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid CarID { get; set; }
+        public int CarID { get; set; }
         public string? CarName { get; set; }
         public int? CarYear { get; set; }
         public string? CarColor { get; set; }

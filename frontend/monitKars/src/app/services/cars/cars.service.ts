@@ -15,19 +15,19 @@ export class CarsService {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars')
   }
 
-  getCar(id: number): Observable<Car[]>{
-    return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars/' + id)
+  getCar(id: number): Observable<Car>{
+    return this._http.get<Car>(environment.baseApiUrl + 'api/Cars/' + id)
   }
 
-  postCar(car: Car): Observable<Car[]>{
-    return this._http.post<Car[]>(environment.baseApiUrl + 'api/Cars', car)
+  postCar(car: Car): Observable<Car>{
+    return this._http.post<Car>(environment.baseApiUrl + 'api/Cars', car)
   }
 
-  deleteCar(id: number): Observable<Car[]>{
-    return this._http.delete<Car[]>(environment.baseApiUrl + 'api/Cars/' + id)
+  deleteCar(id: number): Observable<Car>{
+    return this._http.delete<Car>(environment.baseApiUrl + 'api/Cars/' + id)
   }
 
-  updateCar(id: number, car: Car): Observable<Car[]>{
-    return this._http.put<Car[]>(environment.baseApiUrl + 'api/Cars/' + id, car)
+  updateCar(id: number, car: Car): Observable<Car>{
+    return this._http.put<Car>(environment.baseApiUrl + 'api/Cars/' + id, car)
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Organisation } from 'src/app/models/organisation.model';
 import { OrganisationService } from 'src/app/services/organisations/organisation.service';
 
 @Component({
@@ -8,14 +9,14 @@ import { OrganisationService } from 'src/app/services/organisations/organisation
 })
 export class OrganisationComponent {
 
-  Organisation: any;
+  organisation = <Organisation>{};
 
   constructor(private organisationService:OrganisationService){}
 
   ngOnInit(){
     
 
-    this.organisationService.getOrganisation(1).subscribe((res)=>{this.Organisation=res;})
+    this.organisationService.getOrganisation(1).subscribe((res)=>{this.organisation=res;})
   }
   
 }

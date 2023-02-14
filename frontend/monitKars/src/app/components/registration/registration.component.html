@@ -3,7 +3,8 @@
  <h1>Register your organisation</h1>
  </div>
 
-<form [formGroup]="rForm" class="registration-form" (ngSubmit)="register()">
+  <form [formGroup]="rForm" class="registration-form">
+
     <div class="form-group">
       <label for="orgName">Organisation name</label>
       <br><br>
@@ -14,6 +15,12 @@
       <label for="orgAddress">Organisation address</label>
       <br><br>
       <input type="text" id="orgAddress" name="orgAddress" formControlName="orgAddress">
+    </div>
+
+    <div class="form-group">
+      <label for="orgMail">Organisation mail</label>
+      <br><br>
+      <input type="text" id="orgMail" name="orgMail" formControlName="orgMail">
     </div>
 
     <div class="form-group">
@@ -64,7 +71,7 @@
       <input type="password" id="confirmPassword"name="confirmPassword">
     </div>
 
-    <button class="form-submit-btn" type="submit">Register</button>
+    <button type="submit" class="form-submit-btn" (click)="register()">Register</button>
 
   </form>
 

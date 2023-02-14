@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CarsService } from 'src/app/services/cars/cars.service';
 import { Router } from '@angular/router'
+import { Car } from 'src/app/models/car.model';
 
 @Component({
   selector: 'app-carlist',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router'
 })
 export class CarlistComponent {
 
-  CarsList:any;
+  CarsList = <Car[]>{};
 
   constructor(private carService:CarsService, private router:Router){}
 

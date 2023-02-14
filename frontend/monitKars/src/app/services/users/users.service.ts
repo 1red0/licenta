@@ -15,20 +15,20 @@ export class UsersService {
     return this._http.get<User[]>(environment.baseApiUrl + 'api/Users')
   }
 
-  getUser(id: number): Observable<User[]>{
-    return this._http.get<User[]>(environment.baseApiUrl + 'api/Users/' + id)
+  getUser(id: number): Observable<User>{
+    return this._http.get<User>(environment.baseApiUrl + 'api/Users/' + id)
   }
 
-  updateUser(id: number, user: User): Observable<User[]>{
-    return this._http.put<User[]>(environment.baseApiUrl + 'api/Users/' + id, user)
+  updateUser(id: number, user: User): Observable<User>{
+    return this._http.put<User>(environment.baseApiUrl + 'api/Users/' + id, user)
   }
 
-  postUser(user: User): Observable<User[]>{
-    return this._http.post<User[]>(environment.baseApiUrl + 'api/Users', user)
+  postUser(user: User): Observable<User>{
+    return this._http.post<User>(environment.baseApiUrl + 'api/Users', user)
   }
 
-  deleteUser(id: number): Observable<User[]>{
-    return this._http.delete<User[]>(environment.baseApiUrl + 'api/Users/' + id)
+  deleteUser(id: number): Observable<User>{
+    return this._http.delete<User>(environment.baseApiUrl + 'api/Users/' + id)
   }
   
 }

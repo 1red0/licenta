@@ -12,8 +12,8 @@ using monitKars.Data;
 namespace monitKars.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230214091301_PolishControllers")]
-    partial class PolishControllers
+    [Migration("20230214224429_InitialMigrate")]
+    partial class InitialMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,9 +27,11 @@ namespace monitKars.Migrations
 
             modelBuilder.Entity("monitKars.Entities.Car", b =>
                 {
-                    b.Property<Guid>("CarID")
+                    b.Property<int>("CarID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CarID"));
 
                     b.Property<string>("CarColor")
                         .HasColumnType("text");
@@ -89,9 +91,11 @@ namespace monitKars.Migrations
 
             modelBuilder.Entity("monitKars.Entities.Organisation", b =>
                 {
-                    b.Property<Guid>("OrganisationID")
+                    b.Property<int>("OrganisationID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("OrganisationID"));
 
                     b.Property<int?>("NumberOfCars")
                         .HasColumnType("integer");
@@ -118,9 +122,11 @@ namespace monitKars.Migrations
 
             modelBuilder.Entity("monitKars.Entities.User", b =>
                 {
-                    b.Property<Guid>("UserID")
+                    b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("UserID"));
 
                     b.Property<int?>("CarID")
                         .HasColumnType("integer");
