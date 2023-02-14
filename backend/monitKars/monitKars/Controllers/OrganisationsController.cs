@@ -12,47 +12,47 @@ namespace monitKars.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class OrganisationsController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public UsersController(DataContext context)
+        public OrganisationsController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Users
+        // GET: api/Organisations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<Organisation>>> GetOrganisations()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Organisations.ToListAsync();
         }
 
-        // GET: api/Users/5
+        // GET: api/Organisations/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<Organisation>> GetOrganisation(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var organisation = await _context.Organisations.FindAsync(id);
 
-            if (user == null)
+            if (organisation == null)
             {
                 return NotFound();
             }
 
-            return user;
+            return organisation;
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Organisations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(Guid id, User user)
+        public async Task<IActionResult> PutOrganisation(Guid id, Organisation organisation)
         {
-            if (id != user.UserID)
+            if (id != organisation.OrganisationID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(organisation).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace monitKars.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!OrganisationExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace monitKars.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Organisations
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<Organisation>> PostOrganisation(Organisation organisation)
         {
-            _context.Users.Add(user);
+            _context.Organisations.Add(organisation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserID }, user);
+            return CreatedAtAction("GetOrganisation", new { id = organisation.OrganisationID }, organisation);
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/Organisations/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteOrganisation(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var organisation = await _context.Organisations.FindAsync(id);
+            if (organisation == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Organisations.Remove(organisation);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool UserExists(Guid id)
+        private bool OrganisationExists(Guid id)
         {
-            return _context.Users.Any(e => e.UserID == id);
+            return _context.Organisations.Any(e => e.OrganisationID == id);
         }
     }
 }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitKars", "monitKars\monitKars.csproj", "{32DDC6A2-A1D8-4515-98C4-C6A5941B4EFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "monitKars", "monitKars\monitKars.csproj", "{98F3EACB-7A39-47F8-87D8-2240409A3DEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{32DDC6A2-A1D8-4515-98C4-C6A5941B4EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{32DDC6A2-A1D8-4515-98C4-C6A5941B4EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{32DDC6A2-A1D8-4515-98C4-C6A5941B4EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{32DDC6A2-A1D8-4515-98C4-C6A5941B4EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F3EACB-7A39-47F8-87D8-2240409A3DEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F3EACB-7A39-47F8-87D8-2240409A3DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F3EACB-7A39-47F8-87D8-2240409A3DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F3EACB-7A39-47F8-87D8-2240409A3DEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {0ACF0B43-29C8-4FD5-8124-9D8A951275AC}
+		SolutionGuid = {223BE22F-C59A-4A0D-9196-746B1266E575}
 	EndGlobalSection
 EndGlobal

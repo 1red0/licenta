@@ -12,47 +12,47 @@ namespace monitKars.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class CarsController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public UsersController(DataContext context)
+        public CarsController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Users
+        // GET: api/Cars
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<Car>>> GetCars()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Cars.ToListAsync();
         }
 
-        // GET: api/Users/5
+        // GET: api/Cars/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<Car>> GetCar(Guid id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var car = await _context.Cars.FindAsync(id);
 
-            if (user == null)
+            if (car == null)
             {
                 return NotFound();
             }
 
-            return user;
+            return car;
         }
 
-        // PUT: api/Users/5
+        // PUT: api/Cars/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(Guid id, User user)
+        public async Task<IActionResult> PutCar(Guid id, Car car)
         {
-            if (id != user.UserID)
+            if (id != car.CarID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(car).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace monitKars.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!CarExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace monitKars.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Cars
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<Car>> PostCar(Car car)
         {
-            _context.Users.Add(user);
+            _context.Cars.Add(car);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserID }, user);
+            return CreatedAtAction("GetCar", new { id = car.CarID }, car);
         }
 
-        // DELETE: api/Users/5
+        // DELETE: api/Cars/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteCar(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var car = await _context.Cars.FindAsync(id);
+            if (car == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.Cars.Remove(car);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool UserExists(Guid id)
+        private bool CarExists(Guid id)
         {
-            return _context.Users.Any(e => e.UserID == id);
+            return _context.Cars.Any(e => e.CarID == id);
         }
     }
 }

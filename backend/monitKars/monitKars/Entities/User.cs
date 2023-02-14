@@ -8,12 +8,17 @@ namespace monitKars.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Username { get; set; }
-
-        [JsonIgnore]
-        public string PasswordHash { get; set; }
+        public Guid UserID { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? UserName { get; set; }
+        public string? DateOfBirth { get; set; }
+        public string? Email { get; set; }
+        public string? phone { get; set; }
+        public string? Gender { get; set; }
+        public string? Role { get; set; }
+        public int? OrganisationID { get; set; }
+        public int? CarID { get; set; }
+        public string? Password { get; set; }
     }
 }

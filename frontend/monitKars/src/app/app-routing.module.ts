@@ -1,50 +1,71 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DefaultComponent } from './layouts/default/default.component';
-import { AccountComponent } from './modules/account/account.component';
-import { CarComponent } from './modules/car/car.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { PostsComponent } from './modules/posts/posts.component';
-import { RegisterComponent } from './modules/register/register.component';
-import { SearchComponent } from './modules/search/search.component';
-import { SettingsComponent } from './modules/settings/settings.component';
+import { AccountComponent } from './components/account/account.component';
+import { AddcarComponent } from './components/addcar/addcar.component';
+import { AdduserComponent } from './components/adduser/adduser.component';
+import { CarComponent } from './components/car/car.component';
+import { CarlistComponent } from './components/carlist/carlist.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DriversComponent } from './components/drivers/drivers.component';
+import { LoginComponent } from './components/login/login.component';
+import { OrganisationComponent } from './components/organisation/organisation.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { StartPageComponent } from './components/start-page/start-page.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    title: 'monitKars', 
-    component: DefaultComponent, 
-    children: [{
-      path: '', 
-      component: DashboardComponent
-    }, {
-      path: 'posts',
-      component: PostsComponent
-    }, {
-      path: 'settings',
-      component: SettingsComponent
-    }, {
-      path: 'account',
-      component: AccountComponent,
-    },
-    {
-      path: 'search',
-      component: SearchComponent
-    }, {
-      path: 'login', 
-      component: RegisterComponent
-    }, {
-      path: 'car',
-      component: CarComponent
-    }, {
-      path: 'logout',
-      component: RegisterComponent
-    }, {
-      path: 'register',
-      component: RegisterComponent
-    },
-    
-  ]
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'account',
+    component: AccountComponent
+  },
+  {
+    path: 'car',
+    component: CarComponent
+  },
+  {
+    path: 'carlist',
+    component: CarlistComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'adduser',
+    component: AdduserComponent
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent
+  },
+  {
+    path: 'drivers',
+    component: DriversComponent
+  },
+  {
+    path: 'welcome',
+    component: StartPageComponent
+  },
+  {
+    path: 'organisation',
+    component: OrganisationComponent
+  },
+  {
+    path: 'addcar',
+    component: AddcarComponent
   },
 ];
 

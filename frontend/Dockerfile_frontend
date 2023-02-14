@@ -9,9 +9,9 @@ COPY monitKars .
 RUN npm cache clean --force
 # Install all the dependencies
 #RUN npm install
-RUN npm install --legacy-peer-deps && npm install -g @angular/cli@15.0.0 --legacy-peer-deps
+RUN npm install && npm install -g @angular/cli@15.0.0
 
-RUN npm audit fix --legacy-peer-deps
+RUN npm audit fix
 # Generate the build of the application
 
 RUN ng build --output-hashing=all --optimization

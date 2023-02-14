@@ -1,47 +1,31 @@
-using monitKars.Authorization;
-using monitKars.Helpers;
-using monitKars.Services;
 using Microsoft.EntityFrameworkCore;
+using monitKars.Data;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase"));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<DataContext, PostgresqlDataContext>();
-
-{
-    var services = builder.Services;
-    var env = builder.Environment;
-
-    services.AddCors();
-    services.AddControllers();
-
-    // configure automapper with all automapper profiles from this assembly
-    services.AddAutoMapper(typeof(Program));
-
-    // configure strongly typed settings object
-    services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-
-    // configure DI for application services
-    services.AddScoped<IJwtUtils, JwtUtils>();
-    services.AddScoped<IUserService, UserService>();
-}
-
-
 
 var app = builder.Build();
 
-// migrate any database changes on startup (includes initial db creation)
+// Migrate latest database changes during startup
 using (var scope = app.Services.CreateScope())
 {
-    var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
-    dataContext.Database.Migrate();
-}
+    var dbContext = scope.ServiceProvider
+        .GetRequiredService<DataContext>();
 
+    // Here is the migration executed
+    dbContext.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -50,18 +34,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// global cors policy
 app.UseCors(x => x
-    .AllowAnyOrigin()
     .AllowAnyMethod()
-    .AllowAnyHeader());
-
-// global error handler
-app.UseMiddleware<ErrorHandlerMiddleware>();
-
-// custom jwt auth middleware
-app.UseMiddleware<JwtMiddleware>();
-
-app.MapControllers();
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
 
 app.UseHttpsRedirection();
 
