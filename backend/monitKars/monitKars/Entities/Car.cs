@@ -25,6 +25,7 @@ namespace monitKars.Entities
         public string? CarPlateNumber { get; set; }
         public string? CarVinNumber { get; set; }
         public string? CarType { get; set; }
+        public string? CarOrganisation { get; set;}
 
     }
 }

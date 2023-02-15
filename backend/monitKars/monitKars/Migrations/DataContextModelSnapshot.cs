@@ -57,6 +57,9 @@ namespace monitKars.Migrations
                     b.Property<string>("CarOil")
                         .HasColumnType("text");
 
+                    b.Property<string>("CarOrganisation")
+                        .HasColumnType("text");
+
                     b.Property<int?>("CarOwnerID")
                         .HasColumnType("integer");
 
@@ -143,8 +146,8 @@ namespace monitKars.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
-                    b.Property<int?>("OrganisationID")
-                        .HasColumnType("integer");
+                    b.Property<string>("OrganisationName")
+                        .HasColumnType("text");
 
                     b.Property<string>("Password")
                         .HasColumnType("text");

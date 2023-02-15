@@ -42,6 +42,14 @@ namespace monitKars.Controllers
             return user;
         }
 
+        // GET: api/Users/role/
+        [HttpGet("role/{role}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetDriver(string role)
+        {
+
+            return await _context.Users.Where(m => m.Role == role).ToListAsync();
+        }
+
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

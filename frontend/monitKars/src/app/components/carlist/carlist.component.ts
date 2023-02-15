@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarsService } from 'src/app/services/cars/cars.service';
 import { Router } from '@angular/router'
 import { Car } from 'src/app/models/car.model';
@@ -8,7 +8,7 @@ import { Car } from 'src/app/models/car.model';
   templateUrl: './carlist.component.html',
   styleUrls: ['./carlist.component.scss']
 })
-export class CarlistComponent {
+export class CarlistComponent implements OnInit{
 
   CarsList = <Car[]>{};
 

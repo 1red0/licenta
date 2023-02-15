@@ -8,7 +8,7 @@ export interface User {
     phone?: string;
     gender?: string;
     role?: string;
-    organisationID?: number;
+    organisationName?: string;
     carID?: number;
     password?: string;
 }

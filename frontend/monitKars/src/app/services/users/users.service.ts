@@ -30,5 +30,13 @@ export class UsersService {
   deleteUser(id: number): Observable<User>{
     return this._http.delete<User>(environment.baseApiUrl + 'api/Users/' + id)
   }
+
+  getDrivers(role: string): Observable<User[]>{
+    return this._http.get<User[]>(environment.baseApiUrl + 'api/Users/role/' + role)
+  }
+
+  getAdmin(id: number): Observable<User>{
+    return this._http.get<User>(environment.baseApiUrl + 'api/Users/' + id)
+  }
   
 }

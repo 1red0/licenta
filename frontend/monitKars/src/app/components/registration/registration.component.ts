@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder} from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 import { Organisation } from 'src/app/models/organisation.model';
 import { User } from 'src/app/models/user.model';
 import { OrganisationService } from 'src/app/services/organisations/organisation.service';
@@ -14,7 +15,7 @@ export class RegistrationComponent implements OnInit{
 
   rForm = <FormGroup>{};
 
-  constructor(private userService: UsersService, private organisationService: OrganisationService, private formBuilder: FormBuilder){}
+  constructor(private _router: Router, private userService: UsersService, private organisationService: OrganisationService, private formBuilder: FormBuilder){}
 
   ngOnInit() {
     this.rForm = this.formBuilder.group({
@@ -39,8 +40,6 @@ export class RegistrationComponent implements OnInit{
 
   register(){
 
-    console.log("register");
-
     this.organisation.organisationName = this.rForm.value.orgName;
     this.organisation.organisationAddress = this.rForm.value.orgAddress;
     this.organisation.organisationMail = this.rForm.value.orgMail;
@@ -54,13 +53,19 @@ export class RegistrationComponent implements OnInit{
     this.admin.lastName = this.rForm.value.adminlastN;
     this.admin.phone = this.rForm.value.adminPhone;
 
+    this.admin.organisationName = this.rForm.value.orgName;
+
     this.admin.password = this.rForm.value.adminPass;
     
 
-    this.organisationService.postOrganisation(this.organisation).subscribe(data => console.log(data));
-    this.userService.postUser(this.admin).subscribe(data => console.log(data));
+    this.organisationService.postOrganisation(this.organisation).subscribe();
+    this.userService.postUser(this.admin).subscribe();
 
-    window.location.reload(); 
+    window.location.reload();
+
+    this._router.navigate(['login']).then(() => {
+      window.location.reload();
+    });
     
   }
 

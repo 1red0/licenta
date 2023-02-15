@@ -12,8 +12,8 @@ using monitKars.Data;
 namespace monitKars.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230214224429_InitialMigrate")]
-    partial class InitialMigrate
+    [Migration("20230215142654_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,9 @@ namespace monitKars.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("CarOil")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CarOrganisation")
                         .HasColumnType("text");
 
                     b.Property<int?>("CarOwnerID")
@@ -146,8 +149,8 @@ namespace monitKars.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("text");
 
-                    b.Property<int?>("OrganisationID")
-                        .HasColumnType("integer");
+                    b.Property<string>("OrganisationName")
+                        .HasColumnType("text");
 
                     b.Property<string>("Password")
                         .HasColumnType("text");

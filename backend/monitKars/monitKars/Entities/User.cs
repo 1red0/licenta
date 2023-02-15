@@ -17,7 +17,7 @@ namespace monitKars.Entities
         public string? phone { get; set; }
         public string? Gender { get; set; }
         public string? Role { get; set; }
-        public int? OrganisationID { get; set; }
+        public string? OrganisationName { get; set; }
         public int? CarID { get; set; }
         public string? Password { get; set; }
     }

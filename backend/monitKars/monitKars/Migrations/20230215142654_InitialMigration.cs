@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace monitKars.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,7 +33,8 @@ namespace monitKars.Migrations
                     CarPeriodicRevision = table.Column<string>(type: "text", nullable: true),
                     CarPlateNumber = table.Column<string>(type: "text", nullable: true),
                     CarVinNumber = table.Column<string>(type: "text", nullable: true),
-                    CarType = table.Column<string>(type: "text", nullable: true)
+                    CarType = table.Column<string>(type: "text", nullable: true),
+                    CarOrganisation = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -72,7 +73,7 @@ namespace monitKars.Migrations
                     phone = table.Column<string>(type: "text", nullable: true),
                     Gender = table.Column<string>(type: "text", nullable: true),
                     Role = table.Column<string>(type: "text", nullable: true),
-                    OrganisationID = table.Column<int>(type: "integer", nullable: true),
+                    OrganisationName = table.Column<string>(type: "text", nullable: true),
                     CarID = table.Column<int>(type: "integer", nullable: true),
                     Password = table.Column<string>(type: "text", nullable: true)
                 },
