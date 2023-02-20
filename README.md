@@ -5,7 +5,13 @@
 ```text
 .
 ├── backend
+|   ├── monitKars
+|   └── Dockerfile_backend
 ├── frontend
+|   ├── monitKars
+|   ├── Dockerfile_frontend
+|   └── ngin_angular.conf
+|
 ├── docker-compose.yaml
 └── README.md
 ```
