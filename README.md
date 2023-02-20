@@ -3,9 +3,9 @@
 ## Structure
 
 .
-├── backend                      # The sourcecode for the backend
-├── frontend                     # The sourcecode for the frontend
-├── docker-compose.yaml          # The docker-compose file that contains the services for the project
+├── backend
+├── frontend
+├── docker-compose.yaml
 └── README.md
 
 ## Prerequirements
