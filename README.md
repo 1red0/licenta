@@ -2,11 +2,13 @@
 
 ## Structure
 
+```text
 .
 ├── backend
 ├── frontend
 ├── docker-compose.yaml
 └── README.md
+```
 
 ## Prerequirements
 
