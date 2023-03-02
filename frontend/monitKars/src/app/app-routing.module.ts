@@ -12,60 +12,74 @@ import { OrganisationComponent } from './components/organisation/organisation.co
 import { RegistrationComponent } from './components/registration/registration.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
+import { AuthGuardService } from './services/auth/auth-guard.service';
+import { NoAuthGuardService } from './services/auth/no-auth-guard.service';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
+    redirectTo: 'dashboard', 
+    pathMatch: 'full' 
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'account',
-    component: AccountComponent
+    component: AccountComponent, 
+    canActivate: [AuthGuardService]
   },
   {
     path: 'car',
-    component: CarComponent
+    component: CarComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'carlist',
-    component: CarlistComponent
+    component: CarlistComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'settings',
-    component: SettingsComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
+    component: SettingsComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'adduser',
-    component: AdduserComponent
-  },
-  {
-    path: 'register',
-    component: RegistrationComponent
+    component: AdduserComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'drivers',
-    component: DriversComponent
-  },
-  {
-    path: 'welcome',
-    component: StartPageComponent
+    component: DriversComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'organisation',
-    component: OrganisationComponent
+    component: OrganisationComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'addcar',
-    component: AddcarComponent
+    component: AddcarComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'register',
+    component: RegistrationComponent,
+    canActivate: [NoAuthGuardService]
+  },
+  {
+    path: 'welcome',
+    component: StartPageComponent,
+    canActivate: [NoAuthGuardService]
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [NoAuthGuardService]
   },
 ];
 

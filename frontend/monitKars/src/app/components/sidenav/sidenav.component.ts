@@ -1,8 +1,9 @@
 import { Component, Output, EventEmitter, OnInit} from '@angular/core';
-import { navbarData } from './data/nav-data-admin';
-import { navbarDataDriver } from './data/nav-data-driver';
 import { navbarDataStart } from './data/nav-data-start';
-import { logoutbutton } from './data/nav-logout';
+import { AuthAdminService } from 'src/app/services/auth/auth-admin.service';
+import { AuthDriverService } from 'src/app/services/auth/auth-driver.service';
+import { navbarDataDriver } from './data/nav-data-driver';
+import { navbarData } from './data/nav-data-admin';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -16,15 +17,25 @@ interface SideNavToggle {
 })
 export class SidenavComponent implements OnInit {
 
+  constructor(private authDriver: AuthDriverService, private authAdmin: AuthAdminService) { 
+
+  }
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
-  navData = navbarData;
 
-  navlobutton = logoutbutton ;
+  navData = navbarDataStart;
 
   ngOnInit(): void{
     this.screenWidth = window.innerWidth;
+    if(this.authAdmin.IsAuthenticated()){
+      this.navData = navbarData;
+    }else if(this.authDriver.IsAuthenticated()){
+      this.navData = navbarDataDriver;
+    }else{
+      this.navData = navbarDataStart;
+    }
   }
 
   toggleCollapse(): void {

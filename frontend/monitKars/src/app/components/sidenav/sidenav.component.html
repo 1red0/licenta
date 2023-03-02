@@ -19,18 +19,4 @@
         </li>
     </ul>
 
-    <div class="sidenav-nav-logout">
-        <ul class="sidenav-nav">
-            <li class="sidenav-nav-item" *ngFor="let lobutton of navlobutton">
-                <a class="sidenav-nav-link" [routerLink]="[lobutton.routeLink]"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}"
-                >
-                    <i class="sidenav-link-icon" [class]="lobutton.icon"></i>
-                    <span class="sidenav-link-text" *ngIf="collapsed">{{lobutton.label}}</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
 </div>

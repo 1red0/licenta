@@ -24,6 +24,10 @@ import { AdduserComponent } from './components/adduser/adduser.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuardService } from './services/auth/auth-guard.service';
+import { AuthAdminService } from './services/auth/auth-admin.service';
+import { AuthDriverService } from './services/auth/auth-driver.service';
+import { NoAuthGuardService } from './services/auth/no-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthAdminService, AuthDriverService, SidenavComponent, NoAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
