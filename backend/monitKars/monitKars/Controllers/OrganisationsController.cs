@@ -42,6 +42,13 @@ namespace monitKars.Controllers
             return organisation;
         }
 
+        // GET: api/Organisations/name/TestOrg
+        [HttpGet("name/{orgName}")]
+        public async Task<ActionResult<IEnumerable<Organisation>>> GetOrganisationName(string orgName)
+        {
+            return await _context.Organisations.Where(m => m.OrganisationName == orgName).ToListAsync();
+        }
+
         // PUT: api/Organisations/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

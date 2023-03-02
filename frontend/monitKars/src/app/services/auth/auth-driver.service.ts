@@ -7,7 +7,7 @@ export class AuthDriverService {
 
   constructor(){}
 
-  loggedIn: boolean = true;
+  loggedIn: boolean = false;
 
   login(){
     this.loggedIn = true;

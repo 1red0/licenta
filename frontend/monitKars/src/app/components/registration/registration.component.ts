@@ -36,8 +36,6 @@ export class RegistrationComponent implements OnInit{
   organisation = <Organisation>{};
   admin = <User>{};
 
-  
-
   register(){
 
     this.organisation.organisationName = this.rForm.value.orgName;

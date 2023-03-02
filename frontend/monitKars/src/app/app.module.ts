@@ -28,6 +28,7 @@ import { AuthGuardService } from './services/auth/auth-guard.service';
 import { AuthAdminService } from './services/auth/auth-admin.service';
 import { AuthDriverService } from './services/auth/auth-driver.service';
 import { NoAuthGuardService } from './services/auth/no-auth-guard.service';
+import { OrganisationService } from './services/organisations/organisation.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { NoAuthGuardService } from './services/auth/no-auth-guard.service';
     ReactiveFormsModule,
     
   ],
-  providers: [AuthGuardService, AuthAdminService, AuthDriverService, SidenavComponent, NoAuthGuardService],
+  providers: [AuthGuardService, AuthAdminService, AuthDriverService, SidenavComponent, NoAuthGuardService, LoginComponent, OrganisationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

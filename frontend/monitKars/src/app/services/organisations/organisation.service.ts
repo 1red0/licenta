@@ -19,6 +19,10 @@ export class OrganisationService {
     return this._http.get<Organisation>(environment.baseApiUrl + 'api/Organisations/' + id)
   }
 
+  getOrganisationName(name: string){
+    return this._http.get<Organisation>(environment.baseApiUrl + 'api/Organisations/name/' + name)
+  }
+
   updateOrganisation(id: number, Organisation: Organisation): Observable<Organisation>{
     return this._http.put<Organisation>(environment.baseApiUrl + 'api/Organisations/' + id, Organisation)
   }

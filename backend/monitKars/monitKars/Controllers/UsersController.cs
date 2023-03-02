@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +41,12 @@ namespace monitKars.Controllers
             }
 
             return user;
+        }
+        // GET: api/Users/username/admin
+        [HttpGet("username/{username}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetUserName(string username)
+        {
+            return await _context.Users.Where(m => m.UserName == username).ToListAsync();
         }
 
         // GET: api/Users/role/
