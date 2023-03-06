@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -59,29 +58,6 @@ namespace monitKars.Migrations
                 {
                     table.PrimaryKey("PK_Organisation", x => x.OrganisationID);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: true),
-                    Emailconstraint = table.Column<string>(name: "Email_constraint", type: "text", nullable: true),
-                    Emailverified = table.Column<string>(name: "Email_verified", type: "text", nullable: true),
-                    Enabled = table.Column<bool>(type: "boolean", nullable: true),
-                    Federationlink = table.Column<string>(name: "Federation_link", type: "text", nullable: true),
-                    Firstname = table.Column<string>(name: "First_name", type: "text", nullable: true),
-                    Lastname = table.Column<string>(name: "Last_name", type: "text", nullable: true),
-                    RealmId = table.Column<string>(name: "Realm_Id", type: "text", nullable: true),
-                    Username = table.Column<string>(type: "text", nullable: true),
-                    Createdtimestamp = table.Column<BigInteger>(name: "Created_timestamp", type: "numeric", nullable: true),
-                    Serviceaccountclientlink = table.Column<string>(name: "Service_account_client_link", type: "text", nullable: true),
-                    Notbefore = table.Column<string>(name: "Not_before", type: "text", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.Id);
-                });
         }
 
         /// <inheritdoc />
@@ -92,9 +68,6 @@ namespace monitKars.Migrations
 
             migrationBuilder.DropTable(
                 name: "Organisation");
-
-            migrationBuilder.DropTable(
-                name: "User");
         }
     }
 }
