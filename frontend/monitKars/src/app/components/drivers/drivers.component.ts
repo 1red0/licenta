@@ -15,7 +15,7 @@ export class DriversComponent implements OnInit{
   drivers = <User[]>{};
 
   ngOnInit(){
-    this.userService.getDrivers("driver").subscribe((res)=>{this.drivers=res});
+    this.userService.getUsers2().subscribe((res)=>{this.drivers=res});
   }
 
   showDriver(id: number) {

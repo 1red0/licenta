@@ -15,6 +15,10 @@ export class UsersService {
     return this._http.get<User[]>(environment.baseApiUrl + 'api/Users')
   }
 
+  getUsers2(): Observable<User[]>{
+    return this._http.get<User[]>("http://localhost:4335/admin/realms/master/users")
+  }
+
   getUser(id: number): Observable<User>{
     return this._http.get<User>(environment.baseApiUrl + 'api/Users/' + id)
   }
