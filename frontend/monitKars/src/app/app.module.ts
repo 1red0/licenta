@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -6,8 +6,6 @@ import { BodyComponent } from './components/body/body.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LoginComponent } from './components/login/login.component';
-import { RegistrationComponent } from './components/registration/registration.component';
 import { AccountComponent } from './components/account/account.component';
 import { CarComponent } from './components/car/car.component';
 import { CarlistComponent } from './components/carlist/carlist.component';
@@ -20,15 +18,14 @@ import { VignetteComponent } from './components/vignette/vignette.component';
 import { DriversComponent } from './components/drivers/drivers.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
-import { AdduserComponent } from './components/adduser/adduser.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth/auth-guard.service';
-import { AuthAdminService } from './services/auth/auth-admin.service';
-import { AuthDriverService } from './services/auth/auth-driver.service';
-import { NoAuthGuardService } from './services/auth/no-auth-guard.service';
 import { OrganisationService } from './services/organisations/organisation.service';
+import { initializeKeycloak } from './services/auth/keycloak-init.factory';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { AuthGuard } from './services/auth/auth-guard.guard';
 
 @NgModule({
   declarations: [
@@ -36,8 +33,6 @@ import { OrganisationService } from './services/organisations/organisation.servi
     BodyComponent,
     SidenavComponent,
     DashboardComponent,
-    LoginComponent,
-    RegistrationComponent,
     AccountComponent,
     CarComponent,
     CarlistComponent,
@@ -48,10 +43,7 @@ import { OrganisationService } from './services/organisations/organisation.servi
     DriversComponent,
     StartPageComponent,
     OrganisationComponent,
-    AdduserComponent,
     AddcarComponent,
-    
-    
   ],
   imports: [
     BrowserModule,
@@ -59,12 +51,21 @@ import { OrganisationService } from './services/organisations/organisation.servi
     FontAwesomeModule,
     NgChartsModule,
     NgToggleModule,
+    KeycloakAngularModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     
   ],
-  providers: [AuthGuardService, AuthAdminService, AuthDriverService, SidenavComponent, NoAuthGuardService, LoginComponent, OrganisationService],
+  providers: [AuthGuardService, SidenavComponent, OrganisationService, AuthGuard,
+    {
+    provide: APP_INITIALIZER,
+    useFactory: initializeKeycloak,
+    multi: true,
+    deps: [KeycloakService],
+  } 
+  ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

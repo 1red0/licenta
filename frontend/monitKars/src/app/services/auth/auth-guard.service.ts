@@ -1,29 +1,51 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthAdminService } from './auth-admin.service';
-import { AuthDriverService } from './auth-driver.service';
+import {  KeycloakService } from 'keycloak-angular';
+import { KeycloakProfile, KeycloakTokenParsed } from 'keycloak-js';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 @Injectable()
-export class AuthGuardService implements CanActivate{
+export class AuthGuardService{
 
-  constructor(private authDriver: AuthDriverService, private authAdmin: AuthAdminService, private router: Router) { 
-
+  constructor(private keycloakservice: KeycloakService) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    if(this.authAdmin.IsAuthenticated()){
-      return true;
-    }else if(this.authDriver.IsAuthenticated()){
-      return true;
-    }else{
-      this.router.navigate(['welcome']);
-      return false;
+  public getLoggedUser(): KeycloakTokenParsed | undefined {
+    try {
+      const userDetails: KeycloakTokenParsed | undefined = this.keycloakservice.getKeycloakInstance().idTokenParsed;
+      return userDetails;
+    } catch (e) {
+      console.error("Exception, e");
+      return undefined;
     }
   }
+
+  public isLoggedIn() : Promise<boolean> {
+    return this.keycloakservice.isLoggedIn();
+  }
+
+  public loadUserProfile() : Promise<KeycloakProfile> {
+    return this.keycloakservice.loadUserProfile();
+  }
+
+  public login() : void {
+    this.keycloakservice.login();
+  }
+
+  public logout() : void {
+    this.keycloakservice.logout(window.location.origin);
+  }
+
+  public redirectToProfile() : void {
+    this.keycloakservice.getKeycloakInstance().accountManagement();
+  }
+
+  public getRoles() : string[] {
+    return this.keycloakservice.getUserRoles();
+  }
+
+  }
   
-}

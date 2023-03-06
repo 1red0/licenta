@@ -1,9 +1,9 @@
 import { Component, Output, EventEmitter, OnInit} from '@angular/core';
 import { navbarDataStart } from './data/nav-data-start';
-import { AuthAdminService } from 'src/app/services/auth/auth-admin.service';
-import { AuthDriverService } from 'src/app/services/auth/auth-driver.service';
 import { navbarDataDriver } from './data/nav-data-driver';
 import { navbarData } from './data/nav-data-admin';
+import { ActivatedRoute} from '@angular/router';
+import { NavbarService } from 'src/app/services/navbar/navbar.service';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -17,7 +17,19 @@ interface SideNavToggle {
 })
 export class SidenavComponent implements OnInit {
 
-  constructor(private authDriver: AuthDriverService, private authAdmin: AuthAdminService) { 
+  // constructor(route: ActivatedRoute){
+  //   let snapshot = route.snapshot;
+  //   console.log(snapshot.data);
+  //   if(snapshot.data.roles?.includes("admin")){
+  //     this.navData = navbarData;
+  //   }else if(snapshot.data.roles?.includes("driver")){
+  //     this.navData = navbarDataDriver;
+  //   }else{
+  //     this.navData = navbarDataStart;
+  //   }
+  // }
+  controlere: any;
+  constructor(private service1: NavbarService){
 
   }
 
@@ -28,14 +40,9 @@ export class SidenavComponent implements OnInit {
   navData = navbarDataStart;
 
   ngOnInit(): void{
-    this.screenWidth = window.innerWidth;
-    if(this.authAdmin.IsAuthenticated()){
-      this.navData = navbarData;
-    }else if(this.authDriver.IsAuthenticated()){
-      this.navData = navbarDataDriver;
-    }else{
-      this.navData = navbarDataStart;
-    }
+    // this.controlere = this.service1.getRole(this.service1.getToken());
+    // console.log(this.service1.getRole(this.service1.getToken()));
+    console.log(this.service1.getToken());
   }
 
   toggleCollapse(): void {
