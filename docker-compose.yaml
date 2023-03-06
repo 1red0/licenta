@@ -1,20 +1,20 @@
 version: '3.8'
 services:
-  frontend:
-    container_name: frontend_container
-    restart: unless-stopped
-    environment:
-      BASE_API_URL: 'http://localhost:7148/'
-      AUTORITY: 'http://localhost:4335'
-      REALM: 'master'
-      CLIENT_ID: 'monitKars'
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile_frontend
-    ports:
-      - '4200:80'
-    networks:
-      - default
+  # frontend:
+  #   container_name: frontend_container
+  #   restart: unless-stopped
+  #   environment:
+  #     BASE_API_URL: 'http://localhost:7148/'
+  #     AUTORITY: 'http://localhost:4335'
+  #     REALM: 'master'
+  #     CLIENT_ID: 'monitKars'
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile_frontend
+  #   ports:
+  #     - '4200:80'
+  #   networks:
+  #     - default
 
   database:
     container_name: database_container
@@ -67,18 +67,18 @@ services:
     networks:
       - default
 
-  backend:
-    container_name: backend_container
-    restart: unless-stopped
-    build:
-      context: ./backend
-      dockerfile: Dockerfile_backend
-    environment:
-    - ConnectionStrings__WebApiDatabase=Host=database;Port=5432;Database=monitKars;Username=postgres;Password=postgres
-    ports:
-      - '7148:80'
-    networks:
-      - default
+  # backend:
+  #   container_name: backend_container
+  #   restart: unless-stopped
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile_backend
+  #   environment:
+  #   - ConnectionStrings__WebApiDatabase=Host=database;Port=5432;Database=monitKars;Username=postgres;Password=postgres
+  #   ports:
+  #     - '7148:80'
+  #   networks:
+  #     - default
   
 volumes:
   database:
