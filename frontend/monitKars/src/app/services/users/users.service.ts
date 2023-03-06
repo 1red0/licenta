@@ -12,7 +12,11 @@ export class UsersService {
     constructor(private _http:HttpClient) { }
 
   getUsers(): Observable<User[]>{
-    return this._http.get<User[]>(environment.autority + "admin/realms/master/users")
+    return this._http.get<User[]>(environment.autority + "/admin/realms/master/users")
+  }
+
+  getUser(id: string): Observable<User>{
+    return this._http.get<User>(environment.autority + "/admin/realms/master/users/" + id)
   }
   
 }

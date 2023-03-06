@@ -11,9 +11,9 @@ export class AccountComponent {
 
   User:any;
 
-  idAcc:any = this.route.snapshot.paramMap.get('userID')
-  
   constructor(private userService:UsersService, private route: ActivatedRoute){}
+
+  idAcc:any = this.route.snapshot.paramMap.get('userID')
 
   ngOnInit(){
     

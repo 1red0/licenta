@@ -8,6 +8,7 @@ services:
   #     AUTORITY: 'http://localhost:4335'
   #     REALM: 'master'
   #     CLIENT_ID: 'monitKars'
+  #     SCOPE: "openid profile email roles"
   #   build:
   #     context: ./frontend
   #     dockerfile: Dockerfile_frontend

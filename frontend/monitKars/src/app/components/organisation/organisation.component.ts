@@ -16,7 +16,7 @@ export class OrganisationComponent {
   ngOnInit(){
     
 
-    this.organisationService.getOrganisation(1).subscribe((res)=>{this.organisation=res;})
+    // this.organisationService.getOrganisation(1).subscribe((res)=>{this.organisation=res;})
   }
   
 }

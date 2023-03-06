@@ -6,4 +6,5 @@
     window["env"]["autority"] = "${AUTORITY}";
     window["env"]["autorityRealm"] = "${REALM}";
     window["env"]["autorityClientId"] = "${CLIENT_ID}"
+    window["env"]["scope"] = "${SCOPE}"
   })(this);

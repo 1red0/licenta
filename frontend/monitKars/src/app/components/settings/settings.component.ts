@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuardService } from 'src/app/services/auth/auth-guard.service';
 
 @Component({
   selector: 'app-settings',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent {
+
+  constructor(private kcService: AuthGuardService){}
+
+  logout(){
+    this.kcService.logout();
+  }
+
 
 }

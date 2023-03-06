@@ -1,14 +1,8 @@
 export interface User {
-    userID: number;
-    userName?: string;
+    id: number;
+    username?: string;
     firstName?: string;
     lastName?: string;
-    dateOfBirth?: string;
     email?: string;
-    phone?: string;
-    gender?: string;
     role?: string;
-    organisationName?: string;
-    carID?: number;
-    password?: string;
 }

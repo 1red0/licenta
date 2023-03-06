@@ -9,10 +9,10 @@
       <tr *ngFor="let driver of drivers">
         <td>
           <i class="fas fa-user"></i>
-          <span>{{driver.userID}} - {{driver.firstName}} {{driver.lastName}}</span>
+          <span>{{driver.username}} - {{driver.firstName}} {{driver.lastName}}</span>
         </td>
         <td>
-          <button class="show_driver" type="submit" (click)="showDriver(driver.userID)">See driver</button>
+          <button class="show_driver" type="submit" (click)="showDriver(driver.id)">See driver</button>
           <button class="edit_driver" type="submit">Edit driver</button>
           <button class="delete_driver" type="submit">Delete driver</button>
         </td>
