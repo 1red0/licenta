@@ -3,6 +3,11 @@ services:
   # frontend:
   #   container_name: angular_container
   #   restart: unless-stopped
+  #   environment:
+  #     BASE_API_URL: 'http://localhost:7148/'
+  #     AUTORITY: 'http://localhost:4335'
+  #     REALM: 'master'
+  #     CLIENT_ID: 'monitKars'
   #   build:
   #     context: ./frontend
   #     dockerfile: Dockerfile_frontend
@@ -23,6 +28,7 @@ services:
       - '5432:5432'
     volumes: 
       - database:/var/lib/postgresql/data
+      - ./create_db_keycloak.sh:/docker-entrypoint-initdb.d/create_db_keycloak.sh
     networks:
       - default
     
@@ -31,8 +37,8 @@ services:
     restart: unless-stopped
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@postgres.com
-      PGADMIN_DEFAULT_PASSWORD: postgres
+      PGADMIN_DEFAULT_EMAIL: admin@mk.com
+      PGADMIN_DEFAULT_PASSWORD: P@ssw0rd
     ports:
       - '3100:80'
     volumes:
@@ -51,14 +57,12 @@ services:
     environment:
       KC_DB: postgres
       KC_DB_URL_HOST: database
-      KC_DB_URL_DATABASE: postgres
+      KC_DB_URL_DATABASE: keycloak
       KC_DB_SCHEMA: public
       KC_DB_USERNAME: postgres
       KC_DB_PASSWORD: postgres
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: P@ssw0rd
-      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
-      #JDBC_PARAMS: "ssl=true"
     command: ['start-dev']
     networks:
       - default

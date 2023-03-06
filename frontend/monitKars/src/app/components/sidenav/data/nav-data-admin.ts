@@ -25,11 +25,6 @@ export const navbarData = [
         label: 'Drivers'
     },
     {
-        routeLink: 'adduser',
-        icon: 'fa-solid fa-user-plus',
-        label: 'Add driver'
-    },
-    {
         routeLink: 'addcar',
         icon: 'fa-solid fa-plus',
         label: 'Add car'

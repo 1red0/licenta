@@ -21,19 +21,19 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["driver", "admin"]}
+    data: {roles : ["user"]}
   },
   {
     path: 'account',
     component: AccountComponent, 
     canActivate: [AuthGuard],
-    data: {roles : ["driver", "admin"]}
+    data: {roles : ["user"]}
   },
   {
     path: 'car',
     component: CarComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["driver", "admin"]}
+    data: {roles : ["driver"]}
   },
   {
     path: 'carlist',
@@ -45,7 +45,7 @@ const routes: Routes = [
     path: 'settings',
     component: SettingsComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["driver", "admin"]}
+    data: {roles : ["user"]}
   },
   {
     path: 'drivers',

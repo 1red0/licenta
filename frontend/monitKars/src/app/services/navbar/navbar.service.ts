@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
+import { KeycloakService } from 'keycloak-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NavbarService {
 
-  constructor() { }
-  tokenrespone: any;
+  roleAdmin: boolean = false;
+  roleDriver: boolean = false;
+  
+  constructor(public kc: KeycloakService ) {
+  this.roleAdmin=kc.isUserInRole("admin");
+  this.roleDriver=kc.isUserInRole("driver"); }
 
-  getRole(token: any){
-    let _token=token.split('.')[1];
-    this.tokenrespone=JSON.parse(_token);
-    console.log(this.tokenrespone);
-  }
-
-  public async getToken(){
-    return sessionStorage.getItem('token');
-  }
 }
