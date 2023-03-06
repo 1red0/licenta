@@ -13,7 +13,7 @@ namespace monitKars.Entities
         public string? CarColor { get; set; }
         public string? CarVignette { get; set; }
         public string? CarInsurance { get; set; }
-        public int? CarOwnerID { get; set; }
+        public string? CarOwnerID { get; set; }
         public string? CarMilage { get; set; }
         public string? CarMaintenanceStatus { get; set; }
         public string? CarManufacturer { get; set; }

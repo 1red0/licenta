@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Numerics;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -6,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace monitKars.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,7 +23,7 @@ namespace monitKars.Migrations
                     CarColor = table.Column<string>(type: "text", nullable: true),
                     CarVignette = table.Column<string>(type: "text", nullable: true),
                     CarInsurance = table.Column<string>(type: "text", nullable: true),
-                    CarOwnerID = table.Column<int>(type: "integer", nullable: true),
+                    CarOwnerID = table.Column<string>(type: "text", nullable: true),
                     CarMilage = table.Column<string>(type: "text", nullable: true),
                     CarMaintenanceStatus = table.Column<string>(type: "text", nullable: true),
                     CarManufacturer = table.Column<string>(type: "text", nullable: true),
@@ -63,23 +64,23 @@ namespace monitKars.Migrations
                 name: "User",
                 columns: table => new
                 {
-                    UserID = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    FirstName = table.Column<string>(type: "text", nullable: true),
-                    LastName = table.Column<string>(type: "text", nullable: true),
-                    UserName = table.Column<string>(type: "text", nullable: true),
-                    DateOfBirth = table.Column<string>(type: "text", nullable: true),
+                    Id = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: true),
-                    phone = table.Column<string>(type: "text", nullable: true),
-                    Gender = table.Column<string>(type: "text", nullable: true),
-                    Role = table.Column<string>(type: "text", nullable: true),
-                    OrganisationName = table.Column<string>(type: "text", nullable: true),
-                    CarID = table.Column<int>(type: "integer", nullable: true),
-                    Password = table.Column<string>(type: "text", nullable: true)
+                    Emailconstraint = table.Column<string>(name: "Email_constraint", type: "text", nullable: true),
+                    Emailverified = table.Column<string>(name: "Email_verified", type: "text", nullable: true),
+                    Enabled = table.Column<bool>(type: "boolean", nullable: true),
+                    Federationlink = table.Column<string>(name: "Federation_link", type: "text", nullable: true),
+                    Firstname = table.Column<string>(name: "First_name", type: "text", nullable: true),
+                    Lastname = table.Column<string>(name: "Last_name", type: "text", nullable: true),
+                    RealmId = table.Column<string>(name: "Realm_Id", type: "text", nullable: true),
+                    Username = table.Column<string>(type: "text", nullable: true),
+                    Createdtimestamp = table.Column<BigInteger>(name: "Created_timestamp", type: "numeric", nullable: true),
+                    Serviceaccountclientlink = table.Column<string>(name: "Service_account_client_link", type: "text", nullable: true),
+                    Notbefore = table.Column<string>(name: "Not_before", type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserID);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
         }
 

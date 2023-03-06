@@ -73,16 +73,6 @@ namespace monitKars.Controllers
             return NoContent();
         }
 
-        // POST: api/Cars
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Car>> PostCar(Car car)
-        {
-            _context.Cars.Add(car);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCar", new { id = car.CarID }, car);
-        }
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]

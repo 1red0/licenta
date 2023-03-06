@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+using System.Numerics;
 
 namespace monitKars.Entities
 {
@@ -8,17 +8,19 @@ namespace monitKars.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserID { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-        public string? UserName { get; set; }
-        public string? DateOfBirth { get; set; }
+        public string? Id { get; set; }
         public string? Email { get; set; }
-        public string? phone { get; set; }
-        public string? Gender { get; set; }
-        public string? Role { get; set; }
-        public string? OrganisationName { get; set; }
-        public int? CarID { get; set; }
-        public string? Password { get; set; }
+        public string? Email_constraint { get; set; }
+        public string? Email_verified { get; set; }
+        public bool? Enabled { get; set; }
+        public string? Federation_link { get; set; }
+        public string? First_name { get; set; }
+        public string? Last_name { get; set; }
+        public string? Realm_Id { get; set; }
+        public string? Username { get; set; }
+        public BigInteger? Created_timestamp { get; set; }
+        public string? Service_account_client_link { get; set; }
+        public string? Not_before { get; set; }
+
     }
 }

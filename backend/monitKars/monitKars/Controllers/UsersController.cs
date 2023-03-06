@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using monitKars.Data;
 using monitKars.Entities;
+using Npgsql;
 
 namespace monitKars.Controllers
 {
@@ -29,9 +31,16 @@ namespace monitKars.Controllers
             return await _context.Users.ToListAsync();
         }
 
+        // Put: api/Users
+        [HttpPut("/syncUsers")]
+        public async Task<ActionResult<IEnumerable<User>>> SyncUsers()
+        {
+            return await _context.Users.ToListAsync();
+        }
+
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(string id)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -42,27 +51,20 @@ namespace monitKars.Controllers
 
             return user;
         }
+
         // GET: api/Users/username/admin
         [HttpGet("username/{username}")]
         public async Task<ActionResult<IEnumerable<User>>> GetUserName(string username)
         {
-            return await _context.Users.Where(m => m.UserName == username).ToListAsync();
-        }
-
-        // GET: api/Users/role/
-        [HttpGet("role/{role}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetDriver(string role)
-        {
-
-            return await _context.Users.Where(m => m.Role == role).ToListAsync();
+            return await _context.Users.Where(m => m.Username == username).ToListAsync();
         }
 
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutUser(string id, User user)
         {
-            if (id != user.UserID)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
@@ -96,12 +98,14 @@ namespace monitKars.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.UserID }, user);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
+
+
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(string id)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null)
@@ -115,9 +119,9 @@ namespace monitKars.Controllers
             return NoContent();
         }
 
-        private bool UserExists(int id)
+        private bool UserExists(string id)
         {
-            return _context.Users.Any(e => e.UserID == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }
