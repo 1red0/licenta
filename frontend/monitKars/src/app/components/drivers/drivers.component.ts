@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router'
 import { UsersService } from 'src/app/services/users/users.service';
+import { each } from 'chart.js/dist/helpers/helpers.core';
 
 @Component({
   selector: 'app-drivers',
@@ -16,12 +17,6 @@ export class DriversComponent implements OnInit{
 
   ngOnInit(){
     this.userService.getUsers().subscribe((res)=>{this.drivers=res});
-  }
-
-  showDriver(id: number) {
-    this.router.navigate(['/account', {userID: id}]
-  ); 
-
   }
 
 }

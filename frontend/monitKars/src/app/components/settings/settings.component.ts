@@ -10,6 +10,10 @@ export class SettingsComponent {
 
   constructor(private kcService: AuthGuardService){}
 
+  goToProfile(){
+    this.kcService.redirectToProfile();
+  }
+
   logout(){
     this.kcService.logout();
   }

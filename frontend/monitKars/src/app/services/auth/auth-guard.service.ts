@@ -47,5 +47,10 @@ export class AuthGuardService{
     return this.keycloakservice.getUserRoles();
   }
 
+  public testRole(role:string) : boolean{
+    return this.keycloakservice.isUserInRole(role);
+  }
+
+
   }
   

@@ -5,11 +5,6 @@ export const navbarDataDriver = [
         label: 'Dashboard'
     },
     {
-        routeLink: 'account',
-        icon: 'fa-solid fa-user',
-        label: 'Account'
-    },
-    {
         routeLink: 'car',
         icon: 'fa-solid fa-car',
         label: 'Car'

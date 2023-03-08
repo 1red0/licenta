@@ -15,15 +15,16 @@
   .driverslist-table {
     width: 100%;
     border-collapse: collapse;
+    
     tr{
       border-bottom: #263238 solid 5px;
+      
     }
     tr:last-child{
       border-bottom: none;
     }
     td {
       vertical-align: middle;
-      
       padding: 20px;
       font-size: 1.2rem;
     }
@@ -37,41 +38,7 @@
       }
     }
     
-    td:last-child {
-      text-align: right;
-    }
-    
     overflow: hidden;
   }
 
-  button[type="submit"] {
-    
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    border: none;
-    font-size: 1rem;
-    margin-top: 1rem;
-    cursor: pointer;
-    
-    
-    &:hover {
-      background-color: #25364f;
-    }
-  }
-
-  }
-  .show_driver {
-    background-color: #5d9a14;
-    margin: 5px;
-  }
-
-  .edit_driver {
-    background-color: #007bff;
-    margin: 5px;
-  }
-
-  .delete_driver {
-    background-color: #a52626;
-    margin: 5px;
   }

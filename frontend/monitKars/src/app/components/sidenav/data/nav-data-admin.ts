@@ -5,11 +5,6 @@ export const navbarData = [
         label: 'Dashboard'
     },
     {
-        routeLink: 'account',
-        icon: 'fa-solid fa-user',
-        label: 'Account'
-    },
-    {
         routeLink: 'organisation',
         icon: 'fa-solid fa-building-flag',
         label: 'Organisation'
@@ -17,7 +12,7 @@ export const navbarData = [
     {
         routeLink: 'carlist',
         icon: 'fa-solid fa-list-ol',
-        label: 'My cars'
+        label: 'Organisation cars'
     },
     {
         routeLink: 'drivers',

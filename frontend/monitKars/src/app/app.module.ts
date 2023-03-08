@@ -6,7 +6,6 @@ import { BodyComponent } from './components/body/body.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AccountComponent } from './components/account/account.component';
 import { CarComponent } from './components/car/car.component';
 import { CarlistComponent } from './components/carlist/carlist.component';
 import { NgChartsModule } from 'ng2-charts';
@@ -33,7 +32,6 @@ import { AuthGuard } from './services/auth/auth-guard.guard';
     BodyComponent,
     SidenavComponent,
     DashboardComponent,
-    AccountComponent,
     CarComponent,
     CarlistComponent,
     MilagechartComponent,
