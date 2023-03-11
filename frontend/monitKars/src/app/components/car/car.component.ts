@@ -6,19 +6,18 @@ import { Car } from 'src/app/models/car.model';
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
-  styleUrls: ['./car.component.scss']
+  styleUrls: ['./car.component.scss'],
 })
 export class CarComponent implements OnInit {
-
   car = <Car>{};
 
-  idCar:any = this.route.snapshot.paramMap.get('carID')
+  idCar: any = this.route.snapshot.paramMap.get('carID');
 
-  constructor(private carService:CarsService, private route: ActivatedRoute){}
+  constructor(private carService: CarsService, private route: ActivatedRoute) {}
 
-  ngOnInit(){
-    this.carService.getCar(this.idCar).subscribe((res)=>{this.car=res;})
+  ngOnInit() {
+    this.carService.getCar(this.idCar).subscribe((res) => {
+      this.car = res;
+    });
   }
-
-
 }

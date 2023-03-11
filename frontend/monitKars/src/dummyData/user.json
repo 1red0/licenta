@@ -1,13 +1,13 @@
 {
-    "userID": 1,
-    "userName": "admin",
-    "firstName": "Test",
-    "lastName": "Test",
-    "dateOfBirth": "2000-09-08",
-    "email": "testuser@gmail.com",
-    "phone": "0761111111",
-    "gender": "Male",
-    "role": "Administrator",
-    "organisationID": 1,
-    "carID": 0
+  "userID": 1,
+  "userName": "admin",
+  "firstName": "Test",
+  "lastName": "Test",
+  "dateOfBirth": "2000-09-08",
+  "email": "testuser@gmail.com",
+  "phone": "0761111111",
+  "gender": "Male",
+  "role": "Administrator",
+  "organisationID": 1,
+  "carID": 0
 }

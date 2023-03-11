@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit} from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { navbarDataStart } from './data/nav-data-start';
 import { navbarDataDriver } from './data/nav-data-driver';
 import { navbarData } from './data/nav-data-admin';
@@ -12,39 +12,40 @@ interface SideNavToggle {
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+  styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-
-  constructor(private navbarService: NavbarService){
-
-  }
+  constructor(private navbarService: NavbarService) {}
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
   screenWidth = 0;
 
-  navData : any;
+  navData: any;
 
-  ngOnInit(): void{
-    if(this.navbarService.roleAdmin){
+  ngOnInit(): void {
+    if (this.navbarService.roleAdmin) {
       this.navData = navbarData;
-    }else if(this.navbarService.roleDriver){
+    } else if (this.navbarService.roleDriver) {
       this.navData = navbarDataDriver;
-    }else{
+    } else {
       this.navData = navbarDataStart;
     }
-
   }
 
   toggleCollapse(): void {
     this.collapsed = !this.collapsed;
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+    this.onToggleSideNav.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
   }
 
   closeSidenav(): void {
     this.collapsed = false;
-    this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
+    this.onToggleSideNav.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
   }
-
 }

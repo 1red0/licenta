@@ -13,50 +13,50 @@ import { AuthGuard } from './services/auth/auth-guard.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard', 
-    pathMatch: 'full' 
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["user"]}
+    data: { roles: ['user'] },
   },
   {
     path: 'car',
     component: CarComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["driver"]}
+    data: { roles: ['driver'] },
   },
   {
     path: 'carlist',
     component: CarlistComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["admin"]}
+    data: { roles: ['admin'] },
   },
   {
     path: 'settings',
     component: SettingsComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["user"]}
+    data: { roles: ['user'] },
   },
   {
     path: 'drivers',
     component: DriversComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["admin"]}
+    data: { roles: ['admin'] },
   },
   {
     path: 'organisation',
     component: OrganisationComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["admin"]}
+    data: { roles: ['admin'] },
   },
   {
     path: 'addcar',
     component: AddcarComponent,
     canActivate: [AuthGuard],
-    data: {roles : ["admin"]}
+    data: { roles: ['admin'] },
   },
   {
     path: 'welcome',
@@ -66,6 +66,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

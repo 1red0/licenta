@@ -16,7 +16,6 @@ RUN npm audit fix
 
 RUN ng build --output-hashing=all --optimization
 
-
 ### STAGE 2: Run ###
 FROM nginx:1.23.2-alpine
 COPY --from=build /usr/src/app/dist/monit-kars/ /usr/share/nginx/html

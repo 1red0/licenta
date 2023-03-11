@@ -1,23 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/_icons.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/regular.scss';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/core';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/animated';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/bordered-pulled';
-@import '../node_modules/@fortawesome/fontawesome-free/scss/fixed-width';
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/_icons.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/core";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/animated";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/bordered-pulled";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fixed-width";
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    position: relative;
-    font-family: 'Roboto', sans-serif;
+  position: relative;
+  font-family: "Roboto", sans-serif;
 }

@@ -1,16 +1,16 @@
-.charts{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+.charts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .dashboard-container {
-    width: 80%;
-    margin: auto;
-.dashboard-header {
+  width: 80%;
+  margin: auto;
+  .dashboard-header {
     text-align: center;
-    
+
     h1 {
       font-size: 2rem;
     }
