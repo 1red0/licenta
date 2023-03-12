@@ -18,7 +18,7 @@ import { DriversComponent } from './components/drivers/drivers.component';
 import { StartPageComponent } from './components/start-page/start-page.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 import { OrganisationService } from './services/organisations/organisation.service';
@@ -53,17 +53,19 @@ import { AuthGuard } from './services/auth/auth-guard.guard';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    
   ],
-  providers: [AuthGuardService, SidenavComponent, OrganisationService, AuthGuard,
+  providers: [
+    AuthGuardService,
+    SidenavComponent,
+    OrganisationService,
+    AuthGuard,
     {
-    provide: APP_INITIALIZER,
-    useFactory: initializeKeycloak,
-    multi: true,
-    deps: [KeycloakService],
-  } 
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService],
+    },
   ],
-  bootstrap: [AppComponent]
-  
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

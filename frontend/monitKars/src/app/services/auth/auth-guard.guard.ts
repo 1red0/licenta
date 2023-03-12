@@ -6,10 +6,6 @@ import {
   UrlTree,
 } from '@angular/router';
 import { KeycloakAuthGuard, KeycloakService } from 'keycloak-angular';
-import { navbarData } from 'src/app/components/sidenav/data/nav-data-admin';
-import { navbarDataDriver } from 'src/app/components/sidenav/data/nav-data-driver';
-import { navbarDataStart } from 'src/app/components/sidenav/data/nav-data-start';
-import { SidenavComponent } from 'src/app/components/sidenav/sidenav.component';
 
 @Injectable({
   providedIn: 'root',
