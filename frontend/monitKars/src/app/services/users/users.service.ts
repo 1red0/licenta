@@ -12,13 +12,19 @@ export class UsersService {
 
   getUsers(): Observable<User[]> {
     return this._http.get<User[]>(
-      environment.autority + '/admin/realms/master/users'
+      environment.autority + '/admin/realms/'+ environment.autorityRealm +'/users'
+    );
+  }
+
+  getDrivers(): Observable<User[]> {
+    return this._http.get<User[]>(
+      environment.autority + '/admin/realms/'+ environment.autorityRealm +'/roles/driver/users'
     );
   }
 
   getUser(id: string): Observable<User> {
     return this._http.get<User>(
-      environment.autority + '/admin/realms/master/users/' + id
+      environment.autority + '/admin/realms/'+ environment.autorityRealm +'/users/' + id
     );
   }
 }
