@@ -82,6 +82,16 @@
       <input type="date" id="inspection" name="inspection" />
     </div>
 
+    <div class="form-group">
+      <label for="drivers">Driver</label>
+      <br /><br />
+      <select class="select" name="drivers" id="drivers">
+        <option *ngFor="let driver of Drivers" value="{{ driver.id }}">
+          {{ driver.username }}
+        </option>
+      </select>
+    </div>
+
     <button class="form-submit-btn" type="submit">Add car</button>
   </form>
 </div>
