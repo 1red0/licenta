@@ -3,6 +3,9 @@ import { Car } from 'src/app/models/car.model';
 import { User } from 'src/app/models/user.model';
 import { CarsService } from 'src/app/services/cars/cars.service';
 import { UsersService } from 'src/app/services/users/users.service';
+import manufacturersList from '../../../lists/manufacturers.json';
+import colorList from '../../../lists/colors.json';
+import carTypesList from '../../../lists/carTypes.json';
 
 @Component({
   selector: 'app-addcar',
@@ -10,6 +13,13 @@ import { UsersService } from 'src/app/services/users/users.service';
   styleUrls: ['./addcar.component.scss'],
 })
 export class AddcarComponent implements OnInit {
+
+  public carTypes = carTypesList;
+
+  public manufacturers = manufacturersList;
+
+  public colors = colorList;
+
   Car = <Car>{};
   Drivers = <User[]>{};
 
@@ -24,8 +34,9 @@ export class AddcarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.driverService.getDrivers().subscribe((res) => {
+    this.driverService.getDrivers().subscribe((res: User[]) => {
       this.Drivers = res;
     });
+
   }
 }
