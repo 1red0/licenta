@@ -9,10 +9,13 @@ import { OrganisationService } from 'src/app/services/organisations/organisation
 })
 export class OrganisationComponent {
   organisation = <Organisation>{};
+  // organisations = <Organisation[]>{};
 
   constructor(private organisationService: OrganisationService) {}
 
   ngOnInit() {
-    // this.organisationService.getOrganisation(1).subscribe((res)=>{this.organisation=res;})
+    this.organisationService.getOrganisation(1).subscribe((res) => {
+      this.organisation = res;
+    });
   }
 }

@@ -15,5 +15,6 @@ namespace monitKars.Entities
         public int? NumberOfCars { get; set; }
         public int? NumberOfDrivers { get; set; }
 
+
     }
 }

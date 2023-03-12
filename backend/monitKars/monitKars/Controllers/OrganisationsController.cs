@@ -28,7 +28,7 @@ namespace monitKars.Controllers
             return await _context.Organisations.ToListAsync();
         }
 
-        // GET: api/Organisations/5
+        // GET: api/Organisations/1
         [HttpGet("{id}")]
         public async Task<ActionResult<Organisation>> GetOrganisation(int id)
         {
@@ -50,7 +50,6 @@ namespace monitKars.Controllers
         }
 
         // PUT: api/Organisations/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrganisation(int id, Organisation organisation)
         {
@@ -81,7 +80,6 @@ namespace monitKars.Controllers
         }
 
         // POST: api/Organisations
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Organisation>> PostOrganisation(Organisation organisation)
         {
@@ -91,7 +89,7 @@ namespace monitKars.Controllers
             return CreatedAtAction("GetOrganisation", new { id = organisation.OrganisationID }, organisation);
         }
 
-        // DELETE: api/Organisations/5
+        // DELETE: api/Organisations/1
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrganisation(int id)
         {

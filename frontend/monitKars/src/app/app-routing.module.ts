@@ -5,9 +5,9 @@ import { CarComponent } from './components/car/car.component';
 import { CarlistComponent } from './components/carlist/carlist.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DriversComponent } from './components/drivers/drivers.component';
+import { EditcarComponent } from './components/editcar/editcar.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { StartPageComponent } from './components/start-page/start-page.component';
 import { AuthGuard } from './services/auth/auth-guard.guard';
 
 const routes: Routes = [
@@ -41,6 +41,12 @@ const routes: Routes = [
     data: { roles: ['user'] },
   },
   {
+    path: 'editCar',
+    component: EditcarComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['user'] },
+  },
+  {
     path: 'drivers',
     component: DriversComponent,
     canActivate: [AuthGuard],
@@ -57,10 +63,6 @@ const routes: Routes = [
     component: AddcarComponent,
     canActivate: [AuthGuard],
     data: { roles: ['admin'] },
-  },
-  {
-    path: 'welcome',
-    component: StartPageComponent,
   },
 ];
 

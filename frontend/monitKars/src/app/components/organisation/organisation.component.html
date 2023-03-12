@@ -1,4 +1,4 @@
-<div class="organisation-container">
+<div class="organisation-container" *ngIf="organisation">
   <div class="organisation-header">
     <h1><i class="fas fa-building-flag"></i> My Organisation</h1>
   </div>
@@ -6,32 +6,32 @@
   <div class="organisation-content">
     <div class="organisation-item">
       <i class="fas fa-building-flag"></i>
-      <span>Organisation: TestTaxi</span>
+      <span>Organisation: {{organisation.organisationName}}</span>
     </div>
 
     <div class="organisation-item">
       <i class="fas fa-location-dot"></i>
-      <span>Address: Romania, Dolj, Cariova, Str. Test, Nr. 0</span>
+      <span>Address: {{organisation.organisationAddress}}</span>
     </div>
 
     <div class="organisation-item">
       <i class="fas fa-car"></i>
-      <span>Cars: 1</span>
+      <span>Cars: {{organisation.numberOfCars}}</span>
     </div>
 
     <div class="organisation-item">
       <i class="fas fa-users"></i>
-      <span>Drivers: 12</span>
+      <span>Drivers: {{organisation.numberOfDrivers}}</span>
     </div>
 
     <div class="organisation-item">
       <i class="fas fa-envelope"></i>
-      <span>Email: testtaxi@gmail.com</span>
+      <span>Email: {{organisation.organisationMail}}</span>
     </div>
 
     <div class="organisation-item">
       <i class="fas fa-phone"></i>
-      <span>Phone: 1234</span>
+      <span>Phone: {{organisation.organisationPhone}}</span>
     </div>
   </div>
 </div>

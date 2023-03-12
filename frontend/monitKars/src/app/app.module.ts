@@ -13,9 +13,7 @@ import { MilagechartComponent } from './charts/milagechart/milagechart.component
 import { MaintenancechartComponent } from './charts/maintenancechart/maintenancechart.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NgToggleModule } from 'ng-toggle-button';
-import { VignetteComponent } from './components/vignette/vignette.component';
 import { DriversComponent } from './components/drivers/drivers.component';
-import { StartPageComponent } from './components/start-page/start-page.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -38,9 +36,7 @@ import { EditcarComponent } from './components/editcar/editcar.component';
     MilagechartComponent,
     MaintenancechartComponent,
     SettingsComponent,
-    VignetteComponent,
     DriversComponent,
-    StartPageComponent,
     OrganisationComponent,
     AddcarComponent,
     EditcarComponent,
