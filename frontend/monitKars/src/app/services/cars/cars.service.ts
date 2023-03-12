@@ -14,6 +14,10 @@ export class CarsService {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');
   }
 
+  getNoCars(): Observable<string>{
+    return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {responseType: 'text'});
+  }
+
   getCar(id: number): Observable<Car> {
     return this._http.get<Car>(environment.baseApiUrl + 'api/Cars/' + id);
   }

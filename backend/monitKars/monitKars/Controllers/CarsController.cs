@@ -28,6 +28,13 @@ namespace monitKars.Controllers
             return await _context.Cars.ToListAsync();
         }
 
+        // GET: api/Cars/noCars
+        [HttpGet("noCars")]
+        public async Task<ActionResult<int>> GetNoCars()
+        {
+            return await _context.Cars.CountAsync();
+        }
+
         // GET: api/Cars/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Car>> GetCar(int id)
@@ -42,8 +49,17 @@ namespace monitKars.Controllers
             return car;
         }
 
+        // POST: api/Cars
+        [HttpPost]
+        public async Task<ActionResult<Car>> PostCar(Car car)
+        {
+            _context.Cars.Add(car);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetCar", new { id = car.CarID }, car);
+        }
+
         // PUT: api/Cars/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCar(int id, Car car)
         {
@@ -89,6 +105,8 @@ namespace monitKars.Controllers
 
             return NoContent();
         }
+
+
 
         private bool CarExists(int id)
         {

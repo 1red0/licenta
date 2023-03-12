@@ -88,37 +88,6 @@ namespace monitKars.Migrations
 
                     b.ToTable("Car", (string)null);
                 });
-
-            modelBuilder.Entity("monitKars.Entities.Organisation", b =>
-                {
-                    b.Property<int>("OrganisationID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("OrganisationID"));
-
-                    b.Property<int?>("NumberOfCars")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("NumberOfDrivers")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("OrganisationAddress")
-                        .HasColumnType("text");
-
-                    b.Property<string>("OrganisationMail")
-                        .HasColumnType("text");
-
-                    b.Property<string>("OrganisationName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("OrganisationPhone")
-                        .HasColumnType("text");
-
-                    b.HasKey("OrganisationID");
-
-                    b.ToTable("Organisation", (string)null);
-                });
 #pragma warning restore 612, 618
         }
     }

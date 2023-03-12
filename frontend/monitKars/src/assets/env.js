@@ -7,4 +7,9 @@
   window["env"]["autorityRealm"] = "master";
   window["env"]["autorityClientId"] = "monitKars";
   window["env"]["scope"] = "openid profile email roles";
+  //Environemt variables for Organisation
+  window["env"]["orgName"] = "Test Organisation";
+  window["env"]["orgAddr"] = "Address: Romania, Dolj, Cariova, Str. Test, Nr. 0";
+  window["env"]["orgMail"] = "testorganisation@test.com";
+  window["env"]["orgPhone"] = "0700000000";
 })(this);

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Organisation } from 'src/app/models/organisation.model';
-import { OrganisationService } from 'src/app/services/organisations/organisation.service';
+import { CarsService } from 'src/app/services/cars/cars.service';
+import { UsersService } from 'src/app/services/users/users.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-organisation',
@@ -9,13 +11,22 @@ import { OrganisationService } from 'src/app/services/organisations/organisation
 })
 export class OrganisationComponent {
   organisation = <Organisation>{};
-  // organisations = <Organisation[]>{};
 
-  constructor(private organisationService: OrganisationService) {}
+  constructor(private carService: CarsService, private driverService: UsersService) {}
 
   ngOnInit() {
-    this.organisationService.getOrganisation(1).subscribe((res) => {
-      this.organisation = res;
+    this.organisation.organisationName = environment.orgName;
+    this.organisation.organisationAddress = environment.orgAddr;
+    this.organisation.organisationMail = environment.orgMail;
+    this.organisation.organisationPhone = environment.orgPhone;
+
+    this.carService.getNoCars().subscribe((res) => {
+      this.organisation.numberOfCars = res;
     });
+
+    this.driverService.getDrivers().subscribe((res) => {
+      this.organisation.numberOfDrivers = res.length;
+    })
+
   }
 }

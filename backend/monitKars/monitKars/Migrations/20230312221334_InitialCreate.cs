@@ -40,24 +40,6 @@ namespace monitKars.Migrations
                 {
                     table.PrimaryKey("PK_Car", x => x.CarID);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "Organisation",
-                columns: table => new
-                {
-                    OrganisationID = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    OrganisationName = table.Column<string>(type: "text", nullable: true),
-                    OrganisationMail = table.Column<string>(type: "text", nullable: true),
-                    OrganisationPhone = table.Column<string>(type: "text", nullable: true),
-                    OrganisationAddress = table.Column<string>(type: "text", nullable: true),
-                    NumberOfCars = table.Column<int>(type: "integer", nullable: true),
-                    NumberOfDrivers = table.Column<int>(type: "integer", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Organisation", x => x.OrganisationID);
-                });
         }
 
         /// <inheritdoc />
@@ -65,9 +47,6 @@ namespace monitKars.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Car");
-
-            migrationBuilder.DropTable(
-                name: "Organisation");
         }
     }
 }

@@ -19,7 +19,6 @@ import { AddcarComponent } from './components/addcar/addcar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth/auth-guard.service';
-import { OrganisationService } from './services/organisations/organisation.service';
 import { initializeKeycloak } from './services/auth/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AuthGuard } from './services/auth/auth-guard.guard';
@@ -55,7 +54,6 @@ import { EditcarComponent } from './components/editcar/editcar.component';
   providers: [
     AuthGuardService,
     SidenavComponent,
-    OrganisationService,
     AuthGuard,
     {
       provide: APP_INITIALIZER,
