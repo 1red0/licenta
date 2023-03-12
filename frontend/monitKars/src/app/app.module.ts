@@ -25,6 +25,7 @@ import { OrganisationService } from './services/organisations/organisation.servi
 import { initializeKeycloak } from './services/auth/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AuthGuard } from './services/auth/auth-guard.guard';
+import { EditcarComponent } from './components/editcar/editcar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AuthGuard } from './services/auth/auth-guard.guard';
     StartPageComponent,
     OrganisationComponent,
     AddcarComponent,
+    EditcarComponent,
   ],
   imports: [
     BrowserModule,
