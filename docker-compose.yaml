@@ -1,0 +1,97 @@
+version: "3.8"
+services:
+  # frontend:
+  #   container_name: frontend_container
+  #   restart: unless-stopped
+  #   environment:
+  #     BASE_API_URL: 'http://localhost:7148/'
+  #     AUTORITY: 'http://localhost:4335'
+  #     REALM: 'master'
+  #     CLIENT_ID: 'monitKars'
+  #     SCOPE: "openid profile email roles"
+  #     ORG_NAME: "Test Organisation"
+  #     ORG_ADDR: "Address: Romania, Dolj, Cariova, Str. Test, Nr. 0"
+  #     ORG_MAIL: "testorganisation@test.com"
+  #     ORG_PHONE: "0700000000"      
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile_frontend
+  #   ports:
+  #     - '4200:80'
+  #   networks:
+  #     - default
+
+  database:
+    container_name: database_container
+    restart: unless-stopped
+    image: postgres:15.1-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: monitKars
+    ports:
+      - "5432:5432"
+    volumes:
+      - database:/var/lib/postgresql/data
+      - ./create_db_keycloak.sh:/docker-entrypoint-initdb.d/create_db_keycloak.sh
+    networks:
+      - default
+
+  database_admin:
+    container_name: database_management_container
+    restart: unless-stopped
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mk.com
+      PGADMIN_DEFAULT_PASSWORD: P@ssw0rd
+    ports:
+      - "3100:80"
+    volumes:
+      - pgadmin:/root/.pgadmin
+    networks:
+      - default
+
+  auth_provider:
+    container_name: keycloak_container
+    restart: unless-stopped
+    image: quay.io/keycloak/keycloak:21.0.1
+    ports:
+      - "4335:8080"
+    volumes:
+      - keycloak:/opt/keycloak/data/
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: database
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_SCHEMA: public
+      KC_DB_USERNAME: postgres
+      KC_DB_PASSWORD: postgres
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: P@ssw0rd
+    command: ["start-dev"]
+    networks:
+      - default
+  # backend:
+  #   container_name: backend_container
+  #   restart: unless-stopped
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile_backend
+  #   environment:
+  #   - ConnectionStrings__WebApiDatabase=Host=database;Port=5432;Database=monitKars;Username=postgres;Password=postgres
+  #   ports:
+  #     - '7148:80'
+  #   networks:
+  #     - default
+
+volumes:
+  database:
+    driver: local
+  pgadmin:
+    driver: local
+  keycloak:
+    driver: local
+
+networks:
+  default:
+    driver: bridge

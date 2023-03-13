@@ -1,0 +1,17 @@
+[
+  {
+    "data": [19000, 26830, 30830, 50200, 62000, 80265, 99000],
+    "label": "Milage (Kilometers) - Car1",
+    "borderWidth": 1
+  },
+  {
+    "data": [6000, 6830, 8830, 10200, 12000, 20265, 25300],
+    "label": "Milage (Kilometers) - Car2",
+    "borderWidth": 1
+  },
+  {
+    "data": [25000, 33660, 39660, 60400, 74000, 100530, 124300],
+    "label": "Milage (Kilometers) - Total Cars",
+    "borderWidth": 1
+  }
+]

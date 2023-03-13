@@ -1,0 +1,75 @@
+.carlist-container {
+  width: 80%;
+  margin: 0 auto;
+  border: 5px solid #263238;
+  border-radius: 25px 0 25px 25px;
+  min-width: 700px;
+  .carlist-header {
+    text-align: center;
+    color: #fff;
+    background: #263238;
+    border-radius: 18px 0px 0px 0px;
+    padding: 10px;
+  }
+
+  .carlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      border-bottom: #263238 solid 5px;
+    }
+    tr:last-child {
+      border-bottom: none;
+    }
+    td {
+      vertical-align: middle;
+
+      padding: 20px;
+      font-size: 1.2rem;
+    }
+
+    td:first-child {
+      text-align: left;
+      width: 40%;
+      i {
+        font-size: 1.5rem;
+        width: 30px;
+      }
+    }
+
+    td:last-child {
+      text-align: right;
+    }
+
+    overflow: hidden;
+  }
+}
+
+button[type="submit"] {
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #25364f;
+  }
+}
+
+.show_car {
+  background-color: #5d9a14;
+  margin: 5px;
+}
+
+.edit_car {
+  background-color: #007bff;
+  margin: 5px;
+}
+
+.delete_car {
+  background-color: #a52626;
+  margin: 5px;
+}

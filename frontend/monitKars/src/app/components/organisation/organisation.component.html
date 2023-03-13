@@ -1,0 +1,37 @@
+<div class="organisation-container" *ngIf="organisation">
+  <div class="organisation-header">
+    <h1><i class="fas fa-building-flag"></i> My Organisation</h1>
+  </div>
+
+  <div class="organisation-content">
+    <div class="organisation-item">
+      <i class="fas fa-building-flag"></i>
+      <span>Organisation: {{organisation.organisationName}}</span>
+    </div>
+
+    <div class="organisation-item">
+      <i class="fas fa-location-dot"></i>
+      <span>Address: {{organisation.organisationAddress}}</span>
+    </div>
+
+    <div class="organisation-item">
+      <i class="fas fa-car"></i>
+      <span>Cars: {{organisation.numberOfCars}}</span>
+    </div>
+
+    <div class="organisation-item">
+      <i class="fas fa-users"></i>
+      <span>Drivers: {{organisation.numberOfDrivers}}</span>
+    </div>
+
+    <div class="organisation-item">
+      <i class="fas fa-envelope"></i>
+      <span>Email: {{organisation.organisationMail}}</span>
+    </div>
+
+    <div class="organisation-item">
+      <i class="fas fa-phone"></i>
+      <span>Phone: {{organisation.organisationPhone}}</span>
+    </div>
+  </div>
+</div>

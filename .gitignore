@@ -1,0 +1,8 @@
+*.suo
+backend/monitKars/bin/
+backend/monitKars/obj/
+backend/monitKars/monitKars/obj/
+backend/monitKars/monitKars/bin/
+.vs/
+backend/monitKars/.vs/
+.vscode
