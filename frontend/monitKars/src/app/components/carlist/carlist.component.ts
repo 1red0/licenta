@@ -19,7 +19,7 @@ export class CarlistComponent implements OnInit {
     });
   }
 
-  showCar(id: number) {
+  showCar(id?: string | null) {
     this.router.navigate(['/car', { carID: id }]);
   }
 }

@@ -3,11 +3,16 @@
     <h1><i class="fas fa-car"></i> Add car</h1>
   </div>
 
-  <form class="addcar-form">
+  <form class="addcar-form" [formGroup]="addCarForm">
     <div class="form-group">
       <label for="carType">Car Type</label>
       <br /><br />
-      <select class="select" name="carType" id="carType">
+      <select
+        class="select"
+        name="carType"
+        id="carType"
+        formControlName="carType"
+      >
         <option
           *ngFor="let type of carTypes | keyvalue"
           value="{{ type.value }}"
@@ -20,7 +25,12 @@
     <div class="form-group">
       <label for="manufacturer">Manufacturer</label>
       <br /><br />
-      <select class="select" name="manufacturer" id="manufacturer">
+      <select
+        class="select"
+        name="manufacturer"
+        id="manufacturer"
+        formControlName="carManufacturer"
+      >
         <option
           *ngFor="let manufacturer of manufacturers | keyvalue"
           value="{{ manufacturer.value }}"
@@ -33,19 +43,25 @@
     <div class="form-group">
       <label for="model">Model</label>
       <br /><br />
-      <input type="text" id="model" name="model" />
+      <input type="text" id="model" name="model" formControlName="carModel" />
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <br /><br />
+      <input type="text" id="name" name="name" formControlName="carName" />
     </div>
 
     <div class="form-group">
       <label for="year">Year</label>
       <br /><br />
-      <input type="date" id="year" name="year" />
+      <input type="date" id="year" name="year" formControlName="carYear" />
     </div>
 
     <div class="form-group">
       <label for="color">Color</label>
       <br /><br />
-      <select class="select" name="color" id="color">
+      <select class="select" name="color" id="color" formControlName="carColor">
         <option
           *ngFor="let color of colors | keyvalue"
           value="{{ color.value }}"
@@ -58,61 +74,98 @@
     <div class="form-group">
       <label for="milage">Milage (km)</label>
       <br /><br />
-      <input type="text" id="milage" name="milage" />
+      <input
+        type="text"
+        id="milage"
+        name="milage"
+        formControlName="carMilage"
+      />
     </div>
 
     <div class="form-group">
       <label for="plate">Plate number</label>
       <br /><br />
-      <input type="text" id="plate" name="plate" />
+      <input type="text" id="plate" name="plate" formControlName="carPlate" />
     </div>
 
     <div class="form-group">
       <label for="vin">Vin number</label>
       <br /><br />
-      <input type="text" id="vin" name="vin" />
+      <input type="text" id="vin" name="vin" formControlName="carVinNumber" />
     </div>
 
     <div class="form-group">
       <label for="tires">Tires</label>
       <br /><br />
-      <input type="text" id="tires" name="tires" />
+      <input
+        type="text"
+        id="tires"
+        name="tires"
+        formControlName="carTireSizes"
+      />
     </div>
 
     <div class="form-group">
       <label for="vignette">Vignette</label>
       <br /><br />
-      <input type="date" id="vignette" name="vignette" />
+      <input
+        type="date"
+        id="vignette"
+        name="vignette"
+        formControlName="carVignette"
+      />
     </div>
 
     <div class="form-group">
       <label for="insurance">Insurance</label>
       <br /><br />
-      <input type="text" id="insurance" name="insurance" />
+      <input
+        type="text"
+        id="insurance"
+        name="insurance"
+        formControlName="carInsurance"
+      />
     </div>
 
     <div class="form-group">
       <label for="maintenance">Maintenance</label>
       <br /><br />
-      <input type="text" id="maintenance" name="maintenance" />
+      <input
+        type="text"
+        id="maintenance"
+        name="maintenance"
+        formControlName="carMaintenanceStatus"
+      />
     </div>
 
     <div class="form-group">
       <label for="inspection">Periodic inspection</label>
       <br /><br />
-      <input type="date" id="inspection" name="inspection" />
+      <input
+        type="date"
+        id="inspection"
+        name="inspection"
+        formControlName="carPeriodicRevision"
+      />
     </div>
 
     <div class="form-group">
       <label for="drivers">Driver</label>
       <br /><br />
-      <select class="select" name="drivers" id="drivers">
+      <select
+        class="select"
+        name="drivers"
+        id="drivers"
+        formControlName="carOwnerID"
+      >
         <option *ngFor="let driver of Drivers" value="{{ driver.id }}">
           {{ driver.username }} - {{ driver.firstName }} {{ driver.lastName }}
         </option>
       </select>
     </div>
 
-    <button class="form-submit-btn" type="submit">Add car</button>
+    <button class="form-submit-btn" type="submit" (click)="addCar()">
+      Add car
+    </button>
   </form>
 </div>

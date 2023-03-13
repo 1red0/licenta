@@ -1,20 +1,20 @@
 export interface Car {
-  carID: number;
-  carName: string;
-  carYear: number;
-  carColor: string;
-  carVignette: string;
-  carInsurance: string;
-  carOwnerID: number;
-  carMilage: string;
-  carMaintenanceStatus: string;
-  carManufacturer: string;
-  carModel: string;
-  carEngine: string;
-  carTireSizes: string[];
-  carOil: string;
-  carPeriodicRevision: string;
-  carPlateNumber: string;
-  carVinNumber: string;
-  carType: string;
+  carID?: number | null;
+  carName?: string | null;
+  carYear?: string | null;
+  carColor?: string | null;
+  carVignette?: string | null;
+  carInsurance?: string | null;
+  carOwnerID?: string | null;
+  carMilage?: string | null;
+  carMaintenanceStatus?: string | null;
+  carManufacturer?: string | null;
+  carModel?: string | null;
+  carEngine?: string | null;
+  carTireSizes?: string[] | null;
+  carOil?: string | null;
+  carPeriodicRevision?: string | null;
+  carPlateNumber?: string | null;
+  carVinNumber?: string | null;
+  carType?: string | null;
 }
