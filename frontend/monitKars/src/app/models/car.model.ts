@@ -11,8 +11,9 @@ export interface Car {
   carManufacturer?: string | null;
   carModel?: string | null;
   carEngine?: string | null;
-  carTireSizes?: string[] | null;
+  carTireSizes?: string | null;
   carOil?: string | null;
+  carFuel?: string | null;
   carPeriodicRevision?: string | null;
   carPlateNumber?: string | null;
   carVinNumber?: string | null;

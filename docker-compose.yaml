@@ -24,16 +24,17 @@ services:
   database:
     container_name: database_container
     restart: unless-stopped
-    image: postgres:15.1-alpine
+    build:
+      context: .
+      dockerfile: Dockerfile_postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: monitKars
+      POSTGRES_MULTIPLE_DATABASES: monitKars,keycloak
     ports:
       - "5432:5432"
     volumes:
       - database:/var/lib/postgresql/data
-      - ./create_db_keycloak.sh:/docker-entrypoint-initdb.d/create_db_keycloak.sh
     networks:
       - default
 

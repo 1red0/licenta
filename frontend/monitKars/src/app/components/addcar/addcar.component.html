@@ -97,12 +97,14 @@
     <div class="form-group">
       <label for="tires">Tires</label>
       <br /><br />
-      <input
-        type="text"
-        id="tires"
-        name="tires"
-        formControlName="carTireSizes"
-      />
+      <select class="select" name="tires" id="tires" formControlName="carTireSizes">
+        <option
+          *ngFor="let tire of tires | keyvalue"
+          value="{{ tire.value }}"
+        >
+          {{ tire.value }}
+        </option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -120,7 +122,7 @@
       <label for="insurance">Insurance</label>
       <br /><br />
       <input
-        type="text"
+        type="date"
         id="insurance"
         name="insurance"
         formControlName="carInsurance"
@@ -130,12 +132,14 @@
     <div class="form-group">
       <label for="maintenance">Maintenance</label>
       <br /><br />
-      <input
-        type="text"
-        id="maintenance"
-        name="maintenance"
-        formControlName="carMaintenanceStatus"
-      />
+      <select class="select" name="maintenance" id="maintenance" formControlName="carMaintenanceStatus">
+        <option
+          *ngFor="let status of statuses | keyvalue"
+          value="{{ status.value }}"
+        >
+          {{ status.value }}
+        </option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -147,6 +151,32 @@
         name="inspection"
         formControlName="carPeriodicRevision"
       />
+    </div>
+
+    <div class="form-group">
+      <label for="fuel">Car fuel</label>
+      <br /><br />
+      <select class="select" name="fuel" id="fuel" formControlName="carFuel">
+        <option
+          *ngFor="let fuel of fuels | keyvalue"
+          value="{{ fuel.value }}"
+        >
+          {{ fuel.value }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="oil">Car oil</label>
+      <br /><br />
+      <select class="select" name="oil" id="oil" formControlName="carOils">
+        <option
+          *ngFor="let oil of oils | keyvalue"
+          value="{{ oil.value }}"
+        >
+          {{ oil.value }}
+        </option>
+      </select>
     </div>
 
     <div class="form-group">
