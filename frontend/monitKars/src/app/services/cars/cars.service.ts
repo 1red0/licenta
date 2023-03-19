@@ -14,8 +14,10 @@ export class CarsService {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');
   }
 
-  getNoCars(): Observable<string>{
-    return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {responseType: 'text'});
+  getNoCars(): Observable<string> {
+    return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {
+      responseType: 'text',
+    });
   }
 
   getCar(id: number): Observable<Car> {
@@ -26,11 +28,11 @@ export class CarsService {
     return this._http.post<Car>(environment.baseApiUrl + 'api/Cars', car);
   }
 
-  deleteCar(id: number): Observable<Car> {
-    return this._http.delete<Car>(environment.baseApiUrl + 'api/Cars/' + id);
+  deleteCar(id: number) {
+    return this._http.delete(environment.baseApiUrl + 'api/Cars/' + id);
   }
 
-  updateCar(id: number, car: Car): Observable<Car> {
-    return this._http.put<Car>(environment.baseApiUrl + 'api/Cars/' + id, car);
+  updateCar(id: number, car: Car) {
+    return this._http.put(environment.baseApiUrl + 'api/Cars/' + id, car);
   }
 }

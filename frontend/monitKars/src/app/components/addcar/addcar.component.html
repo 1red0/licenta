@@ -47,6 +47,24 @@
     </div>
 
     <div class="form-group">
+      <label for="engine">Engine</label>
+      <br /><br />
+      <select
+        class="select"
+        name="engine"
+        id="engine"
+        formControlName="carEngine"
+      >
+        <option
+          *ngFor="let engine of engines | keyvalue"
+          value="{{ engine.value }}"
+        >
+          {{ engine.value }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
       <label for="name">Name</label>
       <br /><br />
       <input type="text" id="name" name="name" formControlName="carName" />
@@ -85,7 +103,12 @@
     <div class="form-group">
       <label for="plate">Plate number</label>
       <br /><br />
-      <input type="text" id="plate" name="plate" formControlName="carPlate" />
+      <input
+        type="text"
+        id="plate"
+        name="plate"
+        formControlName="carPlateNumber"
+      />
     </div>
 
     <div class="form-group">
@@ -97,11 +120,13 @@
     <div class="form-group">
       <label for="tires">Tires</label>
       <br /><br />
-      <select class="select" name="tires" id="tires" formControlName="carTireSizes">
-        <option
-          *ngFor="let tire of tires | keyvalue"
-          value="{{ tire.value }}"
-        >
+      <select
+        class="select"
+        name="tires"
+        id="tires"
+        formControlName="carTireSizes"
+      >
+        <option *ngFor="let tire of tires | keyvalue" value="{{ tire.value }}">
           {{ tire.value }}
         </option>
       </select>
@@ -132,7 +157,12 @@
     <div class="form-group">
       <label for="maintenance">Maintenance</label>
       <br /><br />
-      <select class="select" name="maintenance" id="maintenance" formControlName="carMaintenanceStatus">
+      <select
+        class="select"
+        name="maintenance"
+        id="maintenance"
+        formControlName="carMaintenanceStatus"
+      >
         <option
           *ngFor="let status of statuses | keyvalue"
           value="{{ status.value }}"
@@ -157,10 +187,7 @@
       <label for="fuel">Car fuel</label>
       <br /><br />
       <select class="select" name="fuel" id="fuel" formControlName="carFuel">
-        <option
-          *ngFor="let fuel of fuels | keyvalue"
-          value="{{ fuel.value }}"
-        >
+        <option *ngFor="let fuel of fuels | keyvalue" value="{{ fuel.value }}">
           {{ fuel.value }}
         </option>
       </select>
@@ -169,11 +196,8 @@
     <div class="form-group">
       <label for="oil">Car oil</label>
       <br /><br />
-      <select class="select" name="oil" id="oil" formControlName="carOils">
-        <option
-          *ngFor="let oil of oils | keyvalue"
-          value="{{ oil.value }}"
-        >
+      <select class="select" name="oil" id="oil" formControlName="carOil">
+        <option *ngFor="let oil of oils | keyvalue" value="{{ oil.value }}">
           {{ oil.value }}
         </option>
       </select>
@@ -188,7 +212,10 @@
         id="drivers"
         formControlName="carOwnerID"
       >
-        <option *ngFor="let driver of Drivers" value="{{ driver.id }}">
+        <option
+          *ngFor="let driver of Drivers"
+          value="{{ driver.username }} - {{ driver.id }}"
+        >
           {{ driver.username }} - {{ driver.firstName }} {{ driver.lastName }}
         </option>
       </select>

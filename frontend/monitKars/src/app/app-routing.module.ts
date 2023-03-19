@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'car',
     component: CarComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['driver'] },
+    data: { roles: ['user'] },
   },
   {
     path: 'carlist',

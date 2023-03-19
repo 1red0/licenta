@@ -2,7 +2,13 @@
   <div class="car-header" *ngIf="car">
     <h1>{{ car.carName }}</h1>
     <div class="edit-item">
-      <button type="submit" class="edit-car">Update car</button>
+      <button
+        type="submit"
+        class="edit-car"
+        (click)="editCar(car.carID?.toString())"
+      >
+        Update car
+      </button>
     </div>
   </div>
 
@@ -48,6 +54,22 @@
           <span> Engine</span>
         </td>
         <td>{{ car.carEngine }}</td>
+      </tr>
+
+      <tr>
+        <td>
+          <i class="fas fa-gas-pump"></i>
+          <span> Fuel</span>
+        </td>
+        <td>{{ car.carFuel }}</td>
+      </tr>
+
+      <tr>
+        <td>
+          <i class="fas fa-oil-can"></i>
+          <span> Oil</span>
+        </td>
+        <td>{{ car.carOil }}</td>
       </tr>
 
       <tr>

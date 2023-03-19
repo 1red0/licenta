@@ -11,11 +11,21 @@
           <span> {{ car.carName }}</span>
         </td>
         <td>
-          <button class="show_car" type="submit" (click)="showCar(car.carID?.toString())">
+          <button
+            class="show_car"
+            type="submit"
+            (click)="showCar(car.carID?.toString())"
+          >
             See car
           </button>
-          <button class="edit_car" type="submit">Edit car</button>
-          <button class="delete_car" type="submit">Delete car</button>
+          <button class="edit_car" type="submit" (click)="editCar(car.carID?.toString())">Edit car</button>
+          <button
+            class="delete_car"
+            type="submit"
+            (click)="deleteCar(car.carID?.toString())"
+          >
+            Delete car
+          </button>
         </td>
       </tr>
     </tbody>

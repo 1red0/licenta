@@ -18,4 +18,5 @@ export interface Car {
   carPlateNumber?: string | null;
   carVinNumber?: string | null;
   carType?: string | null;
+  carOrganisation?: string | null;
 }
