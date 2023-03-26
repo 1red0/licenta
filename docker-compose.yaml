@@ -1,25 +1,25 @@
 version: "3.8"
 services:
-  # frontend:
-  #   container_name: frontend_container
-  #   restart: unless-stopped
-  #   environment:
-  #     BASE_API_URL: 'http://localhost:7148/'
-  #     AUTORITY: 'http://localhost:4335'
-  #     REALM: 'master'
-  #     CLIENT_ID: 'monitKars'
-  #     SCOPE: "openid profile email roles"
-  #     ORG_NAME: "Test Organisation"
-  #     ORG_ADDR: "Address: Romania, Dolj, Cariova, Str. Test, Nr. 0"
-  #     ORG_MAIL: "testorganisation@test.com"
-  #     ORG_PHONE: "0700000000"      
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile_frontend
-  #   ports:
-  #     - '4200:80'
-  #   networks:
-  #     - default
+  frontend:
+    container_name: frontend_container
+    restart: unless-stopped
+    environment:
+      BASE_API_URL: 'http://localhost:7148/'
+      AUTORITY: 'http://localhost:4335'
+      REALM: 'master'
+      CLIENT_ID: 'monitKars'
+      SCOPE: "openid profile email roles"
+      ORG_NAME: "Test Organisation"
+      ORG_ADDR: "Address: Romania, Dolj, Cariova, Str. Test, Nr. 0"
+      ORG_MAIL: "testorganisation@test.com"
+      ORG_PHONE: "0700000000"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile_frontend
+    networks:
+      - default
+    ports:
+      - "4200:80"
 
   database:
     container_name: database_container
@@ -69,21 +69,22 @@ services:
       KC_DB_PASSWORD: postgres
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: P@ssw0rd
-    command: ["start-dev"]
+    command: [ "start-dev" ]
     networks:
       - default
-  # backend:
-  #   container_name: backend_container
-  #   restart: unless-stopped
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile_backend
-  #   environment:
-  #   - ConnectionStrings__WebApiDatabase=Host=database;Port=5432;Database=monitKars;Username=postgres;Password=postgres
-  #   ports:
-  #     - '7148:80'
-  #   networks:
-  #     - default
+
+  backend:
+    container_name: backend_container
+    restart: unless-stopped
+    build:
+      context: ./backend
+      dockerfile: Dockerfile_backend
+    environment:
+      - ConnectionStrings__WebApiDatabase=Host=database;Port=5432;Database=monitKars;Username=postgres;Password=postgres
+    ports:
+      - '7148:80'
+    networks:
+      - default
 
 volumes:
   database:

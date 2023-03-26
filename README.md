@@ -23,3 +23,5 @@ The source code and Docker installed on the machine
 ## Starting the project
 
 Inside this folder just run `docker compose up` or `docker compose up -d` to run the project in background
+
+`docker compose build --no-cache && docker compose up -d --force-recreate --no-deps` -> for clean build and run containers with docker
