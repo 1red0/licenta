@@ -4,6 +4,8 @@
   </div>
   <br />
   <table class="carlist-table" *ngIf="CarsList && CarsList.length > 0">
+    <caption></caption>
+    <th></th>
     <tbody class="carlist-table-body">
       <tr *ngFor="let car of CarsList">
         <td>
@@ -14,15 +16,21 @@
           <button
             class="show_car"
             type="submit"
-            (click)="showCar(car.carID?.toString())"
+            (click)="showCar(car.carID.toString())"
           >
             See car
           </button>
-          <button class="edit_car" type="submit" (click)="editCar(car.carID?.toString())">Edit car</button>
+          <button
+            class="edit_car"
+            type="submit"
+            (click)="editCar(car.carID.toString())"
+          >
+            Edit car
+          </button>
           <button
             class="delete_car"
             type="submit"
-            (click)="deleteCar(car.carID?.toString())"
+            (click)="deleteCar(car.carID.toString())"
           >
             Delete car
           </button>

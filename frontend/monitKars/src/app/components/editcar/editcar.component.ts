@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, Optional } from '@angular/core';
+import { FormGroup, FormControl, RequiredValidator } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { Car } from 'src/app/models/car.model';
@@ -39,7 +39,8 @@ export class EditcarComponent {
   public engines = carEnginesList;
 
   car = <Car>{};
-  carUpdated = <Car>{};
+
+  updatedCar = <Car>{};
 
   idCar: any = this.route.snapshot.paramMap.get('carID');
 
@@ -74,8 +75,9 @@ export class EditcarComponent {
   });
 
   editCar() {
-    this.carUpdated = this.car;
-    this.carService.updateCar(Number(this.idCar), this.carUpdated).subscribe();
+    this.updatedCar = this.editCarForm.value;
+    this.updatedCar.carID = Number(this.idCar);
+    this.carService.updateCar(Number(this.idCar), this.updatedCar).subscribe();
     this.router.navigate(['/carlist']).then(() => {
       window.location.reload();
     });
@@ -91,7 +93,27 @@ export class EditcarComponent {
       )
       .subscribe();
 
-    this.carService.getCar(this.idCar).subscribe((res) => {
+    this.carService.getCar(this.idCar).subscribe((res: Car) => {
+      this.editCarForm.setValue({
+        carColor: res.carColor,
+        carEngine: res.carEngine,
+        carFuel: res.carFuel,
+        carMilage: res.carMilage,
+        carModel: res.carModel,
+        carOil: res.carOil,
+        carPlateNumber: res.carPlateNumber,
+        carInsurance: res.carInsurance,
+        carPeriodicRevision: res.carPeriodicRevision,
+        carTireSizes: res.carTireSizes,
+        carVinNumber: res.carVinNumber,
+        carYear: res.carYear,
+        carVignette: res.carVignette,
+        carMaintenanceStatus: res.carMaintenanceStatus,
+        carOwnerID: res.carOwnerID,
+        carType: res.carType,
+        carName: res.carName,
+        carManufacturer: res.carManufacturer,
+      });
       this.car = res;
     });
   }
