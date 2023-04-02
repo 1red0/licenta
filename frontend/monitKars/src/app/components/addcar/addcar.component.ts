@@ -70,7 +70,7 @@ export class AddcarComponent implements OnInit {
     carFuel: new FormControl(''),
   });
 
-  addCar() {
+  async addCar() {
     this.Car = this.addCarForm.value;
     if (this.addCarForm.value.carFuel === 'Electricity') {
       this.Car.carOil = '-';

@@ -35,4 +35,10 @@ export class CarsService {
   updateCar(id: number, car: Car) {
     return this._http.put(environment.baseApiUrl + 'api/Cars/' + id, car);
   }
+
+  getManufacturers(): Observable<string[]> {
+    return this._http.get<string[]>(
+      environment.baseApiUrl + 'api/Cars/manufacturers'
+    );
+  }
 }

@@ -25,11 +25,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "bootstrap": "^5.2.3",
-    "chart.js": "^4.2.0",
+    "echarts": "^5.4.2",
     "keycloak-angular": "^13.0.0",
     "keycloak-js": "^20.0.5",
-    "ng-toggle-button": "^1.5.0",
-    "ng2-charts": "^4.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
