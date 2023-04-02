@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { UsersService } from 'src/app/services/users/users.service';
   styleUrls: ['./drivers.component.scss'],
 })
 export class DriversComponent implements OnInit {
-  constructor(private router: Router, private userService: UsersService) {}
+  constructor(private userService: UsersService) {}
 
   drivers = <User[]>{};
 

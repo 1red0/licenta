@@ -19,6 +19,8 @@ import { initializeKeycloak } from './services/auth/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AuthGuard } from './services/auth/auth-guard.guard';
 import { EditcarComponent } from './components/editcar/editcar.component';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { LineChartComponent } from './charts/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { EditcarComponent } from './components/editcar/editcar.component';
     OrganisationComponent,
     AddcarComponent,
     EditcarComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { EditcarComponent } from './components/editcar/editcar.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgChartsModule,
   ],
   providers: [
     AuthGuardService,
@@ -53,6 +57,7 @@ import { EditcarComponent } from './components/editcar/editcar.component';
       multi: true,
       deps: [KeycloakService],
     },
+    { provide: NgChartsConfiguration, useValue: { generateColors: false } },
   ],
   bootstrap: [AppComponent],
 })

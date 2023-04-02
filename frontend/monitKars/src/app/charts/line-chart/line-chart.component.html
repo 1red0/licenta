@@ -1,0 +1,14 @@
+<canvas
+  baseChart
+  [type]="'pie'"
+  [datasets]="[
+    {
+      data: [this.manNum[0], this.manNum[1]]
+    }
+  ]"
+  [labels]="this.man"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend"
+>
+</canvas>

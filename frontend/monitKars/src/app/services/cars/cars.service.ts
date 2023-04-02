@@ -41,4 +41,10 @@ export class CarsService {
       environment.baseApiUrl + 'api/Cars/manufacturers'
     );
   }
+
+  getNumberOfCarsManufacturers(manufacturer: string): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/noCars/' + manufacturer
+    );
+  }
 }
