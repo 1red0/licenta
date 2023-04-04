@@ -3,23 +3,27 @@ import { ChartOptions } from 'chart.js';
 import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
-  selector: 'app-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss'],
+  selector: 'app-manufacturers-chart',
+  templateUrl: './chart-manufacturers.html',
+  styleUrls: ['./chart-manufacturers.component.scss'],
 })
-export class LineChartComponent implements OnInit {
+export class ChartComponent implements OnInit {
   constructor(private carService: CarsService) {}
   man = <string[]>{};
   manNum: number[] = [];
+
   ngOnInit(): void {
     this.carService.getManufacturers().subscribe((res) => {
       this.man = res;
-      this.man.forEach((obj) => {
+      let localdata: number[] = [];
+      this.man.forEach((obj, index) => {
         this.carService.getNumberOfCarsManufacturers(obj).subscribe((res) => {
-          this.manNum.push(res);
+          localdata.push(res);
+          if (index + 1 == this.man.length) {
+            this.manNum = localdata;
+          }
         });
       });
-      console.log(this.manNum);
     });
   }
 
@@ -27,6 +31,7 @@ export class LineChartComponent implements OnInit {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: false,
   };
+
   public pieChartLegend = true;
   public pieChartPlugins = [];
 }

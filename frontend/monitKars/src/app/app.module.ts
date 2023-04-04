@@ -20,7 +20,7 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AuthGuard } from './services/auth/auth-guard.guard';
 import { EditcarComponent } from './components/editcar/editcar.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
-import { LineChartComponent } from './charts/line-chart/line-chart.component';
+import { ChartComponent } from './charts/manufacturers/chart-manufacturers.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
     OrganisationComponent,
     AddcarComponent,
     EditcarComponent,
-    LineChartComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
