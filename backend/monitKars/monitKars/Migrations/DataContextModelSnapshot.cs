@@ -24,16 +24,19 @@ namespace monitKars.Migrations
 
             modelBuilder.Entity("monitKars.Entities.Car", b =>
                 {
-                    b.Property<int>("CarID")
+                    b.Property<int?>("CarID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("CarID"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("CarID"));
 
                     b.Property<string>("CarColor")
                         .HasColumnType("text");
 
                     b.Property<string>("CarEngine")
+                        .HasColumnType("text");
+
+                    b.Property<string>("CarFuel")
                         .HasColumnType("text");
 
                     b.Property<string>("CarInsurance")
@@ -69,8 +72,8 @@ namespace monitKars.Migrations
                     b.Property<string>("CarPlateNumber")
                         .HasColumnType("text");
 
-                    b.Property<string[]>("CarTireSizes")
-                        .HasColumnType("text[]");
+                    b.Property<string>("CarTireSizes")
+                        .HasColumnType("text");
 
                     b.Property<string>("CarType")
                         .HasColumnType("text");
@@ -81,8 +84,8 @@ namespace monitKars.Migrations
                     b.Property<string>("CarVinNumber")
                         .HasColumnType("text");
 
-                    b.Property<int?>("CarYear")
-                        .HasColumnType("integer");
+                    b.Property<string>("CarYear")
+                        .HasColumnType("text");
 
                     b.HasKey("CarID");
 

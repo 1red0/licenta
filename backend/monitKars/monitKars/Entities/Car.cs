@@ -7,9 +7,9 @@ namespace monitKars.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CarID { get; set; }
+        public int? CarID { get; set; }
         public string? CarName { get; set; }
-        public int? CarYear { get; set; }
+        public string? CarYear { get; set; }
         public string? CarColor { get; set; }
         public string? CarVignette { get; set; }
         public string? CarInsurance { get; set; }
@@ -19,13 +19,14 @@ namespace monitKars.Entities
         public string? CarManufacturer { get; set; }
         public string? CarModel { get; set; }
         public string? CarEngine { get; set; }
-        public string[]? CarTireSizes { get; set; }
+        public string? CarTireSizes { get; set; }
         public string? CarOil { get; set; }
         public string? CarPeriodicRevision { get; set; }
         public string? CarPlateNumber { get; set; }
         public string? CarVinNumber { get; set; }
         public string? CarType { get; set; }
         public string? CarOrganisation { get; set; }
+        public string? CarFuel { get; set; }
 
     }
 }

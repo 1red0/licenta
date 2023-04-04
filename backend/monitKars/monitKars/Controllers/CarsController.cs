@@ -35,6 +35,42 @@ namespace monitKars.Controllers
             return await _context.Cars.CountAsync();
         }
 
+        // GET: api/Cars/manufacturers
+        [HttpGet("manufacturers")]
+        public async Task<ActionResult<IEnumerable<string?>>> GetManufacturers()
+        {
+            return await _context.Cars.Select(m => m.CarManufacturer).Distinct().ToListAsync();
+        }
+
+        // GET: api/Cars/manufacturer/{Dacia}
+        [HttpGet("noCars/{manufacturer}")]
+        public async Task<ActionResult<int>> GetNoCarsOfManufacturers(string manufacturer)
+        {
+            return await _context.Cars.Where(m => m.CarManufacturer == manufacturer).CountAsync();
+        }
+
+        // GET: api/Cars/driverCars/{id}
+        [HttpGet("driverCars/{driver}")]
+        public async Task<ActionResult<IEnumerable<Car>>> GetCarsOfDriver(string driver)
+        {
+            return await _context.Cars.Where(m => m.CarOwnerID == driver).ToListAsync();
+        }
+
+        // GET: api/Cars/driverNoCars/{id}
+        [HttpGet("driverNoCars/{driver}")]
+        public async Task<ActionResult<int>> GetNoCarsOfDriver(string driver)
+        {
+            return await _context.Cars.Where(m => m.CarOwnerID == driver).CountAsync();
+        }
+
+        // GET: api/Cars/freeCars
+        [HttpGet("freeCars")]
+        public async Task<ActionResult<IEnumerable<Car>>> GetNoCarsNODriver()
+        {
+            return await _context.Cars.Where(m => m.CarOwnerID == null).ToListAsync();
+        }
+
+
         // GET: api/Cars/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Car>> GetCar(int id)

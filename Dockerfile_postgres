@@ -1,0 +1,2 @@
+FROM postgres:15.1-alpine
+COPY create_multiple_dbs.sh /docker-entrypoint-initdb.d/

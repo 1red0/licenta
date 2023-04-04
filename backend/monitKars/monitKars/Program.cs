@@ -16,6 +16,18 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var CORS = "CORS";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: CORS,
+                      builder =>
+                      {
+                          builder.WithOrigins("*");
+                      });
+});
+
+
 var app = builder.Build();
 
 // Migrate latest database changes during startup

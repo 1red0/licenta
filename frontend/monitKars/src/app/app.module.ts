@@ -8,11 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CarComponent } from './components/car/car.component';
 import { CarlistComponent } from './components/carlist/carlist.component';
-import { NgChartsModule } from 'ng2-charts';
-import { MilagechartComponent } from './charts/milagechart/milagechart.component';
-import { MaintenancechartComponent } from './charts/maintenancechart/maintenancechart.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { NgToggleModule } from 'ng-toggle-button';
 import { DriversComponent } from './components/drivers/drivers.component';
 import { OrganisationComponent } from './components/organisation/organisation.component';
 import { AddcarComponent } from './components/addcar/addcar.component';
@@ -23,6 +19,8 @@ import { initializeKeycloak } from './services/auth/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AuthGuard } from './services/auth/auth-guard.guard';
 import { EditcarComponent } from './components/editcar/editcar.component';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { ChartComponent } from './charts/manufacturers/chart-manufacturers.component';
 
 @NgModule({
   declarations: [
@@ -32,24 +30,22 @@ import { EditcarComponent } from './components/editcar/editcar.component';
     DashboardComponent,
     CarComponent,
     CarlistComponent,
-    MilagechartComponent,
-    MaintenancechartComponent,
     SettingsComponent,
     DriversComponent,
     OrganisationComponent,
     AddcarComponent,
     EditcarComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgChartsModule,
-    NgToggleModule,
     KeycloakAngularModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgChartsModule,
   ],
   providers: [
     AuthGuardService,
@@ -61,6 +57,7 @@ import { EditcarComponent } from './components/editcar/editcar.component';
       multi: true,
       deps: [KeycloakService],
     },
+    { provide: NgChartsConfiguration, useValue: { generateColors: false } },
   ],
   bootstrap: [AppComponent],
 })

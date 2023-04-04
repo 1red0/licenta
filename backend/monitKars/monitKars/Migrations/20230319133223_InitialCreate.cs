@@ -18,7 +18,7 @@ namespace monitKars.Migrations
                     CarID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     CarName = table.Column<string>(type: "text", nullable: true),
-                    CarYear = table.Column<int>(type: "integer", nullable: true),
+                    CarYear = table.Column<string>(type: "text", nullable: true),
                     CarColor = table.Column<string>(type: "text", nullable: true),
                     CarVignette = table.Column<string>(type: "text", nullable: true),
                     CarInsurance = table.Column<string>(type: "text", nullable: true),
@@ -28,13 +28,14 @@ namespace monitKars.Migrations
                     CarManufacturer = table.Column<string>(type: "text", nullable: true),
                     CarModel = table.Column<string>(type: "text", nullable: true),
                     CarEngine = table.Column<string>(type: "text", nullable: true),
-                    CarTireSizes = table.Column<string[]>(type: "text[]", nullable: true),
+                    CarTireSizes = table.Column<string>(type: "text", nullable: true),
                     CarOil = table.Column<string>(type: "text", nullable: true),
                     CarPeriodicRevision = table.Column<string>(type: "text", nullable: true),
                     CarPlateNumber = table.Column<string>(type: "text", nullable: true),
                     CarVinNumber = table.Column<string>(type: "text", nullable: true),
                     CarType = table.Column<string>(type: "text", nullable: true),
-                    CarOrganisation = table.Column<string>(type: "text", nullable: true)
+                    CarOrganisation = table.Column<string>(type: "text", nullable: true),
+                    CarFuel = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

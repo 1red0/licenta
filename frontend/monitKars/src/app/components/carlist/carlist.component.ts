@@ -22,4 +22,13 @@ export class CarlistComponent implements OnInit {
   showCar(id?: string | null) {
     this.router.navigate(['/car', { carID: id }]);
   }
+
+  deleteCar(id?: string | null) {
+    this.carService.deleteCar(Number(id)).subscribe();
+    window.location.reload();
+  }
+
+  editCar(id?: string | null) {
+    this.router.navigate(['/editCar', { carID: id }]);
+  }
 }
