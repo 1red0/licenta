@@ -4,7 +4,12 @@
   </div>
   <br />
   <table class="driverslist-table" *ngIf="drivers && drivers.length > 0">
-    <caption></caption>
+    <caption>
+      Drivers:
+      {{
+        drivers.length
+      }}
+    </caption>
     <th></th>
     <tbody class="driverslist-table-body">
       <tr *ngFor="let driver of drivers">

@@ -4,7 +4,12 @@
   </div>
   <br />
   <table class="carlist-table" *ngIf="CarsList && CarsList.length > 0">
-    <caption></caption>
+    <caption>
+      Cars:
+      {{
+        CarsList.length
+      }}
+    </caption>
     <th></th>
     <tbody class="carlist-table-body">
       <tr *ngFor="let car of CarsList">

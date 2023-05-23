@@ -4,6 +4,8 @@
   border: 5px solid #263238;
   border-radius: 25px 0 25px 25px;
   min-width: 750px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
   .car-header {
     text-align: center;
     color: #fff;
@@ -41,14 +43,6 @@
   }
 }
 
-.charts {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 25px;
-}
-
 button[type="submit"] {
   background-color: #4a6887;
   color: #fff;
@@ -72,5 +66,18 @@ button[type="submit"] {
   i {
     font-size: 1.5rem;
     margin-right: 0.5rem;
+  }
+}
+
+caption {
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

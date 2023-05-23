@@ -4,6 +4,8 @@ form {
   align-items: center;
   width: 80%;
   margin: 0 auto;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 
   .form-group {
     width: 100%;
@@ -117,6 +119,8 @@ form {
 .addcar-container {
   width: 80%;
   margin: auto;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
 
   .addcar-header {
     text-align: center;
@@ -129,5 +133,14 @@ form {
       font-size: 2rem;
       color: #fff;
     }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
