@@ -11,7 +11,7 @@ import carOilsList from '../../../lists/carOils.json';
 import carStatusesList from '../../../lists/statuses.json';
 import carEnginesList from '../../../lists/carEngines.json';
 import carTires from '../../../lists/tiresSizes.json';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
@@ -49,25 +49,25 @@ export class AddcarComponent implements OnInit {
   ) {}
 
   addCarForm = new FormGroup({
-    carName: new FormControl(''),
-    carType: new FormControl(''),
-    carMaintenanceStatus: new FormControl(''),
-    carPeriodicRevision: new FormControl(''),
+    carName: new FormControl('', Validators.required),
+    carType: new FormControl('', Validators.required),
+    carMaintenanceStatus: new FormControl('', Validators.required),
+    carPeriodicRevision: new FormControl('', Validators.required),
     carOwnerID: new FormControl(''),
-    carInsurance: new FormControl(''),
-    carVignette: new FormControl(''),
-    carTireSizes: new FormControl(''),
-    carVinNumber: new FormControl(''),
-    carPlate: new FormControl(''),
-    carMilage: new FormControl(''),
-    carColor: new FormControl(''),
-    carYear: new FormControl(''),
-    carModel: new FormControl(''),
-    carManufacturer: new FormControl(''),
-    carEngine: new FormControl(''),
-    carPlateNumber: new FormControl(''),
-    carOil: new FormControl(''),
-    carFuel: new FormControl(''),
+    carInsurance: new FormControl('', Validators.required),
+    carVignette: new FormControl('', Validators.required),
+    carTireSizes: new FormControl('', Validators.required),
+    carVinNumber: new FormControl('', Validators.required),
+    carPlate: new FormControl('', Validators.required),
+    carMilage: new FormControl('', Validators.required),
+    carColor: new FormControl('', Validators.required),
+    carYear: new FormControl('', Validators.required),
+    carModel: new FormControl('', Validators.required),
+    carManufacturer: new FormControl('', Validators.required),
+    carEngine: new FormControl('', Validators.required),
+    carPlateNumber: new FormControl('', Validators.required),
+    carOil: new FormControl('', Validators.required),
+    carFuel: new FormControl('', Validators.required),
   });
 
   async addCar() {

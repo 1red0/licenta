@@ -1,26 +1,23 @@
 <div class="settings-container">
   <div class="settings-header">
-    <h1>Settings</h1>
+    <h1>Setări</h1>
   </div>
   <br /><br />
 
   <div class="settings-content">
     <div class="settings-item">
-      <i class="fas fa-user-pen"></i>
-      <span> See account </span>
-      <br />
-
       <button type="submit" class="profile" (click)="goToProfile()">
-        See account
+        <i class="fas fa-user-pen"></i>
+        <span> Profil </span>
+        <br />
       </button>
     </div>
 
     <div class="settings-item">
-      <i class="fas fa-sign-out"></i>
-      <span> Log Out </span>
-      <br />
-
-      <button type="submit" class="logOut" (click)="logout()">Log Out</button>
+      <button type="submit" class="logOut" (click)="logout()">
+        <i class="fas fa-sign-out"></i>
+        <span> Ieși din cont </span>
+      </button>
     </div>
   </div>
 </div>
