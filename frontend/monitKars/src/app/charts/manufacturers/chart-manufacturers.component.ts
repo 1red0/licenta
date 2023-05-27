@@ -32,7 +32,6 @@ export class ChartComponent implements OnInit {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
   };
-
   public pieChartLegend = true;
   public pieChartPlugins = [];
 }

@@ -30,7 +30,6 @@ export class ChartFreeCarsComponent {
   public pieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
   };
-
   public pieChartLegend = true;
   public pieChartPlugins = [];
 }
