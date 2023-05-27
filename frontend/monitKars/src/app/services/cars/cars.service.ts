@@ -10,11 +10,17 @@ import { Observable } from 'rxjs';
 export class CarsService {
   constructor(private _http: HttpClient) {}
 
-  getCars(): Observable<Car[]> {
+  async getCars(): Promise<Observable<Car[]>> {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');
   }
 
-  getNoCars(): Observable<string> {
+  async getDriverCars(driverID: string): Promise<Observable<Car[]>> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/driverCars/' + driverID
+    );
+  }
+
+  async getNoCars(): Promise<Observable<string>> {
     return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {
       responseType: 'text',
     });
@@ -36,13 +42,39 @@ export class CarsService {
     return this._http.put(environment.baseApiUrl + 'api/Cars/' + id, car);
   }
 
-  getManufacturers(): Observable<string[]> {
+  async getManufacturers(): Promise<Observable<string[]>> {
     return this._http.get<string[]>(
       environment.baseApiUrl + 'api/Cars/manufacturers'
     );
   }
 
-  getNumberOfCarsManufacturers(manufacturer: string): Observable<number> {
+  async getStatuses(): Promise<Observable<string[]>> {
+    return this._http.get<string[]>(
+      environment.baseApiUrl + 'api/Cars/statuses'
+    );
+  }
+
+  async getFreeNoCars(): Promise<Observable<number>> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoFreeCars'
+    );
+  }
+
+  async getTakenNoCars(): Promise<Observable<number>> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoTakenCars'
+    );
+  }
+
+  async getStatusNoCars(status: string): Promise<Observable<number>> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/noCarsStatus/' + status
+    );
+  }
+
+  async getNumberOfCarsManufacturers(
+    manufacturer: string
+  ): Promise<Observable<number>> {
     return this._http.get<number>(
       environment.baseApiUrl + 'api/Cars/noCars/' + manufacturer
     );

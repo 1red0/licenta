@@ -12,24 +12,25 @@ export class ChartComponent implements OnInit {
   man = <string[]>{};
   manNum: number[] = [];
 
-  ngOnInit(): void {
-    this.carService.getManufacturers().subscribe((res) => {
+  async ngOnInit(): Promise<void> {
+    (await this.carService.getManufacturers()).subscribe((res) => {
       this.man = res;
       let localdata: number[] = [];
-      this.man.forEach((obj, index) => {
-        this.carService.getNumberOfCarsManufacturers(obj).subscribe((res) => {
-          localdata.push(res);
-          if (index + 1 == this.man.length) {
-            this.manNum = localdata;
+      this.man.forEach(async (obj, index) => {
+        (await this.carService.getNumberOfCarsManufacturers(obj)).subscribe(
+          (res) => {
+            localdata.push(res);
+            if (index + 1 == this.man.length) {
+              this.manNum = localdata;
+            }
           }
-        });
+        );
       });
     });
   }
 
-  // Pie
   public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: false,
+    responsive: true,
   };
 
   public pieChartLegend = true;

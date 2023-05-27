@@ -12,21 +12,23 @@ import { environment } from 'src/environments/environment';
 export class OrganisationComponent {
   organisation = <Organisation>{};
 
-  constructor(private carService: CarsService, private driverService: UsersService) {}
+  constructor(
+    private carService: CarsService,
+    private driverService: UsersService
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.organisation.organisationName = environment.orgName;
     this.organisation.organisationAddress = environment.orgAddr;
     this.organisation.organisationMail = environment.orgMail;
     this.organisation.organisationPhone = environment.orgPhone;
 
-    this.carService.getNoCars().subscribe((res) => {
+    (await this.carService.getNoCars()).subscribe((res) => {
       this.organisation.numberOfCars = res;
     });
 
     this.driverService.getDrivers().subscribe((res) => {
       this.organisation.numberOfDrivers = res.length;
-    })
-
+    });
   }
 }

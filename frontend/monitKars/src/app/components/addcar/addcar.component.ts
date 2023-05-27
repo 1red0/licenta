@@ -14,7 +14,7 @@ import carTires from '../../../lists/tiresSizes.json';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
 
 @Component({
   selector: 'app-addcar',
@@ -71,17 +71,24 @@ export class AddcarComponent implements OnInit {
   });
 
   async addCar() {
-    this.Car = this.addCarForm.value;
-    if (this.addCarForm.value.carFuel === 'Electricity') {
-      this.Car.carOil = '-';
+    try {
+      this.Car = this.addCarForm.value;
+      if (this.addCarForm.value.carFuel === 'Electricity') {
+        this.Car.carOil = '-';
+      }
+      this.Car.carID = null;
+      this.Car.carOrganisation = environment.orgName;
+      console.log(this.Car);
+
+      await firstValueFrom(this.carService.postCar(this.Car));
+
+      this.router.navigate(['/carlist']).then(() => {
+        window.location.reload();
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle error
     }
-    this.Car.carID = null;
-    this.Car.carOrganisation = environment.orgName;
-    console.log(this.Car);
-    this.carService.postCar(this.Car).subscribe();
-    this.router.navigate(['/carlist']).then(() => {
-      window.location.reload();
-    });
   }
 
   ngOnInit(): void {

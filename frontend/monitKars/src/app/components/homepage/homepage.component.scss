@@ -1,0 +1,51 @@
+.homepage-container {
+  width: 80%;
+  margin: 0 auto;
+  min-width: 700px;
+  height: 80vh;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.homepage-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.homepage-subtitle {
+  font-size: 1.8rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.homepage-content {
+  text-align: center;
+}
+
+.homepage-description {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.kars {
+  color: rgb(137, 167, 156);
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

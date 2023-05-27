@@ -1,13 +1,13 @@
 export const navbarDataDriver = [
   {
-    routeLink: 'dashboard',
+    routeLink: 'homepage',
     icon: 'fa-solid fa-home',
-    label: 'Dashboard',
+    label: 'Homepage',
   },
   {
-    routeLink: 'car',
-    icon: 'fa-solid fa-car',
-    label: 'Car',
+    routeLink: 'drivercarlist',
+    icon: 'fa-solid fa-list-ol',
+    label: 'Organisation cars',
   },
   {
     routeLink: 'settings',

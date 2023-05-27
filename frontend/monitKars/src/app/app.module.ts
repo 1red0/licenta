@@ -21,6 +21,12 @@ import { AuthGuard } from './services/auth/auth-guard.guard';
 import { EditcarComponent } from './components/editcar/editcar.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 import { ChartComponent } from './charts/manufacturers/chart-manufacturers.component';
+import { CarlistdriverComponent } from './components/carlistdriver/carlistdriver.component';
+import { EditcardriverComponent } from './components/editcardriver/editcardriver.component';
+import { DriverCarComponent } from './components/driver-car/driver-car.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { ChartFreeCarsComponent } from './charts/chart-free-cars/chart-free-cars.component';
+import { ChartStatusesComponent } from './charts/chart-statuses/chart-statuses.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,12 @@ import { ChartComponent } from './charts/manufacturers/chart-manufacturers.compo
     AddcarComponent,
     EditcarComponent,
     ChartComponent,
+    CarlistdriverComponent,
+    EditcardriverComponent,
+    DriverCarComponent,
+    HomepageComponent,
+    ChartFreeCarsComponent,
+    ChartStatusesComponent,
   ],
   imports: [
     BrowserModule,

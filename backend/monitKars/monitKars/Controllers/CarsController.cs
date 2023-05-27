@@ -42,6 +42,13 @@ namespace monitKars.Controllers
             return await _context.Cars.Select(m => m.CarManufacturer).Distinct().ToListAsync();
         }
 
+        // GET: api/Cars/statuses
+        [HttpGet("statuses")]
+        public async Task<ActionResult<IEnumerable<string?>>> GetStatuses()
+        {
+            return await _context.Cars.Select(m => m.CarMaintenanceStatus).Distinct().ToListAsync();
+        }
+
         // GET: api/Cars/manufacturer/{Dacia}
         [HttpGet("noCars/{manufacturer}")]
         public async Task<ActionResult<int>> GetNoCarsOfManufacturers(string manufacturer)
@@ -49,25 +56,39 @@ namespace monitKars.Controllers
             return await _context.Cars.Where(m => m.CarManufacturer == manufacturer).CountAsync();
         }
 
-        // GET: api/Cars/driverCars/{id}
+        // GET: api/Cars/driverCars/{driver}
         [HttpGet("driverCars/{driver}")]
         public async Task<ActionResult<IEnumerable<Car>>> GetCarsOfDriver(string driver)
         {
             return await _context.Cars.Where(m => m.CarOwnerID == driver).ToListAsync();
         }
 
-        // GET: api/Cars/driverNoCars/{id}
+        // GET: api/Cars/driverNoCars/{driver}
         [HttpGet("driverNoCars/{driver}")]
         public async Task<ActionResult<int>> GetNoCarsOfDriver(string driver)
         {
             return await _context.Cars.Where(m => m.CarOwnerID == driver).CountAsync();
         }
 
-        // GET: api/Cars/freeCars
-        [HttpGet("freeCars")]
-        public async Task<ActionResult<IEnumerable<Car>>> GetNoCarsNODriver()
+        // GET: api/Cars/noCarsStatus/{status}
+        [HttpGet("noCarsStatus/{status}")]
+        public async Task<ActionResult<int>> GetNoCarsOfStatus(string status)
         {
-            return await _context.Cars.Where(m => m.CarOwnerID == null).ToListAsync();
+            return await _context.Cars.Where(m => m.CarMaintenanceStatus == status).CountAsync();
+        }
+
+        // GET: api/Cars/NoFreeCars
+        [HttpGet("NoFreeCars")]
+        public async Task<ActionResult<int>> GetNoCarsNODriver()
+        {
+            return await _context.Cars.Where(m => m.CarOwnerID == "").CountAsync();
+        }
+
+        // GET: api/Cars/NoTakenCars
+        [HttpGet("NoTakenCars")]
+        public async Task<ActionResult<int>> GetNoCarsWithDriver()
+        {
+            return await _context.Cars.Where(m => m.CarOwnerID != "").CountAsync();
         }
 
 

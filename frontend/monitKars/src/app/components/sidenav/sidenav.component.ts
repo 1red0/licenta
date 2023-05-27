@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { navbarDataStart } from './data/nav-data-start';
 import { navbarDataDriver } from './data/nav-data-driver';
 import { navbarData } from './data/nav-data-admin';
 import { NavbarService } from 'src/app/services/navbar/navbar.service';
@@ -26,10 +25,8 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
     if (this.navbarService.roleAdmin) {
       this.navData = navbarData;
-    } else if (this.navbarService.roleDriver) {
-      this.navData = navbarDataDriver;
     } else {
-      this.navData = navbarDataStart;
+      this.navData = navbarDataDriver;
     }
   }
 

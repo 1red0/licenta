@@ -13,8 +13,8 @@ export class CarlistComponent implements OnInit {
 
   constructor(private carService: CarsService, private router: Router) {}
 
-  ngOnInit() {
-    this.carService.getCars().subscribe((res) => {
+  async ngOnInit() {
+    (await this.carService.getCars()).subscribe((res) => {
       this.CarsList = res;
     });
   }

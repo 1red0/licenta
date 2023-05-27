@@ -1,0 +1,83 @@
+.car-container {
+  width: 80%;
+  margin: 0 auto;
+  border: 5px solid #263238;
+  border-radius: 25px 0 25px 25px;
+  min-width: 750px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  .car-header {
+    text-align: center;
+    color: #fff;
+    background: #263238;
+    border-radius: 18px 0px 0px 0px;
+    padding: 10px;
+  }
+  .car-table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      border-bottom: #263238 solid 5px;
+    }
+    td {
+      vertical-align: middle;
+
+      padding: 20px;
+      font-size: 1.2rem;
+    }
+
+    td:first-child {
+      text-align: left;
+      width: 40%;
+      i {
+        font-size: 1.5rem;
+        width: 30px;
+      }
+    }
+
+    td:last-child {
+      text-align: right;
+    }
+
+    overflow: hidden;
+  }
+}
+
+button[type="submit"] {
+  background-color: #4a6887;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0069d9;
+  }
+}
+
+.edit-item {
+  flex-basis: 45%;
+  margin-bottom: 1rem;
+  min-width: 20rem;
+
+  i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+caption {
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

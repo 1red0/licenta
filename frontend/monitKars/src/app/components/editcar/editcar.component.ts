@@ -1,12 +1,11 @@
-import { Component, Optional } from '@angular/core';
-import { FormGroup, FormControl, RequiredValidator } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs';
+import { firstValueFrom, map } from 'rxjs';
 import { Car } from 'src/app/models/car.model';
 import { User } from 'src/app/models/user.model';
 import { CarsService } from 'src/app/services/cars/cars.service';
 import { UsersService } from 'src/app/services/users/users.service';
-import { environment } from 'src/environments/environment';
 import manufacturersList from '../../../lists/manufacturers.json';
 import colorList from '../../../lists/colors.json';
 import carTypesList from '../../../lists/carTypes.json';
@@ -74,13 +73,26 @@ export class EditcarComponent {
     carFuel: new FormControl(''),
   });
 
-  editCar() {
-    this.updatedCar = this.editCarForm.value;
-    this.updatedCar.carID = Number(this.idCar);
-    this.carService.updateCar(Number(this.idCar), this.updatedCar).subscribe();
-    this.router.navigate(['/carlist']).then(() => {
-      window.location.reload();
-    });
+  async editCar() {
+    try {
+      this.updatedCar = this.editCarForm.value;
+      this.updatedCar.carID = Number(this.idCar);
+      if (this.editCarForm.value.carFuel === 'Electricity') {
+        this.updatedCar.carOil = '-';
+      }
+      console.log(this.updatedCar);
+
+      await firstValueFrom(
+        this.carService.updateCar(Number(this.idCar), this.updatedCar)
+      );
+
+      this.router.navigate(['/car', { carID: this.idCar }]).then(() => {
+        window.location.reload();
+      });
+    } catch (error) {
+      console.error('Error updating car:', error);
+      // Handle error
+    }
   }
 
   ngOnInit(): void {
