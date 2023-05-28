@@ -10,17 +10,17 @@ import { Observable } from 'rxjs';
 export class CarsService {
   constructor(private _http: HttpClient) {}
 
-  async getCars(): Promise<Observable<Car[]>> {
+  getCars(): Observable<Car[]> {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');
   }
 
-  async getDriverCars(driverID: string): Promise<Observable<Car[]>> {
+  getDriverCars(driverID: string): Observable<Car[]> {
     return this._http.get<Car[]>(
       environment.baseApiUrl + 'api/Cars/driverCars/' + driverID
     );
   }
 
-  async getNoCars(): Promise<Observable<string>> {
+  getNoCars(): Observable<string> {
     return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {
       responseType: 'text',
     });
@@ -42,39 +42,37 @@ export class CarsService {
     return this._http.put(environment.baseApiUrl + 'api/Cars/' + id, car);
   }
 
-  async getManufacturers(): Promise<Observable<string[]>> {
+  getManufacturers(): Observable<string[]> {
     return this._http.get<string[]>(
       environment.baseApiUrl + 'api/Cars/manufacturers'
     );
   }
 
-  async getStatuses(): Promise<Observable<string[]>> {
+  getStatuses(): Observable<string[]> {
     return this._http.get<string[]>(
       environment.baseApiUrl + 'api/Cars/statuses'
     );
   }
 
-  async getFreeNoCars(): Promise<Observable<number>> {
+  getFreeNoCars(): Observable<number> {
     return this._http.get<number>(
       environment.baseApiUrl + 'api/Cars/NoFreeCars'
     );
   }
 
-  async getTakenNoCars(): Promise<Observable<number>> {
+  getTakenNoCars(): Observable<number> {
     return this._http.get<number>(
       environment.baseApiUrl + 'api/Cars/NoTakenCars'
     );
   }
 
-  async getStatusNoCars(status: string): Promise<Observable<number>> {
+  getStatusNoCars(status: string): Observable<number> {
     return this._http.get<number>(
       environment.baseApiUrl + 'api/Cars/noCarsStatus/' + status
     );
   }
 
-  async getNumberOfCarsManufacturers(
-    manufacturer: string
-  ): Promise<Observable<number>> {
+  getNumberOfCarsManufacturers(manufacturer: string): Observable<number> {
     return this._http.get<number>(
       environment.baseApiUrl + 'api/Cars/noCars/' + manufacturer
     );

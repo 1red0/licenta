@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ChartOptions } from 'chart.js';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Chart, ChartData, ChartOptions, ChartTypeRegistry } from 'chart.js';
+import { forkJoin, map, Subscription } from 'rxjs';
 import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
@@ -8,28 +9,77 @@ import { CarsService } from 'src/app/services/cars/cars.service';
   styleUrls: ['./chart-statuses.component.scss'],
 })
 export class ChartStatusesComponent {
+  @ViewChild('chartCanvas') chartCanvas!: ElementRef;
+
   constructor(private carService: CarsService) {}
+
+  chart: Chart | undefined;
   stat = <string[]>{};
   statNum: number[] = [];
+  chartSubscription: Subscription | undefined;
 
-  async ngOnInit(): Promise<void> {
-    (await this.carService.getStatuses()).subscribe((res) => {
-      this.stat = res;
-      let localdata: number[] = [];
-      this.stat.forEach(async (obj, index) => {
-        (await this.carService.getStatusNoCars(obj)).subscribe((res) => {
-          localdata.push(res);
-          if (index + 1 == this.stat.length) {
-            this.statNum = localdata;
-          }
-        });
-      });
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.initializeChart();
     });
   }
 
-  public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: true,
-  };
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
+  ngOnDestroy(): void {
+    if (this.chart) {
+      this.chart.destroy();
+    }
+    if (this.chartSubscription) {
+      this.chartSubscription.unsubscribe();
+    }
+  }
+
+  initializeChart(): void {
+    const canvas = this.chartCanvas.nativeElement.getContext('2d');
+    if (!canvas) return;
+
+    if (this.chart) {
+      this.chart.destroy();
+    }
+
+    const data: ChartData = {
+      labels: this.stat,
+      datasets: [
+        {
+          data: this.statNum,
+          backgroundColor: ['#FF0000', '#00FF00', '#FFA500'],
+        },
+      ],
+    };
+
+    const options: ChartOptions<keyof ChartTypeRegistry> = {
+      responsive: true,
+      animation: {
+        animateRotate: true,
+        animateScale: true,
+      } as ChartOptions<keyof ChartTypeRegistry>['animation'],
+    };
+
+    this.chart = new Chart(canvas, {
+      type: 'pie',
+      data,
+      options,
+    });
+  }
+
+  ngOnInit(): void {
+    this.carService.getStatuses().subscribe((res) => {
+      this.stat = res;
+
+      const fetchStatusNoCarsObservables = this.stat.map((obj) =>
+        this.carService.getStatusNoCars(obj)
+      );
+
+      this.chartSubscription = forkJoin(fetchStatusNoCarsObservables).subscribe(
+        (numbers) => {
+          this.statNum = numbers;
+          this.initializeChart();
+        }
+      );
+    });
+  }
 }

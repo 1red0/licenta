@@ -1,16 +1,3 @@
 <div class="charts">
-  <canvas
-    baseChart
-    [type]="'pie'"
-    [datasets]="[
-      {
-        data: this.carNum
-      }
-    ]"
-    [labels]="this.free"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins"
-    [legend]="pieChartLegend"
-  >
-  </canvas>
+  <canvas #chartCanvas> </canvas>
 </div>
