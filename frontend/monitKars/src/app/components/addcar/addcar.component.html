@@ -5,6 +5,20 @@
 
   <form class="addcar-form" [formGroup]="addCarForm">
     <div class="form-group">
+      <label for="name">Nume autovehicul</label>
+      <br /><br />
+      <input type="text" id="name" name="name" formControlName="carName" />
+      <div
+        *ngIf="
+          addCarForm.get('carName').invalid && addCarForm.get('carName').touched
+        "
+        class="required-error"
+      >
+        Te rog pune un nume mașinii
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="carType">Tip</label>
       <br /><br />
       <select
@@ -27,6 +41,33 @@
         class="required-error"
       >
         Te rog selectează tipul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="maintenance">Starea autovehiculului</label>
+      <br /><br />
+      <select
+        class="select"
+        name="maintenance"
+        id="maintenance"
+        formControlName="carMaintenanceStatus"
+      >
+        <option
+          *ngFor="let status of statuses | keyvalue"
+          value="{{ status.value }}"
+        >
+          {{ status.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carMaintenanceStatus').invalid &&
+          addCarForm.get('carMaintenanceStatus').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează starea autovehiculului
       </div>
     </div>
 
@@ -73,6 +114,75 @@
     </div>
 
     <div class="form-group">
+      <label for="year">An de fabricație</label>
+      <br /><br />
+      <input type="date" id="year" name="year" formControlName="carYear" />
+      <div
+        *ngIf="
+          addCarForm.get('carYear').invalid && addCarForm.get('carYear').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu anul de fabricație al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vin">VIN - Număr identificare</label>
+      <br /><br />
+      <input type="text" id="vin" name="vin" formControlName="carVinNumber" />
+      <div
+        *ngIf="
+          addCarForm.get('carVinNumber').invalid &&
+          addCarForm.get('carVinNumber').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu VIN-ul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="plate">Număr înmatriculare</label>
+      <br /><br />
+      <input
+        type="text"
+        id="plate"
+        name="plate"
+        formControlName="carPlateNumber"
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carPlateNumber').invalid &&
+          addCarForm.get('carPlateNumber').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu numărul de înmatriculare al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="milage">Kilometraj</label>
+      <br /><br />
+      <input
+        type="text"
+        id="milage"
+        name="milage"
+        formControlName="carMilage"
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carMilage').invalid &&
+          addCarForm.get('carMilage').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu kilometrajul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
       <label for="engine">Motor</label>
       <br /><br />
       <select
@@ -100,34 +210,6 @@
     </div>
 
     <div class="form-group">
-      <label for="name">Nume</label>
-      <br /><br />
-      <input type="text" id="name" name="name" formControlName="carName" />
-      <div
-        *ngIf="
-          addCarForm.get('carName').invalid && addCarForm.get('carName').touched
-        "
-        class="required-error"
-      >
-        Te rog pune un nume mașinii
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="year">An de fabricație</label>
-      <br /><br />
-      <input type="date" id="year" name="year" formControlName="carYear" />
-      <div
-        *ngIf="
-          addCarForm.get('carYear').invalid && addCarForm.get('carYear').touched
-        "
-        class="required-error"
-      >
-        Te rog introdu anul de fabricație al autovehiculului
-      </div>
-    </div>
-
-    <div class="form-group">
       <label for="color">Culoare</label>
       <br /><br />
       <select class="select" name="color" id="color" formControlName="carColor">
@@ -150,57 +232,44 @@
     </div>
 
     <div class="form-group">
-      <label for="milage">Kilometraj</label>
+      <label for="fuel">Combustibil</label>
       <br /><br />
-      <input
-        type="text"
-        id="milage"
-        name="milage"
-        formControlName="carMilage"
-      />
+      <select
+        class="select"
+        name="fuel"
+        id="fuel"
+        formControlName="carFuel"
+        required
+      >
+        <option *ngFor="let fuel of fuels | keyvalue" value="{{ fuel.value }}">
+          {{ fuel.value }}
+        </option>
+      </select>
       <div
         *ngIf="
-          addCarForm.get('carMilage').invalid &&
-          addCarForm.get('carMilage').touched
+          addCarForm.get('carFuel').invalid && addCarForm.get('carFuel').touched
         "
         class="required-error"
       >
-        Te rog introdu kilometrajul autovehiculului
+        Te rog selectează tipul combustibilului
       </div>
     </div>
 
     <div class="form-group">
-      <label for="plate">Număr înmatriculare</label>
+      <label for="oil">Tip ulei</label>
       <br /><br />
-      <input
-        type="text"
-        id="plate"
-        name="plate"
-        formControlName="carPlateNumber"
-      />
+      <select class="select" name="oil" id="oil" formControlName="carOil">
+        <option *ngFor="let oil of oils | keyvalue" value="{{ oil.value }}">
+          {{ oil.value }}
+        </option>
+      </select>
       <div
         *ngIf="
-          addCarForm.get('carPlateNumber').invalid &&
-          addCarForm.get('carPlateNumber').touched
+          addCarForm.get('carOil').invalid && addCarForm.get('carOil').touched
         "
         class="required-error"
       >
-        Te rog introdu numărul de înmatriculare al autovehiculului
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="vin">VIN - Număr identificare</label>
-      <br /><br />
-      <input type="text" id="vin" name="vin" formControlName="carVinNumber" />
-      <div
-        *ngIf="
-          addCarForm.get('carVinNumber').invalid &&
-          addCarForm.get('carVinNumber').touched
-        "
-        class="required-error"
-      >
-        Te rog introdu VIN-ul autovehiculului
+        Te rog selectează tipul uleiului
       </div>
     </div>
 
@@ -269,33 +338,6 @@
     </div>
 
     <div class="form-group">
-      <label for="maintenance">Starea autovehiculului</label>
-      <br /><br />
-      <select
-        class="select"
-        name="maintenance"
-        id="maintenance"
-        formControlName="carMaintenanceStatus"
-      >
-        <option
-          *ngFor="let status of statuses | keyvalue"
-          value="{{ status.value }}"
-        >
-          {{ status.value }}
-        </option>
-      </select>
-      <div
-        *ngIf="
-          addCarForm.get('carMaintenanceStatus').invalid &&
-          addCarForm.get('carMaintenanceStatus').touched
-        "
-        class="required-error"
-      >
-        Te rog selectează starea autovehiculului
-      </div>
-    </div>
-
-    <div class="form-group">
       <label for="inspection">Inspecție periodică</label>
       <br /><br />
       <input
@@ -317,48 +359,6 @@
     </div>
 
     <div class="form-group">
-      <label for="fuel">Combustibil</label>
-      <br /><br />
-      <select
-        class="select"
-        name="fuel"
-        id="fuel"
-        formControlName="carFuel"
-        required
-      >
-        <option *ngFor="let fuel of fuels | keyvalue" value="{{ fuel.value }}">
-          {{ fuel.value }}
-        </option>
-      </select>
-      <div
-        *ngIf="
-          addCarForm.get('carFuel').invalid && addCarForm.get('carFuel').touched
-        "
-        class="required-error"
-      >
-        Te rog selectează tipul combustibilului
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="oil">Tip ulei</label>
-      <br /><br />
-      <select class="select" name="oil" id="oil" formControlName="carOil">
-        <option *ngFor="let oil of oils | keyvalue" value="{{ oil.value }}">
-          {{ oil.value }}
-        </option>
-      </select>
-      <div
-        *ngIf="
-          addCarForm.get('carOil').invalid && addCarForm.get('carOil').touched
-        "
-        class="required-error"
-      >
-        Te rog selectează tipul uleiului
-      </div>
-    </div>
-
-    <div class="form-group">
       <label for="drivers">Șofer</label>
       <br /><br />
       <select
@@ -367,11 +367,13 @@
         id="drivers"
         formControlName="carOwnerID"
       >
+        <option value=""></option>
         <option
           *ngFor="let driver of Drivers"
           value="{{ driver.username }} - {{ driver.id }}"
         >
-          {{ driver.username }} - {{ driver.firstName }} {{ driver.lastName }}
+          {{ driver.username }} - {{ driver.firstName }}
+          {{ driver.lastName }}
         </option>
       </select>
     </div>

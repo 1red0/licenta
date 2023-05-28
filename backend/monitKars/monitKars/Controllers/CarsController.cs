@@ -49,7 +49,7 @@ namespace monitKars.Controllers
             return await _context.Cars.Select(m => m.CarMaintenanceStatus).Distinct().ToListAsync();
         }
 
-        // GET: api/Cars/manufacturer/{Dacia}
+        // GET: api/Cars/noCars/{manufacturer}
         [HttpGet("noCars/{manufacturer}")]
         public async Task<ActionResult<int>> GetNoCarsOfManufacturers(string manufacturer)
         {
@@ -61,6 +61,21 @@ namespace monitKars.Controllers
         public async Task<ActionResult<IEnumerable<Car>>> GetCarsOfDriver(string driver)
         {
             return await _context.Cars.Where(m => m.CarOwnerID == driver).ToListAsync();
+        }
+
+        // GET: api/Cars/milage
+        [HttpGet("milage")]
+        public async Task<ActionResult<IEnumerable<CarMilageDTO>>> GetCarsMilage()
+        {
+            var cars = await _context.Cars.ToListAsync();
+            var carMilages = cars.Select(car => new CarMilageDTO
+            {
+                CarID = car.CarID,
+                CarName = car.CarName,
+                CarMilage = car.CarMilage
+            }).ToList();
+
+            return carMilages;
         }
 
         // GET: api/Cars/driverNoCars/{driver}
@@ -91,8 +106,76 @@ namespace monitKars.Controllers
             return await _context.Cars.Where(m => m.CarOwnerID != "").CountAsync();
         }
 
+        // GET: api/Cars/NoVignetteValidCars
+        [HttpGet("NoVignetteValidCars")]
+        public async Task<ActionResult<int>> GetNoVignetteValidCars()
+        {
+            DateTime currentDate = DateTime.Now;
 
-        // GET: api/Cars/5
+            var validCarsCount = await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.Count(c => DateTime.Parse(c.CarVignette) > currentDate));
+
+
+            return validCarsCount;
+        }
+
+        // GET: api/Cars/NoVignetteInvalidCars
+        [HttpGet("NoVignetteInvalidCars")]
+        public async Task<ActionResult<int>> GetNoVignetteInValidCars()
+        {
+            DateTime currentDate = DateTime.Now;
+
+            var invalidCarsCount = await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.Count(c => DateTime.Parse(c.CarVignette) <= currentDate));
+
+            return invalidCarsCount;
+        }
+
+
+        // GET: api/Cars/NoInsuranceValidCars
+        [HttpGet("NoInsuranceValidCars")]
+        public async Task<ActionResult<int>> GetNoInsuranceValidCars()
+        {
+            DateTime currentDate = DateTime.Now;
+
+            var validCarsCount = await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.Count(c => DateTime.Parse(c.CarInsurance) > currentDate));
+
+            return validCarsCount;
+        }
+
+        // GET: api/Cars/NoInsuranceInvalidCars
+        [HttpGet("NoInsuranceInvalidCars")]
+        public async Task<ActionResult<int>> GetNoInsuranceInValidCars()
+        {
+            DateTime currentDate = DateTime.Now;
+
+            var invalidCarsCount = await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.Count(c => DateTime.Parse(c.CarInsurance) <= currentDate));
+
+            return invalidCarsCount;
+        }
+
+        // GET: api/Cars/NoInspectionValidCars
+        [HttpGet("NoInspectionValidCars")]
+        public async Task<ActionResult<int>> GetNoInspectionValidCars()
+        {
+            DateTime currentDate = DateTime.Now;
+
+            var validCarsCount = await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.Count(c => DateTime.Parse(c.CarPeriodicRevision) > currentDate));
+
+            return validCarsCount;
+        }
+
+        // GET: api/Cars/NoInspectionInvalidCars
+        [HttpGet("NoInspectionInvalidCars")]
+        public async Task<ActionResult<int>> GetNoInspectionInValidCars()
+        {
+            DateTime currentDate = DateTime.Now;
+
+            var invalidCarsCount = await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.Count(c => DateTime.Parse(c.CarPeriodicRevision) <= currentDate));
+
+            return invalidCarsCount;
+        }
+ 
+
+        // GET: api/Cars/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Car>> GetCar(int id)
         {
@@ -116,7 +199,7 @@ namespace monitKars.Controllers
             return CreatedAtAction("GetCar", new { id = car.CarID }, car);
         }
 
-        // PUT: api/Cars/5
+        // PUT: api/Cars/{id}
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCar(int id, Car car)
         {
@@ -147,7 +230,7 @@ namespace monitKars.Controllers
         }
 
 
-        // DELETE: api/Cars/5
+        // DELETE: api/Cars/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCar(int id)
         {

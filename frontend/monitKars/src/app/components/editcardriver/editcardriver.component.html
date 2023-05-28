@@ -17,6 +17,25 @@
     </div>
 
     <div class="form-group">
+      <label for="maintenance">Starea autovehiculului</label>
+      <br /><br />
+      <select
+        class="select"
+        name="maintenance"
+        id="maintenance"
+        formControlName="carMaintenanceStatus"
+        value="{{ car.carMaintenanceStatus }}"
+      >
+        <option
+          *ngFor="let status of statuses | keyvalue"
+          value="{{ status.value }}"
+        >
+          {{ status.value }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
       <label for="milage">Kilometraj</label>
       <br /><br />
       <input
@@ -66,25 +85,6 @@
         formControlName="carInsurance"
         value="{{ car.carInsurance }}"
       />
-    </div>
-
-    <div class="form-group">
-      <label for="maintenance">Starea autovehiculului</label>
-      <br /><br />
-      <select
-        class="select"
-        name="maintenance"
-        id="maintenance"
-        formControlName="carMaintenanceStatus"
-        value="{{ car.carMaintenanceStatus }}"
-      >
-        <option
-          *ngFor="let status of statuses | keyvalue"
-          value="{{ status.value }}"
-        >
-          {{ status.value }}
-        </option>
-      </select>
     </div>
 
     <div class="form-group">

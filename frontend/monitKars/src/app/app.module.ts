@@ -27,6 +27,10 @@ import { DriverCarComponent } from './components/driver-car/driver-car.component
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ChartFreeCarsComponent } from './charts/chart-free-cars/chart-free-cars.component';
 import { ChartStatusesComponent } from './charts/chart-statuses/chart-statuses.component';
+import { ChartMilageComponent } from './charts/chart-milage/chart-milage.component';
+import { ChartInsuranceComponent } from './charts/chart-insurance/chart-insurance.component';
+import { ChartInspectionComponent } from './charts/chart-inspection/chart-inspection.component';
+import { ChartVignetteComponent } from './charts/chart-vignette/chart-vignette.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,10 @@ import { ChartStatusesComponent } from './charts/chart-statuses/chart-statuses.c
     HomepageComponent,
     ChartFreeCarsComponent,
     ChartStatusesComponent,
+    ChartMilageComponent,
+    ChartInsuranceComponent,
+    ChartInspectionComponent,
+    ChartVignetteComponent,
   ],
   imports: [
     BrowserModule,

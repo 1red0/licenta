@@ -1,21 +1,21 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart, ChartData, ChartOptions, ChartTypeRegistry } from 'chart.js';
-import { forkJoin, Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
-  selector: 'app-chart-statuses',
-  templateUrl: './chart-statuses.component.html',
-  styleUrls: ['./chart-statuses.component.scss'],
+  selector: 'app-chart-inspection',
+  templateUrl: './chart-inspection.component.html',
+  styleUrls: ['./chart-inspection.component.scss'],
 })
-export class ChartStatusesComponent {
+export class ChartInspectionComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
 
   constructor(private carService: CarsService) {}
 
   chart: Chart | undefined;
-  stat = <string[]>{};
-  statNum: number[] = [];
+  carNum: number[] = [];
+  valid = <string[]>{};
   chartSubscription: Subscription | undefined;
 
   ngAfterViewInit(): void {
@@ -42,11 +42,11 @@ export class ChartStatusesComponent {
     }
 
     const data: ChartData = {
-      labels: this.stat,
+      labels: ['Valabile', 'Expirate'],
       datasets: [
         {
-          data: this.statNum,
-          backgroundColor: ['#00FF00', '#FFA500', '#FF0000'],
+          data: this.carNum,
+          backgroundColor: ['#00FF00', '#FF0000'],
         },
       ],
     };
@@ -67,19 +67,14 @@ export class ChartStatusesComponent {
   }
 
   ngOnInit(): void {
-    this.carService.getStatuses().subscribe((res) => {
-      this.stat = res;
+    const validCars$ = this.carService.getInspectionValidNoCars();
+    const invalidCars$ = this.carService.getInspectionInvalidNoCars();
 
-      const fetchStatusNoCarsObservables = this.stat.map((obj) =>
-        this.carService.getStatusNoCars(obj)
-      );
-
-      this.chartSubscription = forkJoin(fetchStatusNoCarsObservables).subscribe(
-        (numbers) => {
-          this.statNum = numbers;
-          this.initializeChart();
-        }
-      );
-    });
+    this.chartSubscription = forkJoin([validCars$, invalidCars$]).subscribe(
+      ([validCars, invalidCars]) => {
+        this.carNum = [validCars, invalidCars];
+        this.initializeChart();
+      }
+    );
   }
 }
