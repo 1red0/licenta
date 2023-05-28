@@ -4,15 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { Car } from 'src/app/models/car.model';
 import { CarsService } from 'src/app/services/cars/cars.service';
-import carStatusesList from '../../../lists/statuses.json';
-import carTires from '../../../lists/tiresSizes.json';
+import carStatusesList from '../../../../lists/statuses.json';
+import carTires from '../../../../lists/tiresSizes.json';
 
 @Component({
-  selector: 'app-editcardriver',
-  templateUrl: './editcardriver.component.html',
-  styleUrls: ['./editcardriver.component.scss'],
+  selector: 'app-editcarDriver',
+  templateUrl: './editcarDriver.component.html',
+  styleUrls: ['./editcarDriver.component.scss'],
 })
-export class EditcardriverComponent {
+export class EditcarComponentDriver {
   car = <Car>{};
 
   updatedCar = <Car>{};

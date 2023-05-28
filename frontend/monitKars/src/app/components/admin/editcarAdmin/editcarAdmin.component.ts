@@ -6,21 +6,21 @@ import { Car } from 'src/app/models/car.model';
 import { User } from 'src/app/models/user.model';
 import { CarsService } from 'src/app/services/cars/cars.service';
 import { UsersService } from 'src/app/services/users/users.service';
-import manufacturersList from '../../../lists/manufacturers.json';
-import colorList from '../../../lists/colors.json';
-import carTypesList from '../../../lists/carTypes.json';
-import carFuelsList from '../../../lists/carFuels.json';
-import carOilsList from '../../../lists/carOils.json';
-import carStatusesList from '../../../lists/statuses.json';
-import carEnginesList from '../../../lists/carEngines.json';
-import carTires from '../../../lists/tiresSizes.json';
+import manufacturersList from '../../../../lists/manufacturers.json';
+import colorList from '../../../../lists/colors.json';
+import carTypesList from '../../../../lists/carTypes.json';
+import carFuelsList from '../../../../lists/carFuels.json';
+import carOilsList from '../../../../lists/carOils.json';
+import carStatusesList from '../../../../lists/statuses.json';
+import carEnginesList from '../../../../lists/carEngines.json';
+import carTires from '../../../../lists/tiresSizes.json';
 
 @Component({
-  selector: 'app-editcar',
-  templateUrl: './editcar.component.html',
-  styleUrls: ['./editcar.component.scss'],
+  selector: 'app-editcar-admin',
+  templateUrl: './editcarAdmin.component.html',
+  styleUrls: ['./editcarAdmin.component.scss'],
 })
-export class EditcarComponent {
+export class EditcarComponentAdmin {
   public carTypes = carTypesList;
 
   public manufacturers = manufacturersList;

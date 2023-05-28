@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CarsService } from 'src/app/services/cars/cars.service';
 import { Router } from '@angular/router';
 import { Car } from 'src/app/models/car.model';
 import { KeycloakService } from 'keycloak-angular';
 
 @Component({
-  selector: 'app-carlistdriver',
-  templateUrl: './carlistdriver.component.html',
-  styleUrls: ['./carlistdriver.component.scss'],
+  selector: 'app-carlistDriver',
+  templateUrl: './carlistDriver.component.html',
+  styleUrls: ['./carlistDriver.component.scss'],
 })
-export class CarlistdriverComponent {
+export class CarlistComponentDriver {
   CarsList = <Car[]>{};
   currentUser = <string>{};
 
@@ -25,13 +25,13 @@ export class CarlistdriverComponent {
       ' - ' +
       this.kcService.getKeycloakInstance().subject;
     console.log(this.currentUser);
-    (await this.carService.getDriverCars(this.currentUser)).subscribe((res) => {
+    this.carService.getDriverCars(this.currentUser).subscribe((res) => {
       this.CarsList = res;
     });
   }
 
   showCar(id?: string | null) {
-    this.router.navigate(['/driverCar', { carID: id }]);
+    this.router.navigate(['/carDriver', { carID: id }]);
   }
 
   deleteCar(id?: string | null) {
@@ -40,6 +40,6 @@ export class CarlistdriverComponent {
   }
 
   editCar(id?: string | null) {
-    this.router.navigate(['/driverEditCar', { carID: id }]);
+    this.router.navigate(['/editCarDriver', { carID: id }]);
   }
 }

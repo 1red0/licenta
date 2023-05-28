@@ -2,29 +2,29 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './components/body/body.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BodyComponent } from './components/commons/body/body.component';
+import { SidenavComponent } from './components/commons/sidenav/sidenav.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { CarComponent } from './components/car/car.component';
-import { CarlistComponent } from './components/carlist/carlist.component';
-import { SettingsComponent } from './components/settings/settings.component';
-import { DriversComponent } from './components/drivers/drivers.component';
-import { OrganisationComponent } from './components/organisation/organisation.component';
-import { AddcarComponent } from './components/addcar/addcar.component';
+import { CarComponentAdmin } from './components/admin/carAdmin/carAdmin.component';
+import { CarlistComponentAdmin } from './components/admin/carlistAdmin/carlistAdmin.component';
+import { SettingsComponent } from './components/commons/settings/settings.component';
+import { DriversComponent } from './components/admin/drivers/drivers.component';
+import { OrganisationComponent } from './components/admin/organisation/organisation.component';
+import { AddcarComponent } from './components/admin/addcar/addcar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './services/auth/auth-guard.service';
 import { initializeKeycloak } from './services/auth/keycloak-init.factory';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { AuthGuard } from './services/auth/auth-guard.guard';
-import { EditcarComponent } from './components/editcar/editcar.component';
+import { EditcarComponentAdmin } from './components/admin/editcarAdmin/editcarAdmin.component';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
-import { ChartComponent } from './charts/manufacturers/chart-manufacturers.component';
-import { CarlistdriverComponent } from './components/carlistdriver/carlistdriver.component';
-import { EditcardriverComponent } from './components/editcardriver/editcardriver.component';
-import { DriverCarComponent } from './components/driver-car/driver-car.component';
-import { HomepageComponent } from './components/homepage/homepage.component';
+import { ChartComponent } from './charts/chart-manufacturers/chart-manufacturers.component';
+import { CarlistComponentDriver } from './components/driver/carlistDriver/carlistDriver.component';
+import { EditcarComponentDriver } from './components/driver/editcarDriver/editcarDriver.component';
+import { CarComponentDriver } from './components/driver/carDriver/carDriver.component';
+import { HomepageComponent } from './components/commons/homepage/homepage.component';
 import { ChartFreeCarsComponent } from './charts/chart-free-cars/chart-free-cars.component';
 import { ChartStatusesComponent } from './charts/chart-statuses/chart-statuses.component';
 import { ChartMilageComponent } from './charts/chart-milage/chart-milage.component';
@@ -38,17 +38,17 @@ import { ChartVignetteComponent } from './charts/chart-vignette/chart-vignette.c
     BodyComponent,
     SidenavComponent,
     DashboardComponent,
-    CarComponent,
-    CarlistComponent,
+    CarComponentAdmin,
+    CarlistComponentAdmin,
     SettingsComponent,
     DriversComponent,
     OrganisationComponent,
     AddcarComponent,
-    EditcarComponent,
+    EditcarComponentAdmin,
     ChartComponent,
-    CarlistdriverComponent,
-    EditcardriverComponent,
-    DriverCarComponent,
+    CarlistComponentDriver,
+    EditcarComponentDriver,
+    CarComponentDriver,
     HomepageComponent,
     ChartFreeCarsComponent,
     ChartStatusesComponent,

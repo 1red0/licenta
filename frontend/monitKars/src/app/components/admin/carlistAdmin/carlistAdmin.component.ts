@@ -4,17 +4,17 @@ import { Router } from '@angular/router';
 import { Car } from 'src/app/models/car.model';
 
 @Component({
-  selector: 'app-carlist',
-  templateUrl: './carlist.component.html',
-  styleUrls: ['./carlist.component.scss'],
+  selector: 'app-carlist-admin',
+  templateUrl: './carlistAdmin.component.html',
+  styleUrls: ['./carlistAdmin.component.scss'],
 })
-export class CarlistComponent implements OnInit {
+export class CarlistComponentAdmin implements OnInit {
   CarsList = <Car[]>{};
 
   constructor(private carService: CarsService, private router: Router) {}
 
   async ngOnInit() {
-    (await this.carService.getCars()).subscribe((res) => {
+    this.carService.getCars().subscribe((res) => {
       this.CarsList = res;
     });
   }

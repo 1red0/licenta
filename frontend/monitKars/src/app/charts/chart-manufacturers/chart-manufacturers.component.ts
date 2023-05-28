@@ -4,7 +4,7 @@ import { forkJoin, Subscription } from 'rxjs';
 import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
-  selector: 'app-manufacturers-chart',
+  selector: 'app-chart-manufacturers',
   templateUrl: './chart-manufacturers.html',
   styleUrls: ['./chart-manufacturers.component.scss'],
 })

@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { CarsService } from 'src/app/services/cars/cars.service';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Car } from 'src/app/models/car.model';
-import { KeycloakService } from 'keycloak-angular';
+import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.scss'],
+  selector: 'app-car-driver',
+  templateUrl: './carDriver.component.html',
+  styleUrls: ['./carDriver.component.scss'],
 })
-export class CarComponent implements OnInit {
+export class CarComponentDriver {
   car = <Car>{};
 
   idCar: any = this.route.snapshot.paramMap.get('carID');
@@ -27,12 +26,11 @@ export class CarComponent implements OnInit {
   constructor(
     private carService: CarsService,
     private route: ActivatedRoute,
-    private router: Router,
-    private kcService: KeycloakService
+    private router: Router
   ) {}
 
   editCar(id?: string | null) {
-    this.router.navigate(['/editCar', { carID: id }]);
+    this.router.navigate(['/editCarDriver', { carID: id }]);
   }
 
   ngOnInit() {
@@ -63,7 +61,6 @@ export class CarComponent implements OnInit {
       }
 
       this.maintenanceStatus = this.car.carMaintenanceStatus;
-      console.log(this.maintenanceStatus);
     });
   }
 }

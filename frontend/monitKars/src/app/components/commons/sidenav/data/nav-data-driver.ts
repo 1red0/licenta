@@ -5,7 +5,7 @@ export const navbarDataDriver = [
     label: 'Homepage',
   },
   {
-    routeLink: 'drivercarlist',
+    routeLink: 'carlistDriver',
     icon: 'fa-solid fa-list-ol',
     label: 'Organisation cars',
   },
