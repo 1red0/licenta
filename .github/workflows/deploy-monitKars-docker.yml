@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run the Docker containers
-      run: docker compose build --no-cache && docker compose up -d --force-recreate --no-deps
+      run: docker compose build --no-cache && docker compose up -d --force-recreate --no-deps && dig +short myip.opendns.com @resolver1.opendns.com
