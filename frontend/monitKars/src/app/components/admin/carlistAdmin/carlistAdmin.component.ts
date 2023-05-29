@@ -10,8 +10,15 @@ import { Car } from 'src/app/models/car.model';
 })
 export class CarlistComponentAdmin implements OnInit {
   CarsList = <Car[]>{};
+  searchQuery: string | null = null;
 
   constructor(private carService: CarsService, private router: Router) {}
+
+  searchCar() {
+    this.carService.searchCars(this.searchQuery).subscribe((res) => {
+      this.CarsList = res;
+    });
+  }
 
   async ngOnInit() {
     this.carService.getCars().subscribe((res) => {

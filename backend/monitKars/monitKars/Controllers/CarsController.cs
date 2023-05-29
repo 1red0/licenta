@@ -28,6 +28,20 @@ namespace monitKars.Controllers
             return await _context.Cars.ToListAsync();
         }
 
+        // GET: api/Cars
+        [HttpGet("searchCar/{searchQuery}")]
+        public async Task<ActionResult<IEnumerable<Car>>> GetCars(string searchQuery)
+        {
+            var cars = await _context.Cars
+                .Where(car => car.CarName.Contains(searchQuery) ||
+                              car.CarVinNumber.Contains(searchQuery) ||
+                              car.CarPlateNumber.Contains(searchQuery))
+                .ToListAsync();
+
+            return cars;
+        }
+
+
         // GET: api/Cars/noCars
         [HttpGet("noCars")]
         public async Task<ActionResult<int>> GetNoCars()

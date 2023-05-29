@@ -15,6 +15,12 @@ export class CarsService {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');
   }
 
+  searchCars(searchQuery: string): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/searchCar/' + searchQuery
+    );
+  }
+
   getCar(id: number): Observable<Car> {
     return this._http.get<Car>(environment.baseApiUrl + 'api/Cars/' + id);
   }

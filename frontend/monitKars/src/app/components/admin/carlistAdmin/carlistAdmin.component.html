@@ -1,3 +1,15 @@
+<div class="container1">
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search after VIN, Plate Number or the Car Name..."
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="searchCar()"
+    />
+  </div>
+</div>
+
 <div class="carlist-container">
   <div class="carlist-header">
     <h1>Autovehiculele organizației mele</h1>
