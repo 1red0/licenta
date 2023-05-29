@@ -10,7 +10,6 @@ import carTires from '../../../../lists/tiresSizes.json';
 @Component({
   selector: 'app-editcarDriver',
   templateUrl: './editcarDriver.component.html',
-  styleUrls: ['./editcarDriver.component.scss'],
 })
 export class EditcarComponentDriver {
   car = <Car>{};

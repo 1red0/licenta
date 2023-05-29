@@ -6,7 +6,6 @@ import { Car } from 'src/app/models/car.model';
 @Component({
   selector: 'app-car-admin',
   templateUrl: './carAdmin.component.html',
-  styleUrls: ['./carAdmin.component.scss'],
 })
 export class CarComponentAdmin implements OnInit {
   car = <Car>{};

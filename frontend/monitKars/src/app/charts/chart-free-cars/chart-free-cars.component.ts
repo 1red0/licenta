@@ -6,7 +6,6 @@ import { CarsService } from 'src/app/services/cars/cars.service';
 @Component({
   selector: 'app-chart-free-cars',
   templateUrl: './chart-free-cars.component.html',
-  styleUrls: ['./chart-free-cars.component.scss'],
 })
 export class ChartFreeCarsComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;

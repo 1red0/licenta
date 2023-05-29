@@ -7,7 +7,6 @@ import { KeycloakService } from 'keycloak-angular';
 @Component({
   selector: 'app-carlistDriver',
   templateUrl: './carlistDriver.component.html',
-  styleUrls: ['./carlistDriver.component.scss'],
 })
 export class CarlistComponentDriver {
   CarsList = <Car[]>{};

@@ -6,7 +6,6 @@ import { Car } from 'src/app/models/car.model';
 @Component({
   selector: 'app-carlist-admin',
   templateUrl: './carlistAdmin.component.html',
-  styleUrls: ['./carlistAdmin.component.scss'],
 })
 export class CarlistComponentAdmin implements OnInit {
   CarsList = <Car[]>{};

@@ -1,13 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Chart, ChartData, ChartOptions, ChartTypeRegistry } from 'chart.js';
-import { CarMilage } from 'src/app/models/carMilage.model';
 import { Subscription } from 'rxjs';
 import { CarsService } from 'src/app/services/cars/cars.service';
 
 @Component({
   selector: 'app-chart-milage',
   templateUrl: './chart-milage.component.html',
-  styleUrls: ['./chart-milage.component.scss'],
 })
 export class ChartMilageComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
@@ -59,8 +57,8 @@ export class ChartMilageComponent {
       datasets: [
         {
           data: this.milages,
-          // borderColor: 'rgb(75, 192, 192)',
-          // backgroundColor: 'rgba(75, 192, 192, 0.8)',
+          borderColor: 'rgb(75, 192, 192)',
+          backgroundColor: 'rgba(75, 192, 192, 0.8)',
           label: 'Kilometraj',
           fill: true,
           borderWidth: 2,

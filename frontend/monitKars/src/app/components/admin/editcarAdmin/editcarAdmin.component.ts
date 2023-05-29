@@ -18,7 +18,6 @@ import carTires from '../../../../lists/tiresSizes.json';
 @Component({
   selector: 'app-editcar-admin',
   templateUrl: './editcarAdmin.component.html',
-  styleUrls: ['./editcarAdmin.component.scss'],
 })
 export class EditcarComponentAdmin {
   public carTypes = carTypesList;

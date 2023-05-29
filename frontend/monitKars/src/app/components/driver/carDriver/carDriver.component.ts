@@ -6,7 +6,6 @@ import { CarsService } from 'src/app/services/cars/cars.service';
 @Component({
   selector: 'app-car-driver',
   templateUrl: './carDriver.component.html',
-  styleUrls: ['./carDriver.component.scss'],
 })
 export class CarComponentDriver {
   car = <Car>{};

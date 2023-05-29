@@ -26,7 +26,6 @@ import { firstValueFrom, map } from 'rxjs';
 @Component({
   selector: 'app-addcar',
   templateUrl: './addcar.component.html',
-  styleUrls: ['./addcar.component.scss'],
 })
 export class AddcarComponent implements OnInit {
   public carTypes = carTypesList;

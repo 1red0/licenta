@@ -5,7 +5,6 @@ import { UsersService } from 'src/app/services/users/users.service';
 @Component({
   selector: 'app-drivers',
   templateUrl: './drivers.component.html',
-  styleUrls: ['./drivers.component.scss'],
 })
 export class DriversComponent implements OnInit {
   constructor(private userService: UsersService) {}

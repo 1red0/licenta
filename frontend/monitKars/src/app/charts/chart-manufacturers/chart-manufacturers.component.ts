@@ -6,7 +6,6 @@ import { CarsService } from 'src/app/services/cars/cars.service';
 @Component({
   selector: 'app-chart-manufacturers',
   templateUrl: './chart-manufacturers.html',
-  styleUrls: ['./chart-manufacturers.component.scss'],
 })
 export class ChartComponent implements OnInit {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;

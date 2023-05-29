@@ -6,7 +6,6 @@ import { CarsService } from 'src/app/services/cars/cars.service';
 @Component({
   selector: 'app-chart-inspection',
   templateUrl: './chart-inspection.component.html',
-  styleUrls: ['./chart-inspection.component.scss'],
 })
 export class ChartInspectionComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
