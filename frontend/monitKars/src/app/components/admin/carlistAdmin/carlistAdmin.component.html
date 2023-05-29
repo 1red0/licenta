@@ -10,6 +10,18 @@
   </div>
 </div>
 
+<div class="sort-container">
+  <select
+    class="sort-dropdown"
+    [(ngModel)]="selectedSortOption"
+    (change)="onSortOptionSelected($event)"
+  >
+    <option *ngFor="let option of sortOptions" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+</div>
+
 <div class="carlist-container">
   <div class="carlist-header">
     <h1>Autovehiculele organizației mele</h1>

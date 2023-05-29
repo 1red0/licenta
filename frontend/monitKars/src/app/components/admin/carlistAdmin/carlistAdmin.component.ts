@@ -12,17 +12,33 @@ export class CarlistComponentAdmin implements OnInit {
   CarsList = <Car[]>{};
   searchQuery: string | null = null;
 
+  sortOptions: string[] = ['Ascendent', 'Descendent'];
+  selectedSortOption: string = 'Ascendent';
+
   constructor(private carService: CarsService, private router: Router) {}
+
+  onSortOptionSelected(event: any) {
+    const option = event.target.value;
+    this.selectedSortOption = option;
+
+    if (option === 'Ascendent') {
+      this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+    } else if (option === 'Descendent') {
+      this.CarsList.sort((a, b) => b.carName.localeCompare(a.carName));
+    }
+  }
 
   searchCar() {
     this.carService.searchCars(this.searchQuery).subscribe((res) => {
       this.CarsList = res;
+      this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
     });
   }
 
   async ngOnInit() {
     this.carService.getCars().subscribe((res) => {
       this.CarsList = res;
+      this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
     });
   }
 
