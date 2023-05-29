@@ -65,7 +65,7 @@ export class ChartComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.carService.getManufacturers().subscribe((res) => {
       this.man = res;
 

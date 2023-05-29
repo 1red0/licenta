@@ -66,7 +66,7 @@ export class ChartInspectionComponent {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const validCars$ = this.carService.getInspectionValidNoCars();
     const invalidCars$ = this.carService.getInspectionInvalidNoCars();
 

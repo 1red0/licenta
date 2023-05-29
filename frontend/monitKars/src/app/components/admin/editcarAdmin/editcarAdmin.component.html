@@ -265,7 +265,7 @@
         formControlName="carOwnerID"
         value="{{ car.carOwnerID }}"
       >
-        <option value=""></option>
+        <option value="">Fără șofer</option>
         <option
           *ngFor="let driver of Drivers"
           value="{{ driver.username }} - {{ driver.id }}"

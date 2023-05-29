@@ -28,7 +28,7 @@ export class ChartMilageComponent {
     }
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.chartSubscription = this.carService
       .getMilageOfCars()
       .subscribe((data) => {

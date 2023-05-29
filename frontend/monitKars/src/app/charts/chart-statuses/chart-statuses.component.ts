@@ -66,7 +66,7 @@ export class ChartStatusesComponent {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.carService.getStatuses().subscribe((res) => {
       this.stat = res;
 

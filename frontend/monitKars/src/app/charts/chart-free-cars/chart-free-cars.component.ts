@@ -66,7 +66,7 @@ export class ChartFreeCarsComponent {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const freeCars$ = this.carService.getFreeNoCars();
     const takenCars$ = this.carService.getTakenNoCars();
 

@@ -66,7 +66,7 @@ export class ChartVignetteComponent {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const validCars$ = this.carService.getVignetteValidNoCars();
     const invalidCars$ = this.carService.getVignetteInvalidNoCars();
 

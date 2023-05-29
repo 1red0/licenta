@@ -66,7 +66,7 @@ export class ChartInsuranceComponent {
     });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const validCars$ = this.carService.getInsuranceValidNoCars();
     const invalidCars$ = this.carService.getInsuranceInvalidNoCars();
 

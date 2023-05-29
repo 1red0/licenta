@@ -11,7 +11,14 @@ import carOilsList from '../../../../lists/carOils.json';
 import carStatusesList from '../../../../lists/statuses.json';
 import carEnginesList from '../../../../lists/carEngines.json';
 import carTires from '../../../../lists/tiresSizes.json';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { firstValueFrom, map } from 'rxjs';
@@ -42,14 +49,40 @@ export class AddcarComponent implements OnInit {
 
   Drivers: any;
 
+  CarsList = <Car[]>{};
+
   constructor(
     private carService: CarsService,
     private driverService: UsersService,
     private router: Router
   ) {}
 
+  exactLengthValidator(expectedLength: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (value && value.length !== expectedLength) {
+        return {
+          exactLength: { expected: expectedLength, actual: value.length },
+        };
+      }
+      return null;
+    };
+  }
+
+  carPlateNumberValidator(control: AbstractControl): ValidationErrors | null {
+    const plateNumber = control.value;
+
+    const pattern = /^[A-Z]{2}\d{2}[A-Z]{3}$/;
+
+    if (!pattern.test(plateNumber)) {
+      return { invalidPlateNumber: true };
+    }
+
+    return null;
+  }
+
   addCarForm = new FormGroup({
-    carName: new FormControl('', Validators.required),
+    carName: new FormControl('', [Validators.required]),
     carType: new FormControl('', Validators.required),
     carMaintenanceStatus: new FormControl('', Validators.required),
     carPeriodicRevision: new FormControl('', Validators.required),
@@ -57,15 +90,21 @@ export class AddcarComponent implements OnInit {
     carInsurance: new FormControl('', Validators.required),
     carVignette: new FormControl('', Validators.required),
     carTireSizes: new FormControl('', Validators.required),
-    carVinNumber: new FormControl('', Validators.required),
-    carPlate: new FormControl('', Validators.required),
+    carVinNumber: new FormControl('', [
+      Validators.required,
+      this.exactLengthValidator(17),
+    ]),
     carMilage: new FormControl('', Validators.required),
     carColor: new FormControl('', Validators.required),
     carYear: new FormControl('', Validators.required),
     carModel: new FormControl('', Validators.required),
     carManufacturer: new FormControl('', Validators.required),
     carEngine: new FormControl('', Validators.required),
-    carPlateNumber: new FormControl('', Validators.required),
+    carPlateNumber: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      this.carPlateNumberValidator,
+    ]),
     carOil: new FormControl('', Validators.required),
     carFuel: new FormControl('', Validators.required),
   });
