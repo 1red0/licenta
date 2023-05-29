@@ -81,7 +81,7 @@ export class AddcarComponent implements OnInit {
   }
 
   addCarForm = new FormGroup({
-    carName: new FormControl('', [Validators.required]),
+    carName: new FormControl('', Validators.required),
     carType: new FormControl('', Validators.required),
     carMaintenanceStatus: new FormControl('', Validators.required),
     carPeriodicRevision: new FormControl('', Validators.required),

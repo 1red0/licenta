@@ -5,7 +5,7 @@
 
   <form class="addcar-form" [formGroup]="editCarForm">
     <div class="form-group">
-      <label for="name">Nume</label>
+      <label for="name">Nume autovehicul</label>
       <br /><br />
       <input
         type="text"
@@ -14,6 +14,9 @@
         formControlName="carName"
         value="{{ car.carName }}"
       />
+      <div *ngIf="editCarForm.get('carName').invalid" class="required-error">
+        Te rog pune un nume corect mașinii
+      </div>
     </div>
 
     <div class="form-group">
@@ -33,6 +36,9 @@
           {{ type.value }}
         </option>
       </select>
+      <div *ngIf="editCarForm.get('carType').invalid" class="required-error">
+        Te rog selectează tipul autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -52,6 +58,12 @@
           {{ status.value }}
         </option>
       </select>
+      <div
+        *ngIf="editCarForm.get('carMaintenanceStatus').invalid"
+        class="required-error"
+      >
+        Te rog selectează starea autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -71,6 +83,12 @@
           {{ manufacturer.value }}
         </option>
       </select>
+      <div
+        *ngIf="editCarForm.get('carManufacturer').invalid"
+        class="required-error"
+      >
+        Te rog selectează producatorul autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -83,6 +101,9 @@
         formControlName="carModel"
         value="{{ car.carModel }}"
       />
+      <div *ngIf="editCarForm.get('carModel').invalid" class="required-error">
+        Te rog introdu modelul autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -95,6 +116,9 @@
         formControlName="carYear"
         value="{{ car.carYear }}"
       />
+      <div *ngIf="editCarForm.get('carYear').invalid" class="required-error">
+        Te rog introdu anul de fabricație al autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -107,6 +131,12 @@
         formControlName="carVinNumber"
         value="{{ car.carVinNumber }}"
       />
+      <div
+        *ngIf="editCarForm.get('carVinNumber').invalid"
+        class="required-error"
+      >
+        Te rog să introduci VIN-ul corect al autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -119,6 +149,12 @@
         formControlName="carPlateNumber"
         value="{{ car.carPlateNumber }}"
       />
+      <div
+        *ngIf="editCarForm.get('carPlateNumber').invalid"
+        class="required-error"
+      >
+        Te rog introdu numărul de înmatriculare corect al autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -131,6 +167,9 @@
         formControlName="carMilage"
         value="{{ car.carMilage }}"
       />
+      <div *ngIf="editCarForm.get('carMilage').invalid" class="required-error">
+        Te rog introdu kilometrajul corect autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -150,6 +189,9 @@
           {{ engine.value }}
         </option>
       </select>
+      <div *ngIf="editCarForm.get('carEngine').invalid" class="required-error">
+        Te rog selectează capacitatea motorului
+      </div>
     </div>
 
     <div class="form-group">
@@ -169,6 +211,10 @@
           {{ color.value }}
         </option>
       </select>
+
+      <div *ngIf="editCarForm.get('carColor').invalid" class="required-error">
+        Te rog selectează culoarea autovehiculului
+      </div>
     </div>
 
     <div class="form-group">
@@ -185,6 +231,9 @@
           {{ fuel.value }}
         </option>
       </select>
+      <div *ngIf="editCarForm.get('carFuel').invalid" class="required-error">
+        Te rog selectează tipul combustibilului
+      </div>
     </div>
 
     <div class="form-group">
@@ -201,6 +250,9 @@
           {{ oil.value }}
         </option>
       </select>
+      <div *ngIf="editCarForm.get('carOil').invalid" class="required-error">
+        Te rog selectează tipul uleiului
+      </div>
     </div>
 
     <div class="form-group">
@@ -217,6 +269,12 @@
           {{ tire.value }}
         </option>
       </select>
+      <div
+        *ngIf="editCarForm.get('carTireSizes').invalid"
+        class="required-error"
+      >
+        Te rog selectează marimea anvelopelor
+      </div>
     </div>
 
     <div class="form-group">
@@ -229,6 +287,12 @@
         formControlName="carVignette"
         value="{{ car.carVignette }}"
       />
+      <div
+        *ngIf="editCarForm.get('carVignette').invalid"
+        class="required-error"
+      >
+        Te rog introdu valabilitatea vinietei
+      </div>
     </div>
 
     <div class="form-group">
@@ -241,6 +305,12 @@
         formControlName="carInsurance"
         value="{{ car.carInsurance }}"
       />
+      <div
+        *ngIf="editCarForm.get('carInsurance').invalid"
+        class="required-error"
+      >
+        Te rog introdu valabilitatea asigurării
+      </div>
     </div>
 
     <div class="form-group">
@@ -253,6 +323,12 @@
         formControlName="carPeriodicRevision"
         value="{{ car.carPeriodicRevision }}"
       />
+      <div
+        *ngIf="editCarForm.get('carPeriodicRevision').invalid"
+        class="required-error"
+      >
+        Te rog introdu data următoarei inspecți periodice
+      </div>
     </div>
 
     <div class="form-group">

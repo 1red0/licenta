@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { Car } from 'src/app/models/car.model';
@@ -30,13 +30,13 @@ export class EditcarComponentDriver {
   ) {}
 
   editCarForm = new FormGroup({
-    carName: new FormControl(''),
-    carMaintenanceStatus: new FormControl(''),
-    carPeriodicRevision: new FormControl(''),
-    carInsurance: new FormControl(''),
-    carVignette: new FormControl(''),
-    carTireSizes: new FormControl(''),
-    carMilage: new FormControl(''),
+    carName: new FormControl('', Validators.required),
+    carMaintenanceStatus: new FormControl('', Validators.required),
+    carPeriodicRevision: new FormControl('', Validators.required),
+    carInsurance: new FormControl('', Validators.required),
+    carVignette: new FormControl('', Validators.required),
+    carTireSizes: new FormControl('', Validators.required),
+    carMilage: new FormControl('', Validators.required),
   });
 
   async editCar() {

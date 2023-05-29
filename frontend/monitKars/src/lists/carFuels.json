@@ -1,7 +1,1 @@
-[
-    "Diesel",
-    "Petrol",
-    "GPL",
-    "Electricity",
-    "CNG"
-]
+["Motorină", "Benzină", "GPL", "Benzină+GPL", "CNG", "Electricitate"]

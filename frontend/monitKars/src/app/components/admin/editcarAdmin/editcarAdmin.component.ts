@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  AbstractControl,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom, map } from 'rxjs';
 import { Car } from 'src/app/models/car.model';
@@ -51,25 +58,56 @@ export class EditcarComponentAdmin {
     private route: ActivatedRoute
   ) {}
 
+  exactLengthValidator(expectedLength: number): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (value && value.length !== expectedLength) {
+        return {
+          exactLength: { expected: expectedLength, actual: value.length },
+        };
+      }
+      return null;
+    };
+  }
+
+  carPlateNumberValidator(control: AbstractControl): ValidationErrors | null {
+    const plateNumber = control.value;
+
+    const pattern = /^[A-Z]{2}\d{2}[A-Z]{3}$/;
+
+    if (!pattern.test(plateNumber)) {
+      return { invalidPlateNumber: true };
+    }
+
+    return null;
+  }
+
   editCarForm = new FormGroup({
-    carName: new FormControl(''),
-    carType: new FormControl(''),
-    carMaintenanceStatus: new FormControl(''),
-    carPeriodicRevision: new FormControl(''),
+    carName: new FormControl('', Validators.required),
+    carType: new FormControl('', Validators.required),
+    carMaintenanceStatus: new FormControl('', Validators.required),
+    carPeriodicRevision: new FormControl('', Validators.required),
     carOwnerID: new FormControl(''),
-    carInsurance: new FormControl(''),
-    carVignette: new FormControl(''),
-    carTireSizes: new FormControl(''),
-    carVinNumber: new FormControl(''),
-    carMilage: new FormControl(''),
-    carColor: new FormControl(''),
-    carYear: new FormControl(''),
-    carModel: new FormControl(''),
-    carManufacturer: new FormControl(''),
-    carEngine: new FormControl(''),
-    carPlateNumber: new FormControl(''),
-    carOil: new FormControl(''),
-    carFuel: new FormControl(''),
+    carInsurance: new FormControl('', Validators.required),
+    carVignette: new FormControl('', Validators.required),
+    carTireSizes: new FormControl('', Validators.required),
+    carVinNumber: new FormControl('', [
+      Validators.required,
+      this.exactLengthValidator(17),
+    ]),
+    carMilage: new FormControl('', Validators.required),
+    carColor: new FormControl('', Validators.required),
+    carYear: new FormControl('', Validators.required),
+    carModel: new FormControl('', Validators.required),
+    carManufacturer: new FormControl('', Validators.required),
+    carEngine: new FormControl('', Validators.required),
+    carPlateNumber: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      this.carPlateNumberValidator,
+    ]),
+    carOil: new FormControl('', Validators.required),
+    carFuel: new FormControl('', Validators.required),
   });
 
   async editCar() {
