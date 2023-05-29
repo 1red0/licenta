@@ -1,0 +1,385 @@
+<div class="addcar-container">
+  <div class="addcar-header">
+    <h1><i class="fas fa-car"></i>Adaugă un autovehicul</h1>
+  </div>
+
+  <form class="addcar-form" [formGroup]="addCarForm">
+    <div class="form-group">
+      <label for="name">Nume autovehicul</label>
+      <br /><br />
+      <input type="text" id="name" name="name" formControlName="carName" />
+      <div
+        *ngIf="
+          addCarForm.get('carName').invalid && addCarForm.get('carName').touched
+        "
+        class="required-error"
+      >
+        Te rog pune un nume corect mașinii
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="carType">Tip</label>
+      <br /><br />
+      <select
+        class="select"
+        name="carType"
+        id="carType"
+        formControlName="carType"
+      >
+        <option
+          *ngFor="let type of carTypes | keyvalue"
+          value="{{ type.value }}"
+        >
+          {{ type.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carType').invalid && addCarForm.get('carType').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează tipul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="maintenance">Starea autovehiculului</label>
+      <br /><br />
+      <select
+        class="select"
+        name="maintenance"
+        id="maintenance"
+        formControlName="carMaintenanceStatus"
+      >
+        <option
+          *ngFor="let status of statuses | keyvalue"
+          value="{{ status.value }}"
+        >
+          {{ status.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carMaintenanceStatus').invalid &&
+          addCarForm.get('carMaintenanceStatus').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează starea autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="manufacturer">Producător</label>
+      <br /><br />
+      <select
+        class="select"
+        name="manufacturer"
+        id="manufacturer"
+        formControlName="carManufacturer"
+      >
+        <option
+          *ngFor="let manufacturer of manufacturers | keyvalue"
+          value="{{ manufacturer.value }}"
+        >
+          {{ manufacturer.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carManufacturer').invalid &&
+          addCarForm.get('carManufacturer').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează producatorul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="model">Model</label>
+      <br /><br />
+      <input type="text" id="model" name="model" formControlName="carModel" />
+      <div
+        *ngIf="
+          addCarForm.get('carModel').invalid &&
+          addCarForm.get('carModel').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu modelul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="year">An de fabricație</label>
+      <br /><br />
+      <input type="date" id="year" name="year" formControlName="carYear" />
+      <div
+        *ngIf="
+          addCarForm.get('carYear').invalid && addCarForm.get('carYear').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu anul de fabricație al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vin">VIN - Număr identificare</label>
+      <br /><br />
+      <input type="text" id="vin" name="vin" formControlName="carVinNumber" />
+      <div
+        *ngIf="
+          addCarForm.get('carVinNumber').invalid &&
+          addCarForm.get('carVinNumber').touched
+        "
+        class="required-error"
+      >
+        Te rog să introduci VIN-ul corect al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="plate">Număr înmatriculare</label>
+      <br /><br />
+      <input
+        type="text"
+        id="plate"
+        name="plate"
+        formControlName="carPlateNumber"
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carPlateNumber').invalid &&
+          addCarForm.get('carPlateNumber').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu numărul de înmatriculare corect al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="milage">Kilometraj</label>
+      <br /><br />
+      <input
+        type="text"
+        id="milage"
+        name="milage"
+        formControlName="carMilage"
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carMilage').invalid &&
+          addCarForm.get('carMilage').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu kilometrajul corect autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="engine">Motor</label>
+      <br /><br />
+      <select
+        class="select"
+        name="engine"
+        id="engine"
+        formControlName="carEngine"
+      >
+        <option
+          *ngFor="let engine of engines | keyvalue"
+          value="{{ engine.value }}"
+        >
+          {{ engine.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carEngine').invalid &&
+          addCarForm.get('carEngine').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează capacitatea motorului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="color">Culoare</label>
+      <br /><br />
+      <select class="select" name="color" id="color" formControlName="carColor">
+        <option
+          *ngFor="let color of colors | keyvalue"
+          value="{{ color.value }}"
+        >
+          {{ color.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carColor').invalid &&
+          addCarForm.get('carColor').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează culoarea autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fuel">Combustibil</label>
+      <br /><br />
+      <select
+        class="select"
+        name="fuel"
+        id="fuel"
+        formControlName="carFuel"
+        required
+      >
+        <option *ngFor="let fuel of fuels | keyvalue" value="{{ fuel.value }}">
+          {{ fuel.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carFuel').invalid && addCarForm.get('carFuel').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează tipul combustibilului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="oil">Tip ulei</label>
+      <br /><br />
+      <select class="select" name="oil" id="oil" formControlName="carOil">
+        <option *ngFor="let oil of oils | keyvalue" value="{{ oil.value }}">
+          {{ oil.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carOil').invalid && addCarForm.get('carOil').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează tipul uleiului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tires">Anvelope</label>
+      <br /><br />
+      <select
+        class="select"
+        name="tires"
+        id="tires"
+        formControlName="carTireSizes"
+      >
+        <option *ngFor="let tire of tires | keyvalue" value="{{ tire.value }}">
+          {{ tire.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          addCarForm.get('carTireSizes').invalid &&
+          addCarForm.get('carTireSizes').touched
+        "
+        class="required-error"
+      >
+        Te rog selectează marimea anvelopelor
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vignette">Vinietă</label>
+      <br /><br />
+      <input
+        type="date"
+        id="vignette"
+        name="vignette"
+        formControlName="carVignette"
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carVignette').invalid &&
+          addCarForm.get('carVignette').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu valabilitatea vinietei
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="insurance">Asigurare</label>
+      <br /><br />
+      <input
+        type="date"
+        id="insurance"
+        name="insurance"
+        formControlName="carInsurance"
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carInsurance').invalid &&
+          addCarForm.get('carInsurance').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu valabilitatea asigurării
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inspection">Inspecție periodică</label>
+      <br /><br />
+      <input
+        type="date"
+        id="inspection"
+        name="inspection"
+        formControlName="carPeriodicRevision"
+        required
+      />
+      <div
+        *ngIf="
+          addCarForm.get('carPeriodicRevision').invalid &&
+          addCarForm.get('carPeriodicRevision').touched
+        "
+        class="required-error"
+      >
+        Te rog introdu data următoarei inspecți periodice
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="drivers">Șofer</label>
+      <br /><br />
+      <select
+        class="select"
+        name="drivers"
+        id="drivers"
+        formControlName="carOwnerID"
+      >
+        <option value="">Fără șofer</option>
+        <option
+          *ngFor="let driver of Drivers"
+          value="{{ driver.username }} - {{ driver.id }}"
+        >
+          {{ driver.username }} - {{ driver.firstName }}
+          {{ driver.lastName }}
+        </option>
+      </select>
+    </div>
+
+    <button class="form-submit-btn" type="submit" (click)="addCar()">
+      Adaugă
+    </button>
+  </form>
+</div>

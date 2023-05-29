@@ -16,7 +16,7 @@
 └── README.md
 ```
 
-## Prerequirements
+## Requirements
 
 The source code and Docker installed on the machine
 

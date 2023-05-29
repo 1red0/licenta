@@ -1,0 +1,358 @@
+<div class="addcar-container">
+  <div class="addcar-header">
+    <h1><i class="fas fa-car"></i> Actualizează datele autovehiculului</h1>
+  </div>
+
+  <form class="addcar-form" [formGroup]="editCarForm">
+    <div class="form-group">
+      <label for="name">Nume autovehicul</label>
+      <br /><br />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        formControlName="carName"
+        value="{{ car.carName }}"
+      />
+      <div *ngIf="editCarForm.get('carName').invalid" class="required-error">
+        Te rog pune un nume corect mașinii
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="carType">Tip</label>
+      <br /><br />
+      <select
+        class="select"
+        name="carType"
+        id="carType"
+        formControlName="carType"
+        value="{{ car.carType }}"
+      >
+        <option
+          *ngFor="let type of carTypes | keyvalue"
+          value="{{ type.value }}"
+        >
+          {{ type.value }}
+        </option>
+      </select>
+      <div *ngIf="editCarForm.get('carType').invalid" class="required-error">
+        Te rog selectează tipul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="maintenance">Starea autovehiculului</label>
+      <br /><br />
+      <select
+        class="select"
+        name="maintenance"
+        id="maintenance"
+        formControlName="carMaintenanceStatus"
+        value="{{ car.carMaintenanceStatus }}"
+      >
+        <option
+          *ngFor="let status of statuses | keyvalue"
+          value="{{ status.value }}"
+        >
+          {{ status.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="editCarForm.get('carMaintenanceStatus').invalid"
+        class="required-error"
+      >
+        Te rog selectează starea autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="manufacturer">Producător</label>
+      <br /><br />
+      <select
+        class="select"
+        name="manufacturer"
+        id="manufacturer"
+        formControlName="carManufacturer"
+        value="{{ car.carManufacturer }}"
+      >
+        <option
+          *ngFor="let manufacturer of manufacturers | keyvalue"
+          value="{{ manufacturer.value }}"
+        >
+          {{ manufacturer.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="editCarForm.get('carManufacturer').invalid"
+        class="required-error"
+      >
+        Te rog selectează producatorul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="model">Model</label>
+      <br /><br />
+      <input
+        type="text"
+        id="model"
+        name="model"
+        formControlName="carModel"
+        value="{{ car.carModel }}"
+      />
+      <div *ngIf="editCarForm.get('carModel').invalid" class="required-error">
+        Te rog introdu modelul autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="year">An de fabricație</label>
+      <br /><br />
+      <input
+        type="date"
+        id="year"
+        name="year"
+        formControlName="carYear"
+        value="{{ car.carYear }}"
+      />
+      <div *ngIf="editCarForm.get('carYear').invalid" class="required-error">
+        Te rog introdu anul de fabricație al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vin">VIN</label>
+      <br /><br />
+      <input
+        type="text"
+        id="vin"
+        name="vin"
+        formControlName="carVinNumber"
+        value="{{ car.carVinNumber }}"
+      />
+      <div
+        *ngIf="editCarForm.get('carVinNumber').invalid"
+        class="required-error"
+      >
+        Te rog să introduci VIN-ul corect al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="plate">Număr înmatriculare</label>
+      <br /><br />
+      <input
+        type="text"
+        id="plate"
+        name="plate"
+        formControlName="carPlateNumber"
+        value="{{ car.carPlateNumber }}"
+      />
+      <div
+        *ngIf="editCarForm.get('carPlateNumber').invalid"
+        class="required-error"
+      >
+        Te rog introdu numărul de înmatriculare corect al autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="milage">Kilometraj</label>
+      <br /><br />
+      <input
+        type="text"
+        id="milage"
+        name="milage"
+        formControlName="carMilage"
+        value="{{ car.carMilage }}"
+      />
+      <div *ngIf="editCarForm.get('carMilage').invalid" class="required-error">
+        Te rog introdu kilometrajul corect autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="engine">Motor</label>
+      <br /><br />
+      <select
+        class="select"
+        name="engine"
+        id="engine"
+        formControlName="carEngine"
+        value="{{ car.carEngine }}"
+      >
+        <option
+          *ngFor="let engine of engines | keyvalue"
+          value="{{ engine.value }}"
+        >
+          {{ engine.value }}
+        </option>
+      </select>
+      <div *ngIf="editCarForm.get('carEngine').invalid" class="required-error">
+        Te rog selectează capacitatea motorului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="color">Culoare</label>
+      <br /><br />
+      <select
+        class="select"
+        name="color"
+        id="color"
+        formControlName="carColor"
+        value="{{ car.carColor }}"
+      >
+        <option
+          *ngFor="let color of colors | keyvalue"
+          value="{{ color.value }}"
+        >
+          {{ color.value }}
+        </option>
+      </select>
+
+      <div *ngIf="editCarForm.get('carColor').invalid" class="required-error">
+        Te rog selectează culoarea autovehiculului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fuel">Combustibil</label>
+      <br /><br />
+      <select
+        class="select"
+        name="fuel"
+        id="fuel"
+        formControlName="carFuel"
+        value="{{ car.carFuel }}"
+      >
+        <option *ngFor="let fuel of fuels | keyvalue" value="{{ fuel.value }}">
+          {{ fuel.value }}
+        </option>
+      </select>
+      <div *ngIf="editCarForm.get('carFuel').invalid" class="required-error">
+        Te rog selectează tipul combustibilului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="oil">Tip ulei</label>
+      <br /><br />
+      <select
+        class="select"
+        name="oil"
+        id="oil"
+        formControlName="carOil"
+        value="{{ car.carOil }}"
+      >
+        <option *ngFor="let oil of oils | keyvalue" value="{{ oil.value }}">
+          {{ oil.value }}
+        </option>
+      </select>
+      <div *ngIf="editCarForm.get('carOil').invalid" class="required-error">
+        Te rog selectează tipul uleiului
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tires"></label>
+      <br />Anvelope<br />
+      <select
+        class="select"
+        name="tires"
+        id="tires"
+        formControlName="carTireSizes"
+        value="{{ car.carTireSizes }}"
+      >
+        <option *ngFor="let tire of tires | keyvalue" value="{{ tire.value }}">
+          {{ tire.value }}
+        </option>
+      </select>
+      <div
+        *ngIf="editCarForm.get('carTireSizes').invalid"
+        class="required-error"
+      >
+        Te rog selectează marimea anvelopelor
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="vignette">Vinietă</label>
+      <br /><br />
+      <input
+        type="date"
+        id="vignette"
+        name="vignette"
+        formControlName="carVignette"
+        value="{{ car.carVignette }}"
+      />
+      <div
+        *ngIf="editCarForm.get('carVignette').invalid"
+        class="required-error"
+      >
+        Te rog introdu valabilitatea vinietei
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="insurance">Asigurare</label>
+      <br /><br />
+      <input
+        type="date"
+        id="insurance"
+        name="insurance"
+        formControlName="carInsurance"
+        value="{{ car.carInsurance }}"
+      />
+      <div
+        *ngIf="editCarForm.get('carInsurance').invalid"
+        class="required-error"
+      >
+        Te rog introdu valabilitatea asigurării
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inspection">Inspecție periodică</label>
+      <br /><br />
+      <input
+        type="date"
+        id="inspection"
+        name="inspection"
+        formControlName="carPeriodicRevision"
+        value="{{ car.carPeriodicRevision }}"
+      />
+      <div
+        *ngIf="editCarForm.get('carPeriodicRevision').invalid"
+        class="required-error"
+      >
+        Te rog introdu data următoarei inspecți periodice
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="drivers">Șofer</label>
+      <br /><br />
+      <select
+        class="select"
+        name="drivers"
+        id="drivers"
+        formControlName="carOwnerID"
+        value="{{ car.carOwnerID }}"
+      >
+        <option value="">Fără șofer</option>
+        <option
+          *ngFor="let driver of Drivers"
+          value="{{ driver.username }} - {{ driver.id }}"
+        >
+          {{ driver.username }} - {{ driver.firstName }} {{ driver.lastName }}
+        </option>
+      </select>
+    </div>
+
+    <button class="form-submit-btn" type="submit" (click)="editCar()">
+      Actualizează
+    </button>
+  </form>
+</div>

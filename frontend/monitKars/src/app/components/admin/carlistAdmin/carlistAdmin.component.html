@@ -1,0 +1,70 @@
+<div class="container1">
+  <div class="search-container">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search after VIN, Plate Number or the Car Name..."
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="searchCar()"
+    />
+  </div>
+</div>
+
+<div class="sort-container">
+  <select
+    class="sort-dropdown"
+    [(ngModel)]="selectedSortOption"
+    (change)="onSortOptionSelected($event)"
+  >
+    <option *ngFor="let option of sortOptions" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+</div>
+
+<div class="carlist-container">
+  <div class="carlist-header">
+    <h1>Autovehiculele organizației mele</h1>
+  </div>
+  <br />
+  <table class="carlist-table" *ngIf="CarsList && CarsList.length > 0">
+    <caption>
+      Număr autovehicule:
+      {{
+        CarsList.length
+      }}
+    </caption>
+    <th></th>
+    <tbody class="carlist-table-body">
+      <tr *ngFor="let car of CarsList">
+        <td>
+          <i class="fas fa-car-side"></i>
+          <span> {{ car.carName }}</span>
+        </td>
+        <td>
+          <button
+            class="show_car"
+            type="submit"
+            (click)="showCar(car.carID.toString())"
+          >
+            See car
+          </button>
+          <button
+            class="edit_car"
+            type="submit"
+            (click)="editCar(car.carID.toString())"
+          >
+            Edit car
+          </button>
+          <button
+            class="delete_car"
+            type="submit"
+            (click)="deleteCar(car.carID.toString())"
+          >
+            Delete car
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

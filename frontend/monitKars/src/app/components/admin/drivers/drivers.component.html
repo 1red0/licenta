@@ -1,0 +1,26 @@
+<div class="driverslist-container">
+  <div class="driverslist-header">
+    <h1>Șoferii organizației mele</h1>
+  </div>
+  <br />
+  <table class="driverslist-table" *ngIf="drivers && drivers.length > 0">
+    <caption>
+      Număr șoferi:
+      {{
+        drivers.length
+      }}
+    </caption>
+    <th></th>
+    <tbody class="driverslist-table-body">
+      <tr *ngFor="let driver of drivers">
+        <td>
+          <i class="fas fa-user"></i>
+          <span
+            >{{ driver.username }} - {{ driver.firstName }}
+            {{ driver.lastName }}</span
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

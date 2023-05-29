@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Car } from 'src/app/models/car.model';
 import { Observable } from 'rxjs';
+import { CarMilage } from 'src/app/models/carMilage.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +15,10 @@ export class CarsService {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');
   }
 
-  getNoCars(): Observable<string> {
-    return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {
-      responseType: 'text',
-    });
+  searchCars(searchQuery: string): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/searchCar/' + searchQuery
+    );
   }
 
   getCar(id: number): Observable<Car> {
@@ -42,9 +43,87 @@ export class CarsService {
     );
   }
 
+  getDriverCars(driverID: string): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/driverCars/' + driverID
+    );
+  }
+
+  getNoCars(): Observable<string> {
+    return this._http.get(environment.baseApiUrl + 'api/Cars/noCars', {
+      responseType: 'text',
+    });
+  }
+
   getNumberOfCarsManufacturers(manufacturer: string): Observable<number> {
     return this._http.get<number>(
       environment.baseApiUrl + 'api/Cars/noCars/' + manufacturer
+    );
+  }
+
+  getStatuses(): Observable<string[]> {
+    return this._http.get<string[]>(
+      environment.baseApiUrl + 'api/Cars/statuses'
+    );
+  }
+
+  getStatusNoCars(status: string): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/noCarsStatus/' + status
+    );
+  }
+
+  getFreeNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoFreeCars'
+    );
+  }
+
+  getTakenNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoTakenCars'
+    );
+  }
+
+  getVignetteValidNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoVignetteValidCars'
+    );
+  }
+
+  getVignetteInvalidNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoVignetteInvalidCars'
+    );
+  }
+
+  getInsuranceValidNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoInsuranceValidCars'
+    );
+  }
+
+  getInsuranceInvalidNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoInsuranceInvalidCars'
+    );
+  }
+
+  getInspectionValidNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoInspectionValidCars'
+    );
+  }
+
+  getInspectionInvalidNoCars(): Observable<number> {
+    return this._http.get<number>(
+      environment.baseApiUrl + 'api/Cars/NoInspectionInvalidCars'
+    );
+  }
+
+  getMilageOfCars(): Observable<CarMilage> {
+    return this._http.get<CarMilage>(
+      environment.baseApiUrl + 'api/Cars/milage'
     );
   }
 }
