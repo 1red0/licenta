@@ -16,6 +16,16 @@ $select-border-color: #d9d9d9;
 $select-font-color: rgb(34, 32, 32);
 $select-arrow-color: #666;
 
+@mixin gradientBackground {
+  background: linear-gradient(
+    45deg,
+    rgba(134, 215, 219, 0.87) 0%,
+    rgba(163, 216, 201, 0.767) 30%,
+    rgba(136, 221, 194, 0.459) 60%,
+    rgba(140, 218, 212, 0.855) 100%
+  );
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +38,7 @@ body {
 }
 
 .body {
+  @include gradientBackground;
   width: calc(100% - 5rem);
   min-width: 700px;
   margin-left: 5rem;
@@ -37,8 +48,6 @@ body {
   top: 0px;
   right: 0px;
   left: 0px;
-  transition: all 0.1s ease;
-  background: #f8fafb;
   padding: 3rem;
 }
 
@@ -52,58 +61,9 @@ body {
   margin-left: 5rem;
 }
 
-.carlist-container {
-  width: 80%;
-  margin: 0 auto;
-  border: 5px solid #263238;
-  border-radius: 25px 0 25px 25px;
-  min-width: 700px;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-
-  .carlist-header {
-    text-align: center;
-    color: #fff;
-    background: #263238;
-    border-radius: 18px 0px 0px 0px;
-    padding: 10px;
-  }
-
-  .carlist-table {
-    width: 100%;
-    border-collapse: collapse;
-    tr {
-      border-bottom: #263238 solid 5px;
-    }
-    tr:last-child {
-      border-bottom: none;
-    }
-    td {
-      vertical-align: middle;
-
-      padding: 20px;
-      font-size: 1.2rem;
-    }
-
-    td:first-child {
-      text-align: left;
-      width: 40%;
-      i {
-        font-size: 1.5rem;
-        width: 30px;
-      }
-    }
-
-    td:last-child {
-      text-align: right;
-    }
-
-    overflow: hidden;
-  }
-}
-
 button[type="submit"] {
   color: #fff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   border: none;
@@ -118,6 +78,22 @@ button[type="submit"] {
 
 .edit-car {
   background-color: #23476d;
+}
+
+.filter-button {
+  background-color: blue;
+}
+
+.filter-button-green {
+  background-color: green;
+}
+
+.filter-button-red {
+  background-color: red;
+}
+
+.filter-button-orange {
+  background-color: orange;
 }
 
 .setting_button {
@@ -162,7 +138,10 @@ caption {
 .search-container {
   max-width: 700px;
   width: 100%;
+  height: fit-content;
   position: relative;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.3s ease;
 }
 
 .search-input {
@@ -172,7 +151,6 @@ caption {
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
-  transition: box-shadow 0.3s ease;
 }
 
 .search-input:focus {
@@ -185,13 +163,15 @@ caption {
 }
 
 .sort-dropdown {
-  padding: 8px;
+  margin-top: 5px;
+  padding: 5px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   background-color: #fff;
   color: #333;
   width: 200px;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 }
 
 .sort-dropdown:focus {
@@ -217,13 +197,14 @@ form {
       margin-bottom: 0.5rem;
     }
 
-    input {
+    input,
+    select {
       padding: 0.5rem;
       font-size: 1rem;
       border-radius: 0.25rem;
       border: none;
       width: 60vw;
-      box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
       &:focus {
         outline: none;
@@ -234,6 +215,7 @@ form {
 
   button[type="submit"] {
     background-color: #007bff;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
@@ -302,15 +284,18 @@ form {
   }
 }
 
-.addcar-container {
+.styled-container {
   width: 80%;
   margin: auto;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
 
-  .addcar-header {
+  .styled-header {
     text-align: center;
-    background: #263238;
+    border: 5px solid #45738a;
+    background: #45738a;
+    box-shadow: 0 0 5px 5px #45738a;
+    transition: opacity 0.5s ease-in-out;
     border-radius: 30px;
     margin-bottom: 50px;
     padding: 1rem;
@@ -329,15 +314,17 @@ form {
 .car-container {
   width: 80%;
   margin: 0 auto;
-  border: 5px solid #263238;
+  border: 5px solid #45738a;
+  box-shadow: 0 0 5px 5px #45738a;
+  transition: opacity 0.5s ease-in-out;
   border-radius: 25px 0 25px 25px;
   min-width: 750px;
-  opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
+
   .car-header {
     text-align: center;
     color: #fff;
-    background: #263238;
+    background: #45738a;
     border-radius: 18px 0px 0px 0px;
     padding: 10px;
   }
@@ -345,7 +332,10 @@ form {
     width: 100%;
     border-collapse: collapse;
     tr {
-      border-bottom: #263238 solid 5px;
+      border-bottom: #45738a solid 5px;
+    }
+    tr:last-child {
+      border-bottom: none;
     }
     td {
       vertical-align: middle;
@@ -391,34 +381,32 @@ form {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
 
-.dashboard-container {
-  width: 80%;
-  margin: auto;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
-
-  .dashboard-header {
-    text-align: center;
-
-    h1 {
-      font-size: 2rem;
-    }
-  }
+.title_chart {
+  text-align: center;
+  border: 5px solid #bfe1f152;
+  background: #9beff57e;
+  box-shadow: 0 0 5px 5px #77b4d398;
+  opacity: 0.9;
+  transition: opacity 0.5s ease-in-out;
+  border-radius: 80px;
+  padding: 5px;
 }
 
 .driverslist-container {
   width: 80%;
   margin: 0 auto;
-  border: 5px solid #263238;
+  border: 5px solid #45738a;
   border-radius: 25px 0 25px 25px;
   min-width: 700px;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out forwards;
+  box-shadow: 0 0 5px 5px #45738a;
+  transition: opacity 0.5s ease-in-out;
 
   .driverslist-header {
     text-align: center;
     color: #fff;
-    background: #263238;
+    background: #45738a;
     border-radius: 18px 0px 0px 0px;
     padding: 10px;
   }
@@ -428,7 +416,7 @@ form {
     border-collapse: collapse;
 
     tr {
-      border-bottom: #263238 solid 5px;
+      border-bottom: #45738a solid 5px;
     }
     tr:last-child {
       border-bottom: none;
@@ -452,39 +440,20 @@ form {
   }
 }
 
-.organisation-container {
-  width: 80%;
-  margin: 0 auto;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+.organisation-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-  .organisation-header {
-    text-align: center;
-    background: #263238;
-    border-radius: 30px;
-    margin-bottom: 50px;
-    padding: 1rem;
+  .organisation-item {
+    flex-basis: 45%;
+    margin-bottom: 1rem;
+    padding: 25px;
+    text-shadow: rgb(77, 76, 76) 1px 0 3px;
 
-    h1 {
-      font-size: 2rem;
-      color: #fff;
-    }
-  }
-
-  .organisation-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    .organisation-item {
-      flex-basis: 45%;
-      margin-bottom: 1rem;
-      padding: 25px;
-
-      i {
-        font-size: 1.5rem;
-        margin-right: 0.5rem;
-      }
+    i {
+      font-size: 3rem;
+      margin-right: 0.5rem;
     }
   }
 }
@@ -500,6 +469,7 @@ form {
   align-items: center;
   justify-content: center;
   animation: fadeIn 0.5s ease-in-out forwards;
+  text-shadow: rgb(77, 76, 76) 1px 0 2px;
 }
 
 .homepage-title {
@@ -522,47 +492,48 @@ form {
 
 .homepage-description {
   font-size: 1.5rem;
-  color: #666;
+  color: rgb(66, 62, 62);
   margin-bottom: 2rem;
   text-align: left;
 }
 
 .kars {
-  color: rgb(137, 167, 156);
+  color: rgb(117, 139, 131);
   font-style: italic;
 }
 
-.settings-container {
-  width: 80%;
-  margin: 0 auto;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+.settings-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
 
-  .settings-header {
-    text-align: center;
-
-    h1 {
-      font-size: 2rem;
-    }
+  #b2 {
+    text-align: right;
   }
 
-  .settings-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  .settings-item {
+    flex-basis: 15%;
+    margin-bottom: 1rem;
+    min-width: 1rem;
+    padding: 25px;
 
-    .settings-item {
-      flex-basis: 45%;
-      margin-bottom: 1rem;
-      min-width: 20rem;
-      padding: 25px;
-
-      i {
-        font-size: 1.5rem;
-        margin-right: 0.5rem;
-      }
+    i {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
     }
   }
+}
+
+.profile {
+  text-align: center;
+  border: 5px solid #7bbbdb70;
+  background: #a3dae47e;
+  box-shadow: 0 0 5px 5px #70abc998;
+  padding: 20px;
+  border-radius: 60px;
+
+  text-shadow: rgb(77, 76, 76) 1px 0 3px;
 }
 
 .sidenav {
@@ -681,6 +652,18 @@ form {
   }
 }
 
-#milage {
+#milage_chart {
   min-width: 1200px;
+}
+
+.filters {
+  text-align: center;
+  justify-content: space-between;
+  padding: 20px;
+  display: flex;
+  min-width: 750px;
+}
+
+.filter-container {
+  padding: 2px;
 }

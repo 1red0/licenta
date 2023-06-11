@@ -33,11 +33,6 @@ export class CarlistComponentDriver {
     this.router.navigate(['/carDriver', { carID: id }]);
   }
 
-  deleteCar(id?: string | null) {
-    this.carService.deleteCar(Number(id)).subscribe();
-    window.location.reload();
-  }
-
   editCar(id?: string | null) {
     this.router.navigate(['/editCarDriver', { carID: id }]);
   }

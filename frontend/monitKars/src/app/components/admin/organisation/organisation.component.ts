@@ -22,7 +22,7 @@ export class OrganisationComponent {
     this.organisation.organisationMail = environment.orgMail;
     this.organisation.organisationPhone = environment.orgPhone;
 
-    (await this.carService.getNoCars()).subscribe((res) => {
+    this.carService.getNoCars().subscribe((res) => {
       this.organisation.numberOfCars = res;
     });
 

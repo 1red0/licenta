@@ -8,26 +8,84 @@
       (keyup.enter)="searchCar()"
     />
   </div>
+  &nbsp; &nbsp; &nbsp;
+  <div class="sort-container">
+    <select
+      class="sort-dropdown"
+      [(ngModel)]="selectedSortOption"
+      (change)="onSortOptionSelected($event)"
+    >
+      <option *ngFor="let option of sortOptions" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
 </div>
 
-<div class="sort-container">
-  <select
-    class="sort-dropdown"
-    [(ngModel)]="selectedSortOption"
-    (change)="onSortOptionSelected($event)"
-  >
-    <option *ngFor="let option of sortOptions" [value]="option">
-      {{ option }}
-    </option>
-  </select>
+<div class="filters">
+  <div class="filter-container">
+    <button type="submit" class="filter-button" (click)="filter('all')">
+      Toate
+    </button>
+  </div>
+
+  <div class="filter-container">
+    <button type="submit" class="filter-button-green" (click)="filter('mBUNA')">
+      Stare BUNĂ
+    </button>
+    <button type="submit" class="filter-button-orange" (click)="filter('mOK')">
+      Stare OK
+    </button>
+    <button type="submit" class="filter-button-red" (click)="filter('mREA')">
+      Stare REA
+    </button>
+  </div>
+
+  <div class="filter-container">
+    <button type="submit" class="filter-button-green" (click)="filter('free')">
+      Libere
+    </button>
+    <button type="submit" class="filter-button-red" (click)="filter('taken')">
+      Luate
+    </button>
+  </div>
+
+  <div class="filter-container">
+    <button type="submit" class="filter-button-green" (click)="filter('iVAL')">
+      Inspectie Periodică Valabilă
+    </button>
+    <button type="submit" class="filter-button-red" (click)="filter('iEXP')">
+      Inspecție Periodică Expirată
+    </button>
+  </div>
+
+  <div class="filter-container">
+    <button type="submit" class="filter-button-green" (click)="filter('vVAL')">
+      Vinietă Valabilă
+    </button>
+    <button type="submit" class="filter-button-red" (click)="filter('vEXP')">
+      Vinietă Expirată
+    </button>
+  </div>
+
+  <div class="filter-container">
+    <button type="submit" class="filter-button-green" (click)="filter('aVAL')">
+      Asigurare Valabilă
+    </button>
+
+    <button type="submit" class="filter-button-red" (click)="filter('aEXP')">
+      Asigurare Expirată
+    </button>
+  </div>
 </div>
 
-<div class="carlist-container">
-  <div class="carlist-header">
+<div class="car-container">
+  <div class="car-header">
     <h1>Autovehiculele organizației mele</h1>
   </div>
   <br />
-  <table class="carlist-table" *ngIf="CarsList && CarsList.length > 0">
+
+  <table class="car-table" *ngIf="CarsList && CarsList.length > 0">
     <caption>
       Număr autovehicule:
       {{
@@ -35,7 +93,7 @@
       }}
     </caption>
     <th></th>
-    <tbody class="carlist-table-body">
+    <tbody class="car-table-body">
       <tr *ngFor="let car of CarsList">
         <td>
           <i class="fas fa-car-side"></i>

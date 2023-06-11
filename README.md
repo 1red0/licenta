@@ -1,6 +1,6 @@
-# MonitKars - Car Management System
+# MonitKars - Sistem de management pentru autohevicule
 
-## Structure
+## Structură
 
 ```text
 .
@@ -16,12 +16,12 @@
 └── README.md
 ```
 
-## Requirements
+## Pentru a porni proiectul este nevoie de:
 
-The source code and Docker installed on the machine
+Codul sursă și Docker instalat
 
-## Starting the project
+## Pornirea proiectului
 
-Inside this folder just run `docker compose up` or `docker compose up -d` to run the project in background
+În interiorul fișierului rădăcină se rulează cu ajutorul terminalului următoarea comandă: `docker compose up` sau `docker compose up -d` (pentru a rula proiectul în fundal)
 
-`docker compose build --no-cache && docker compose up -d --force-recreate --no-deps` -> for clean build and run containers with docker
+`docker compose build --no-cache && docker compose up -d --force-recreate --no-deps` -> pentru a porni proiectul fără dependințe, cache și pentru a construi imaginile din cu ajutorul codului sursă daca s-au efectuat modificări în acesta

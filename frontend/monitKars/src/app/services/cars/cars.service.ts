@@ -121,6 +121,57 @@ export class CarsService {
     );
   }
 
+  ////////////////////////////////////////////////////////////////
+  getStatusCars(status: string): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/CarsStatus/' + status
+    );
+  }
+
+  getFreeCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars/FreeCars');
+  }
+
+  getTakenCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars/TakenCars');
+  }
+
+  getVignetteValidCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/VignetteValidCars'
+    );
+  }
+
+  getVignetteInvalidCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/VignetteInvalidCars'
+    );
+  }
+
+  getInsuranceValidCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/InsuranceValidCars'
+    );
+  }
+
+  getInsuranceInvalidCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/InsuranceInvalidCars'
+    );
+  }
+
+  getInspectionValidCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/InspectionValidCars'
+    );
+  }
+
+  getInspectionInvalidCars(): Observable<Car[]> {
+    return this._http.get<Car[]>(
+      environment.baseApiUrl + 'api/Cars/InspectionInvalidCars'
+    );
+  }
+
   getMilageOfCars(): Observable<CarMilage> {
     return this._http.get<CarMilage>(
       environment.baseApiUrl + 'api/Cars/milage'

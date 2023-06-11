@@ -27,6 +27,82 @@ export class CarlistComponentAdmin implements OnInit {
     }
   }
 
+  filter(filter: string) {
+    if (filter === 'iVAL') {
+      this.carService.getInspectionValidCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'iEXP') {
+      this.carService.getInspectionInvalidCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'vVAL') {
+      this.carService.getVignetteValidCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'vEXP') {
+      this.carService.getVignetteInvalidCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'aVAL') {
+      this.carService.getInsuranceValidCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'aEXP') {
+      this.carService.getInsuranceInvalidCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'free') {
+      this.carService.getFreeCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'taken') {
+      this.carService.getTakenCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'mREA') {
+      this.carService.getStatusCars('Rea').subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'mOK') {
+      this.carService.getStatusCars('Ok').subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'mBUNA') {
+      this.carService.getStatusCars('Buna').subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    } else if (filter === 'all') {
+      this.carService.getCars().subscribe((res) => {
+        this.CarsList = res;
+        this.CarsList.sort((a, b) => a.carName.localeCompare(b.carName));
+        this.selectedSortOption = 'Ascendent';
+      });
+    }
+  }
+
   searchCar() {
     this.carService.searchCars(this.searchQuery).subscribe((res) => {
       this.CarsList = res;
