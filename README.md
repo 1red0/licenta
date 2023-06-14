@@ -24,4 +24,4 @@ Codul sursă și Docker instalat
 
 În interiorul fișierului rădăcină se rulează cu ajutorul terminalului următoarea comandă: `docker compose up` sau `docker compose up -d` (pentru a rula proiectul în fundal)
 
-`docker compose build --no-cache && docker compose up -d --force-recreate --no-deps` -> pentru a porni proiectul fără dependințe, cache și pentru a construi imaginile din cu ajutorul codului sursă daca s-au efectuat modificări în acesta
+`docker compose build --no-cache && docker compose up -d --force-recreate --no-deps` -> pentru a porni proiectul fără dependințe, cache și pentru a construi imaginile din cu ajutorul codului sursă dacă s-au efectuat modificări în acesta, în fundal
