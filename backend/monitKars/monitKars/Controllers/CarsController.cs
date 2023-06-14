@@ -204,8 +204,6 @@ namespace monitKars.Controllers
         {
             DateTime currentDate = DateTime.Now;
 
-//            return await _context.Cars.Where(c => DateTime.Parse(c.CarVignette) > currentDate).ToListAsync();
-
             return await _context.Cars.ToListAsync().ContinueWith(cars => cars.Result.FindAll(c => DateTime.Parse(c.CarVignette) > currentDate));
 
         }

@@ -14,7 +14,13 @@ export class CarlistComponentAdmin implements OnInit {
   sortOptions: string[] = ['Ascendent', 'Descendent'];
   selectedSortOption: string = 'Ascendent';
 
+  showFilters: boolean = false;
+
   constructor(private carService: CarsService, private router: Router) {}
+
+  toggleFilters() {
+    this.showFilters = !this.showFilters;
+  }
 
   onSortOptionSelected(event: any) {
     const option = event.target.value;

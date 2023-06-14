@@ -121,7 +121,6 @@ export class CarsService {
     );
   }
 
-  ////////////////////////////////////////////////////////////////
   getStatusCars(status: string): Observable<Car[]> {
     return this._http.get<Car[]>(
       environment.baseApiUrl + 'api/Cars/CarsStatus/' + status

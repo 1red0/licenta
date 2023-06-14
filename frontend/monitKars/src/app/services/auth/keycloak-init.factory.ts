@@ -14,7 +14,6 @@ export function initializeKeycloak(keycloak: KeycloakService) {
       initOptions: {
         scope: 'roles profile',
         onLoad: 'check-sso',
-        // onLoad: 'login-required',
         checkLoginIframe: false,
       },
     });

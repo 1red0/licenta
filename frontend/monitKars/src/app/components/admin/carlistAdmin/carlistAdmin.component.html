@@ -22,61 +22,138 @@
   </div>
 </div>
 
-<div class="filters">
-  <div class="filter-container">
-    <button type="submit" class="filter-button" (click)="filter('all')">
-      Toate
-    </button>
-  </div>
+<div class="filters-btn" *ngIf="showFilters">
+  <button type="button" class="show-filters-button" (click)="toggleFilters()">
+    Filtre <i class="fa-solid fa-angle-up"></i>
+  </button>
+</div>
 
-  <div class="filter-container">
-    <button type="submit" class="filter-button-green" (click)="filter('mBUNA')">
-      Stare BUNĂ
-    </button>
-    <button type="submit" class="filter-button-orange" (click)="filter('mOK')">
-      Stare OK
-    </button>
-    <button type="submit" class="filter-button-red" (click)="filter('mREA')">
-      Stare REA
-    </button>
-  </div>
+<div class="filters-btn" *ngIf="!showFilters">
+  <button type="button" class="show-filters-button" (click)="toggleFilters()">
+    Filtre <i class="fa-solid fa-angle-down"></i>
+  </button>
+</div>
 
-  <div class="filter-container">
-    <button type="submit" class="filter-button-green" (click)="filter('free')">
-      Libere
-    </button>
-    <button type="submit" class="filter-button-red" (click)="filter('taken')">
-      Luate
-    </button>
-  </div>
+<div class="filter-wrapper">
+  <div class="filters" *ngIf="showFilters">
+    <div class="filter-container">
+      <div class="filter-container">
+        <button type="submit" class="filter-button" (click)="filter('all')">
+          Toate
+        </button>
+      </div>
 
-  <div class="filter-container">
-    <button type="submit" class="filter-button-green" (click)="filter('iVAL')">
-      Inspectie Periodică Valabilă
-    </button>
-    <button type="submit" class="filter-button-red" (click)="filter('iEXP')">
-      Inspecție Periodică Expirată
-    </button>
-  </div>
+      <div class="filter-container">
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-green"
+          (click)="filter('free')"
+        >
+          Libere
+        </button>
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-red"
+          (click)="filter('taken')"
+        >
+          Luate
+        </button>
+      </div>
 
-  <div class="filter-container">
-    <button type="submit" class="filter-button-green" (click)="filter('vVAL')">
-      Vinietă Valabilă
-    </button>
-    <button type="submit" class="filter-button-red" (click)="filter('vEXP')">
-      Vinietă Expirată
-    </button>
-  </div>
+      <div class="filter-container">
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-green"
+          (click)="filter('iVAL')"
+        >
+          Inspecție Periodică Valabilă
+        </button>
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-red"
+          (click)="filter('iEXP')"
+        >
+          Inspecție Periodică Expirată
+        </button>
+      </div>
 
-  <div class="filter-container">
-    <button type="submit" class="filter-button-green" (click)="filter('aVAL')">
-      Asigurare Valabilă
-    </button>
+      <div class="filter-container">
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-green"
+          (click)="filter('vVAL')"
+        >
+          Vinietă Valabilă
+        </button>
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-red"
+          (click)="filter('vEXP')"
+        >
+          Vinietă Expirată
+        </button>
+      </div>
 
-    <button type="submit" class="filter-button-red" (click)="filter('aEXP')">
-      Asigurare Expirată
-    </button>
+      <div class="filter-container">
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-green"
+          (click)="filter('aVAL')"
+        >
+          Asigurare Valabilă
+        </button>
+
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-red"
+          (click)="filter('aEXP')"
+        >
+          Asigurare Expirată
+        </button>
+      </div>
+
+      <div class="filter-container">
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-green"
+          (click)="filter('mBUNA')"
+        >
+          Stare BUNĂ
+        </button>
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-orange"
+          (click)="filter('mOK')"
+        >
+          Stare OK
+        </button>
+        <button
+          type="submit"
+          class="filter-button"
+          id="filter-button-red"
+          (click)="filter('mREA')"
+        >
+          Stare REA
+        </button>
+      </div>
+    </div>
+
+    <!-- Other filter buttons... -->
   </div>
+</div>
+
+<div class="filter-wrapper">
+  <div class="filters"></div>
 </div>
 
 <div class="car-container">

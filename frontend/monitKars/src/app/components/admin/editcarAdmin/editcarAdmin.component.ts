@@ -128,7 +128,6 @@ export class EditcarComponentAdmin {
       });
     } catch (error) {
       console.error('Error updating car:', error);
-      // Handle error
     }
   }
 

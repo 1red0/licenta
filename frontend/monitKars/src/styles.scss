@@ -82,17 +82,18 @@ button[type="submit"] {
 
 .filter-button {
   background-color: blue;
+  min-width: 230px;
 }
 
-.filter-button-green {
+#filter-button-green {
   background-color: green;
 }
 
-.filter-button-red {
+#filter-button-red {
   background-color: red;
 }
 
-.filter-button-orange {
+#filter-button-orange {
   background-color: orange;
 }
 
@@ -656,14 +657,38 @@ form {
   min-width: 1200px;
 }
 
+.filter-wrapper {
+  width: 100%;
+  min-width: 720px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-filters-button {
+  background-color: #ccc;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
 .filters {
   text-align: center;
   justify-content: space-between;
   padding: 20px;
   display: flex;
-  min-width: 750px;
+  flex-direction: column;
+  width: 80%;
+
+  &.show {
+    display: flex;
+  }
 }
 
 .filter-container {
   padding: 2px;
+}
+
+.filters-btn {
+  text-align: center;
 }
