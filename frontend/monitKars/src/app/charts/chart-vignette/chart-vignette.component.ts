@@ -6,7 +6,6 @@ import { CarsService } from 'src/app/services/cars/cars.service';
 @Component({
   selector: 'app-chart-vignette',
   templateUrl: './chart-vignette.component.html',
-  styleUrls: ['./chart-vignette.component.scss'],
 })
 export class ChartVignetteComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
