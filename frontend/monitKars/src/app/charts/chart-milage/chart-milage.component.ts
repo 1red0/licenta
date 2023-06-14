@@ -58,7 +58,7 @@ export class ChartMilageComponent {
         {
           data: this.milages,
           borderColor: 'rgb(75, 192, 192)',
-          backgroundColor: 'rgba(75, 192, 192, 0.8)',
+          backgroundColor: 'rgba(165, 72, 70, 0.8)',
           label: 'Kilometraj',
           fill: true,
           borderWidth: 2,

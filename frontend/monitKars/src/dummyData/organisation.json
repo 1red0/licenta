@@ -1,8 +1,0 @@
-{
-  "name": "TestTaxi",
-  "address": "Address: Romania, Dolj, Cariova, Str. Test, Nr. 0",
-  "email": "testtaxi@gmail.com",
-  "phone": "1234",
-  "numberOfCars": 1,
-  "numberOfDrivers": 12
-}

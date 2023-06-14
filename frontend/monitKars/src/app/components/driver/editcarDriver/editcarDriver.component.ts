@@ -62,7 +62,7 @@ export class EditcarComponentDriver {
         this.carService.updateCar(Number(this.idCar), this.updatedCar)
       );
 
-      this.router.navigate(['/car', { carID: this.idCar }]).then(() => {
+      this.router.navigate(['/carDriver', { carID: this.idCar }]).then(() => {
         window.location.reload();
       });
     } catch (error) {

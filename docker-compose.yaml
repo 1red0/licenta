@@ -8,10 +8,10 @@ services:
       AUTORITY: 'http://localhost:4335'
       REALM: 'master'
       CLIENT_ID: 'monitKars'
-      SCOPE: "openid profile email roles"
-      ORG_NAME: "Test Organisation"
-      ORG_ADDR: "Address: Romania, Dolj, Cariova, Str. Test, Nr. 0"
-      ORG_MAIL: "testorganisation@test.com"
+      SCOPE: "profile email roles"
+      ORG_NAME: "Org Demo"
+      ORG_ADDR: "RO, Dolj, Cariova, Str. Demo, Nr. 0"
+      ORG_MAIL: "organizatie.demo@monitKars.com"
       ORG_PHONE: "0700000000"
     build:
       context: ./frontend
