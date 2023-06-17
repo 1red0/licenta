@@ -1,4 +1,4 @@
-# MonitKars - Sistem de management pentru autohevicule
+# MonitKars - Sistem de management pentru autovehicule
 
 ## Structură
 
