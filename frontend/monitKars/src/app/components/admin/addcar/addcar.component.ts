@@ -124,8 +124,7 @@ export class AddcarComponent implements OnInit {
         window.location.reload();
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // Handle error
+      console.error('Eroare la adăugarea autovehiculului:', error);
     }
   }
 

@@ -66,8 +66,7 @@ export class EditcarComponentDriver {
         window.location.reload();
       });
     } catch (error) {
-      console.error('Error updating car:', error);
-      // Handle error
+      console.error('Eroare la editarea autoheviculului:', error);
     }
   }
 
