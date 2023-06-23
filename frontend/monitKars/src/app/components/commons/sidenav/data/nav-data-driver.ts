@@ -2,16 +2,16 @@ export const navbarDataDriver = [
   {
     routeLink: 'homepage',
     icon: 'fa-solid fa-home',
-    label: 'Homepage',
+    label: 'Acasă',
   },
   {
     routeLink: 'carlistDriver',
     icon: 'fa-solid fa-list-ol',
-    label: 'Organisation cars',
+    label: 'Autovehiculele mele',
   },
   {
     routeLink: 'settings',
     icon: 'fa-solid fa-sliders',
-    label: 'Settings',
+    label: 'Setări',
   },
 ];

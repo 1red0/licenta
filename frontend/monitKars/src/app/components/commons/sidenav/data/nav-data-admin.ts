@@ -2,36 +2,36 @@ export const navbarData = [
   {
     routeLink: 'homepage',
     icon: 'fa-solid fa-home',
-    label: 'Homepage',
+    label: 'Acasă',
   },
   {
     routeLink: 'dashboard',
     icon: 'fa-solid fa-table-columns',
-    label: 'Dashboard',
+    label: 'Panou principal',
   },
   {
     routeLink: 'organisation',
     icon: 'fa-solid fa-building-flag',
-    label: 'Organisation',
+    label: 'Organizația mea',
   },
   {
     routeLink: 'carlist',
     icon: 'fa-solid fa-list-ol',
-    label: 'Organisation cars',
+    label: 'Listă autovehicule',
   },
   {
     routeLink: 'drivers',
     icon: 'fa-solid fa-users',
-    label: 'Drivers',
+    label: 'Șoferi',
   },
   {
     routeLink: 'addcar',
     icon: 'fa-solid fa-plus',
-    label: 'Add car',
+    label: 'Adaugă autovehicul',
   },
   {
     routeLink: 'settings',
     icon: 'fa-solid fa-sliders',
-    label: 'Settings',
+    label: 'Setări',
   },
 ];
