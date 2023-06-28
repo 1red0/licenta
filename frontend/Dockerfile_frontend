@@ -9,7 +9,7 @@ COPY monitKars .
 RUN npm config set legacy-peer-deps true
 RUN npm cache clean --force
 RUN npm install && npm install -g @angular/cli@15.0.0
-RUN npm audit fix
+# RUN npm audit fix
 
 RUN ng build --output-hashing=all --optimization
 
