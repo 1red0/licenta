@@ -7,7 +7,7 @@ import { KeycloakProfile, KeycloakTokenParsed } from 'keycloak-js';
 })
 @Injectable()
 export class AuthGuardService {
-  constructor(private keycloakservice: KeycloakService) {}
+  constructor(private keycloakservice: KeycloakService) { }
 
   public getLoggedUser(): KeycloakTokenParsed | undefined {
     try {
@@ -20,7 +20,7 @@ export class AuthGuardService {
     }
   }
 
-  public isLoggedIn(): Promise<boolean> {
+  public isLoggedIn(): boolean {
     return this.keycloakservice.isLoggedIn();
   }
 
