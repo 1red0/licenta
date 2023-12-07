@@ -9,7 +9,7 @@ import { CarMilage } from 'src/app/models/carMilage.model';
   providedIn: 'root',
 })
 export class CarsService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   getCars(): Observable<Car[]> {
     return this._http.get<Car[]>(environment.baseApiUrl + 'api/Cars');

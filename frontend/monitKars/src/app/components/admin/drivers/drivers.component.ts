@@ -7,7 +7,7 @@ import { UsersService } from 'src/app/services/users/users.service';
   templateUrl: './drivers.component.html',
 })
 export class DriversComponent implements OnInit {
-  constructor(private userService: UsersService) {}
+  constructor(private userService: UsersService) { }
 
   drivers = <User[]>{};
 

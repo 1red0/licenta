@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './settings.component.html',
 })
 export class SettingsComponent implements OnInit {
-  constructor(private kcService: AuthGuardService) {}
+  constructor(private kcService: AuthGuardService) { }
 
   user;
   role: string;

@@ -14,7 +14,7 @@ export class OrganisationComponent {
   constructor(
     private carService: CarsService,
     private driverService: UsersService
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.organisation.organisationName = environment.orgName;

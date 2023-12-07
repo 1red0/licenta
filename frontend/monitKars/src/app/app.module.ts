@@ -81,4 +81,4 @@ import { ChartVignetteComponent } from './charts/chart-vignette/chart-vignette.c
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

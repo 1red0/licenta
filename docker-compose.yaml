@@ -28,26 +28,39 @@ services:
       context: ./backend
       dockerfile: Dockerfile_backend
     environment:
-      - ConnectionStrings__WebApiDatabase=Host=database;Port=5432;Database=monitKars;Username=postgres;Password=postgres
+      - ConnectionStrings__WebApiDatabase=Host=databaseBackend;Port=5432;Database=monitKars;Username=postgres;Password=postgres
     ports:
       - '7148:80'
     networks:
       - default
 
-  database:
-    container_name: database_container
+  databaseKeycloak:
+    hostname: databaseKeycloak
+    container_name: database_keycloak_container
     restart: unless-stopped
-    build:
-      context: .
-      dockerfile: Dockerfile_postgres
+    image: postgres:16-alpine
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_MULTIPLE_DATABASES: monitKars,keycloak
+      POSTGRES_DB: keycloak
+    volumes:
+      - database_keycloak:/var/lib/postgresql/data
+    networks:
+      - default
+
+  databaseBackend:
+    hostname: databaseBackend
+    container_name: database_backend_container
+    restart: unless-stopped
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: monitKars
     ports:
       - "5432:5432"
     volumes:
-      - database:/var/lib/postgresql/data
+      - database_backend:/var/lib/postgresql/data
     networks:
       - default
 
@@ -61,7 +74,7 @@ services:
       - keycloak:/opt/keycloak/data/
     environment:
       KC_DB: postgres
-      KC_DB_URL_HOST: database
+      KC_DB_URL_HOST: databaseKeycloak
       KC_DB_URL_DATABASE: keycloak
       KC_DB_SCHEMA: public
       KC_DB_USERNAME: postgres
@@ -73,7 +86,9 @@ services:
       - default
 
 volumes:
-  database:
+  database_keycloak:
+    driver: local
+  database_backend:
     driver: local
   pgadmin:
     driver: local

@@ -13,7 +13,7 @@ interface SideNavToggle {
   templateUrl: './sidenav.component.html',
 })
 export class SidenavComponent implements OnInit {
-  constructor(private navbarService: NavbarService) {}
+  constructor(private navbarService: NavbarService) { }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;

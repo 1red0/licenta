@@ -16,7 +16,7 @@ export class CarlistComponentAdmin implements OnInit {
 
   showFilters: boolean = false;
 
-  constructor(private carService: CarsService, private router: Router) {}
+  constructor(private carService: CarsService, private router: Router) { }
 
   toggleFilters() {
     this.showFilters = !this.showFilters;

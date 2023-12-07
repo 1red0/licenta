@@ -26,7 +26,7 @@ export class CarComponentDriver {
     private carService: CarsService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   editCar(id?: string | null) {
     this.router.navigate(['/editCarDriver', { carID: id }]);

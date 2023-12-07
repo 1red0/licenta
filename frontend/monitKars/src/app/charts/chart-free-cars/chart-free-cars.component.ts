@@ -10,7 +10,7 @@ import { CarsService } from 'src/app/services/cars/cars.service';
 export class ChartFreeCarsComponent {
   @ViewChild('chartCanvas') chartCanvas!: ElementRef;
 
-  constructor(private carService: CarsService) {}
+  constructor(private carService: CarsService) { }
 
   chart: Chart | undefined;
   carNum: number[] = [];

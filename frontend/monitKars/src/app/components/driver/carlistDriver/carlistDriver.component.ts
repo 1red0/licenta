@@ -16,7 +16,7 @@ export class CarlistComponentDriver {
     private carService: CarsService,
     private router: Router,
     private kcService: KeycloakService
-  ) {}
+  ) { }
 
   async ngOnInit() {
     this.currentUser =

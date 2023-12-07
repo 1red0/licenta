@@ -26,7 +26,7 @@ export class CarComponentAdmin implements OnInit {
     private carService: CarsService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   editCar(id?: string | null) {
     this.router.navigate(['/editCar', { carID: id }]);

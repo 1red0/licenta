@@ -15,7 +15,7 @@ export class ChartMilageComponent {
   milages: number[] = [];
   chartSubscription: Subscription | undefined;
 
-  constructor(private carService: CarsService) {}
+  constructor(private carService: CarsService) { }
 
   ngOnDestroy(): void {
     if (this.chart) {

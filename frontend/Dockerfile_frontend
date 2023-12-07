@@ -1,17 +1,14 @@
 
-FROM node:18.12.1-alpine AS build
+FROM node:20.10-alpine AS build
 
 RUN apk update && apk upgrade && apk add --no-cache bash git openssh ca-certificates && rm -rf /var/cache/apk/*
 
 WORKDIR /usr/src/app
 COPY monitKars .
 
-RUN npm config set legacy-peer-deps true
-RUN npm cache clean --force
-RUN npm install && npm install -g @angular/cli@15.0.0
-# RUN npm audit fix
+RUN npm install && npm install -g @angular/cli@17.0.3
 
-RUN ng build --output-hashing=all --optimization
+RUN ng build
 
 FROM nginx:1.23.2-alpine
 COPY --from=build /usr/src/app/dist/monit-kars/ /usr/share/nginx/html

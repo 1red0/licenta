@@ -8,23 +8,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UsersService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
     return this._http.get<User[]>(
-      environment.autority + '/admin/realms/'+ environment.autorityRealm +'/users'
+      environment.autority + '/admin/realms/' + environment.autorityRealm + '/users'
     );
   }
 
   getDrivers(): Observable<User[]> {
     return this._http.get<User[]>(
-      environment.autority + '/admin/realms/'+ environment.autorityRealm +'/roles/driver/users'
+      environment.autority + '/admin/realms/' + environment.autorityRealm + '/roles/driver/users'
     );
   }
 
   getUser(id: string): Observable<User> {
     return this._http.get<User>(
-      environment.autority + '/admin/realms/'+ environment.autorityRealm +'/users/' + id
+      environment.autority + '/admin/realms/' + environment.autorityRealm + '/users/' + id
     );
   }
 }

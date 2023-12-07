@@ -27,7 +27,7 @@ export class EditcarComponentDriver {
     private carService: CarsService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   editCarForm = new FormGroup({
     carName: new FormControl('', Validators.required),

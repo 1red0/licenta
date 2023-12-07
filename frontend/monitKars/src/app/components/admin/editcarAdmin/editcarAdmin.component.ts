@@ -56,7 +56,7 @@ export class EditcarComponentAdmin {
     private driverService: UsersService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   exactLengthValidator(expectedLength: number): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
